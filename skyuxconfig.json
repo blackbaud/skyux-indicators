@@ -1,0 +1,13 @@
+{
+  "name": "skyux-indicators",
+  "mode": "easy",
+  "compileMode": "aot",
+  "testSettings": {
+    "e2e": {
+      "browserSet": "speedy"
+    },
+    "unit": {
+      "browserSet": "paranoid"
+    }
+  }
+}
