@@ -1,7 +1,10 @@
 {
   "name": "skyux-indicators",
-  "mode": "easy",
+  "mode": "advanced",
   "compileMode": "aot",
+  "plugins": [
+    "@skyux-sdk/builder-plugin-skyux"
+  ],
   "testSettings": {
     "e2e": {
       "browserSet": "speedy"
