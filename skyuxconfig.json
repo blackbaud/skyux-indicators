@@ -1,7 +1,10 @@
 {
   "name": "skyux-indicators",
-  "mode": "advanced",
+  "mode": "easy",
   "compileMode": "aot",
+  "skyuxModules": [
+    "SkyErrorModule"
+  ],
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
