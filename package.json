@@ -1,7 +1,7 @@
 {
   "name": "skyux-indicators",
   "version": "3.0.0-alpha.0",
-  "description": "SKY UX Indicators",
+  "description": "SKY UX Indicators & Buttons",
   "main": "bundles/bundle.umd.js",
   "module": "index.ts",
   "engines": {
