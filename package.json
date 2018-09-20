@@ -27,7 +27,7 @@
   "homepage": "https://github.com/blackbaud/skyux-indicators#readme",
   "peerDependencies": {
     "@skyux/core": "^3.0.0",
-    "@skyux/i18n": ">=3.0.0-alpha.8",
+    "@skyux/i18n": "^3.0.0",
     "@skyux/theme": "^3.1.0"
   },
   "dependencies": {},
@@ -43,10 +43,8 @@
     "@angular/platform-browser-dynamic": "4.3.6",
     "@angular/router": "4.3.6",
     "@blackbaud/skyux": "2.25.0",
-    "@blackbaud/skyux-builder": "blackbaud/skyux-builder#for-indicators",
+    "@blackbaud/skyux-builder": "blackbaud/skyux-builder#remove-runtime",
     "@skyux-sdk/builder-plugin-skyux": "1.0.0-alpha.0",
-    "@skyux-sdk/e2e": "3.0.0-alpha.1",
-    "@skyux-sdk/testing": "3.0.0-alpha.3",
     "core-js": "2.4.1",
     "rxjs": "5.4.3",
     "ts-node": "3.0.4",
