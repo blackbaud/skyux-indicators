@@ -15,19 +15,19 @@ cache:
     - node_modules
 
 before_install:
-  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-before-install.sh)
+  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-before-install.sh)
 
 install:
-  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-install.sh)
+  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-install.sh)
 
 script:
-  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-script.sh)
+  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-script.sh)
 
 after_script:
-  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-after-script.sh)
+  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-after-script.sh)
 
 after_success:
-  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-after-success.sh)
+  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-after-success.sh)
 
 after_failure:
-  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-after-failure.sh)
+  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-after-failure.sh)
