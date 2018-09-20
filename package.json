@@ -43,7 +43,7 @@
     "@angular/platform-browser-dynamic": "4.3.6",
     "@angular/router": "4.3.6",
     "@blackbaud/skyux": "2.25.0",
-    "@blackbaud/skyux-builder": "blackbaud/skyux-builder#remove-runtime",
+    "@blackbaud/skyux-builder": "blackbaud/skyux-builder#for-indicators",
     "@skyux-sdk/builder-plugin-skyux": "1.0.0-alpha.0",
     "@skyux-sdk/e2e": "3.0.0-alpha.1",
     "@skyux-sdk/testing": "3.0.0-alpha.3",
