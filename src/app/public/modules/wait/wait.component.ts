@@ -56,7 +56,6 @@ export class SkyWaitComponent {
     const type = this.isFullPage ? '_page' : '';
     const blocking = this.isNonBlocking ? '' : '_blocking';
     const resourceKey = 'sky_wait' + type + blocking + '_aria_alt_text';
-    console.log(resourceKey);
     return this.getString(resourceKey);
   }
 
