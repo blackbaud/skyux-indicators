@@ -1,10 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SkyWaitComponent } from './wait.component';
-import { SkyWaitService } from './wait.service';
-import { SkyWaitPageAdapterService } from './wait-page-adapter.service';
-import { SkyWaitPageComponent } from './wait-page.component';
-import { SkyWindowRefService } from '@skyux/core';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+
+import {
+  SkyWindowRefService
+} from '@skyux/core';
+
+ import {
+  SkyWaitComponent
+} from './wait.component';
+import {
+  SkyWaitService
+} from './wait.service';
+import {
+  SkyWaitPageAdapterService
+} from './wait-page-adapter.service';
+import {
+  SkyWaitPageComponent
+} from './wait-page.component';
 
 @NgModule({
   declarations: [
