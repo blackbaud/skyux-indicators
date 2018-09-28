@@ -22,7 +22,7 @@ export class SkyWaitAdapterService {
     isFullPage: boolean,
     isWaiting: boolean,
     isNonBlocking = false
-  ) {
+  ): void {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
 
