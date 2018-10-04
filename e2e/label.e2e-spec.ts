@@ -5,13 +5,13 @@ import {
 
 describe('Label', () => {
   it('should match previous screenshot', (done) => {
-    SkyHostBrowser.get('demos/label');
+    SkyHostBrowser.get('visual/label');
     SkyHostBrowser.setWindowBreakpoint('lg');
     expect('.sky-label-demo').toMatchBaselineScreenshot(done);
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('demos/label');
+    SkyHostBrowser.get('visual/label');
     SkyHostBrowser.setWindowBreakpoint('xs');
     expect('.sky-label-demo').toMatchBaselineScreenshot(done);
   });

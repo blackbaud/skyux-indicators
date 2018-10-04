@@ -5,13 +5,13 @@ import {
 
 describe('Icon', () => {
   it('should match previous screenshot', (done) => {
-    SkyHostBrowser.get('demos/icon');
+    SkyHostBrowser.get('visual/icon');
     SkyHostBrowser.setWindowBreakpoint('lg');
     expect('.sky-icon-demo').toMatchBaselineScreenshot(done);
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('demos/icon');
+    SkyHostBrowser.get('visual/icon');
     SkyHostBrowser.setWindowBreakpoint('xs');
     expect('.sky-icon-demo').toMatchBaselineScreenshot(done);
   });
