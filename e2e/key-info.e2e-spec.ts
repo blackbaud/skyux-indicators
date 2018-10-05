@@ -3,16 +3,16 @@ import {
   SkyHostBrowser
 } from '@skyux-sdk/e2e';
 
-describe('Tokens', () => {
+describe('Key info', () => {
   it('should match previous screenshot', (done) => {
-    SkyHostBrowser.get('visual/tokens');
+    SkyHostBrowser.get('visual/key-info');
     SkyHostBrowser.setWindowBreakpoint('lg');
-    expect('.sky-tokens-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-key-info-visual').toMatchBaselineScreenshot(done);
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('visual/tokens');
+    SkyHostBrowser.get('visual/key-info');
     SkyHostBrowser.setWindowBreakpoint('xs');
-    expect('.sky-tokens-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-key-info-visual').toMatchBaselineScreenshot(done);
   });
 });
