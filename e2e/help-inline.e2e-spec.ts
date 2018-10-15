@@ -9,13 +9,13 @@ import {
 
 describe('Help inline', () => {
   it('should match previous screenshot', (done) => {
-    SkyHostBrowser.get('demos/help-inline');
+    SkyHostBrowser.get('visual/help-inline');
     SkyHostBrowser.setWindowBreakpoint('lg');
     expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done);
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('demos/help-inline');
+    SkyHostBrowser.get('visual/help-inline');
     SkyHostBrowser.setWindowBreakpoint('xs');
 
     // Hover over the button.

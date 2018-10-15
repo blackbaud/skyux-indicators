@@ -32,33 +32,42 @@ export class SkyWaitAdapterService implements OnDestroy {
     this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', undefined);
   }
 
-  public setBusyState(waitEl: ElementRef, isFullPage: boolean, isWaiting: boolean, id: string) {
+  public setBusyState(
+    waitEl: ElementRef,
+    isFullPage: boolean,
+    isWaiting: boolean,
+    id: string,
+    isNonBlocking = false
+  ) {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
-    this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
 
-    if (isWaiting) {
-      // Propagate tab navigation if attempted into waited element
-      if (!isFullPage) {
-        let focusListenerFunc = this.renderer.listen(this.windowRef.getWindow(), 'keyup', (event: any) => {
-          if (event.key.toLowerCase() === 'tab' && busyEl.contains(document.activeElement)) {
-            this.focusNextElement(busyEl, event.shiftKey);
-          }
-        });
-        this.parentListeners[id] = focusListenerFunc;
-      } else {
-        // Prevent tab navigation within the waited page
-        let endListenerFunc = this.renderer.listen(busyEl, 'keydown', (event: KeyboardEvent) => {
-          if (event.key.toLowerCase() === 'tab') {
-            event.preventDefault();
-          }
-        });
-        this.parentListeners[id] = endListenerFunc;
+    if (!isNonBlocking) {
+      this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
+
+      if (isWaiting) {
+        // Propagate tab navigation if attempted into waited element
+        if (!isFullPage) {
+          let focusListenerFunc = this.renderer.listen(this.windowRef.getWindow(), 'keyup', (event: any) => {
+            if (event.key.toLowerCase() === 'tab' && busyEl.contains(document.activeElement)) {
+              this.focusNextElement(busyEl, event.shiftKey);
+            }
+          });
+          this.parentListeners[id] = focusListenerFunc;
+        } else {
+          // Prevent tab navigation within the waited page
+          let endListenerFunc = this.renderer.listen(busyEl, 'keydown', (event: KeyboardEvent) => {
+            if (event.key.toLowerCase() === 'tab') {
+              event.preventDefault();
+            }
+          });
+          this.parentListeners[id] = endListenerFunc;
+        }
+      } else if (id in this.parentListeners) {
+        // Clean up existing listener
+        this.parentListeners[id]();
+        delete this.parentListeners[id];
       }
-    } else if (id in this.parentListeners) {
-      // Clean up existing listener
-      this.parentListeners[id]();
-      delete this.parentListeners[id];
     }
   }
 

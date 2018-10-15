@@ -1,8 +1,18 @@
 import {
   Component,
   Input,
-  ElementRef
+  ElementRef,
+  OnInit,
+  Optional
 } from '@angular/core';
+
+import {
+  SkyAppResourcesService
+} from '@skyux/i18n';
+
+import {
+  BehaviorSubject
+} from 'rxjs/BehaviorSubject';
 
 import {
   SkyWaitAdapterService
@@ -16,7 +26,9 @@ let nextId = 0;
   styleUrls: ['./wait.component.scss'],
   providers: [SkyWaitAdapterService]
 })
-export class SkyWaitComponent {
+export class SkyWaitComponent implements OnInit {
+  @Input()
+  public ariaLabel: string;
 
   private id: string = `sky-wait-${++nextId}`;
 
@@ -27,7 +39,15 @@ export class SkyWaitComponent {
     } else if (!value && !this._isFullPage) {
       this.adapterService.removeWaitBounds(this.elRef);
     }
-    this.adapterService.setBusyState(this.elRef, this._isFullPage, value, this.id);
+
+    this.adapterService.setBusyState(
+      this.elRef,
+      this._isFullPage,
+      value,
+      this.id,
+      this.isNonBlocking
+    );
+
     this._isWaiting = value;
   }
 
@@ -53,9 +73,34 @@ export class SkyWaitComponent {
   @Input()
   public isNonBlocking: boolean;
 
-  private _isWaiting: boolean;
+  public ariaLabelStream = new BehaviorSubject<string>('');
 
   private _isFullPage: boolean;
+  private _isWaiting: boolean;
 
-  constructor(private elRef: ElementRef, private adapterService: SkyWaitAdapterService) { }
+  constructor(
+    private elRef: ElementRef,
+    private adapterService: SkyWaitAdapterService,
+    @Optional() private resourceService: SkyAppResourcesService
+  ) { }
+
+  public ngOnInit(): void {
+    this.publishAriaLabel();
+  }
+
+  private publishAriaLabel(): void {
+    if (this.ariaLabel) {
+      this.ariaLabelStream.next(this.ariaLabel);
+      return;
+    }
+
+    if (this.resourceService) {
+      const type = (this.isFullPage) ? '_page' : '';
+      const blocking = (this.isNonBlocking) ? '' : '_blocking';
+      const key = `skyux_wait${type}${blocking}_aria_alt_text`;
+      this.resourceService.getString(key).subscribe((value: string) => {
+        this.ariaLabelStream.next(value);
+      });
+    }
+  }
 }
