@@ -88,17 +88,19 @@ export class SkyWaitAdapterService implements OnDestroy {
         return element.offsetWidth > 0 || element.offsetHeight > 0 || element === document.activeElement;
       });
      // If shift tab, go in the other direction
-    let modifier = 1;
-    if (shiftKey) {
-      modifier = -1;
-    }
-     // Find the next navigable element that isn't waiting
-    let curIndex = focussable.indexOf(document.activeElement) + modifier;
-    while (!focussable[curIndex] || parentElement.contains(focussable[curIndex]) || parentElement === focussable[curIndex]) {
+    let modifier = shiftKey ? -1 : 1;
+
+    // Find the next navigable element that isn't waiting
+    let startingIndex = focussable.indexOf(document.activeElement);
+    let curIndex = startingIndex + modifier;
+    while (focussable[curIndex] && parentElement.contains(focussable[curIndex])) {
       curIndex += modifier;
     }
     if (focussable[curIndex]) {
       focussable[curIndex].focus();
+    } else {
+      (document.activeElement as any).blur();
+      document.body.focus();
     }
   }
 }

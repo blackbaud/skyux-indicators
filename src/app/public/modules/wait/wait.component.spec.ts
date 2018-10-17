@@ -126,7 +126,7 @@ describe('Wait component', () => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
     fixture.detectChanges();
 
-     fixture.componentInstance.isFullPage = false;
+    fixture.componentInstance.isFullPage = false;
     fixture.componentInstance.isWaiting = true;
     fixture.detectChanges();
 
@@ -152,6 +152,20 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor1);
+
+    fixture.componentInstance.showAnchor2 = false;
+    button.focus();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    SkyAppTestUtility.fireDomEvent(window, 'keyup', {
+      keyboardEventInit: { key: 'Tab', shiftKey: false }
+    });
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(document.activeElement).toBe(document.body);
 
     fixture.componentInstance.isWaiting = false;
     fixture.detectChanges();
