@@ -77,7 +77,6 @@ describe('Wait component', () => {
     fixture.componentInstance.isWaiting = false;
     fixture.detectChanges();
     expect(el.querySelector('.sky-wait-test-component').style.position).toBe('');
-
   });
 
   it('should set the appropriate class when wait component fullPage is set to true', () => {
@@ -133,10 +132,9 @@ describe('Wait component', () => {
     let anchor1: any = document.body.querySelector('#anchor-1');
     let anchor2: any = document.body.querySelector('#anchor-2');
     let button: any = document.querySelector('#inside-button');
-    button.focus();
-    expect(document.activeElement).toBe(button);
+    anchor1.focus();
 
-    SkyAppTestUtility.fireDomEvent(window, 'keyup', {
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
       keyboardEventInit: { key: 'Tab' }
     });
     fixture.detectChanges();
@@ -144,8 +142,8 @@ describe('Wait component', () => {
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor2);
 
-    button.focus();
-    SkyAppTestUtility.fireDomEvent(window, 'keyup', {
+    anchor2.focus();
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
       keyboardEventInit: { key: 'Tab', shiftKey: true }
     });
     fixture.detectChanges();
@@ -154,11 +152,11 @@ describe('Wait component', () => {
     expect(document.activeElement).toBe(anchor1);
 
     fixture.componentInstance.showAnchor2 = false;
-    button.focus();
+    anchor1.focus();
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    SkyAppTestUtility.fireDomEvent(window, 'keyup', {
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
       keyboardEventInit: { key: 'Tab', shiftKey: false }
     });
 
@@ -172,14 +170,14 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    button.focus();
-    SkyAppTestUtility.fireDomEvent(window, 'keyup', {
+    anchor1.focus();
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
       keyboardEventInit: { key: 'Tab' }
     });
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    expect(document.activeElement).toBe(button);
+    expect(document.activeElement).toBe(anchor1);
   }));
 
   it('should set aria-busy on document body when fullPage is true', async(() => {

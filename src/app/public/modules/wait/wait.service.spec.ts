@@ -113,7 +113,7 @@ describe('Wait service', () => {
       keyboardEventInit: { key: 'tab' }
     });
     button = document.body.querySelector('button');
-    expect(document.activeElement).toBe(button);
+    expect(document.activeElement).toBe(document.body);
   }));
 
   it('should add a nonblocking page wait when beginPageWait is called with isBlocking false',
