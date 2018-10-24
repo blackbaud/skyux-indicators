@@ -45,24 +45,26 @@ export class SkyWaitAdapterService implements OnDestroy {
     if (!isNonBlocking) {
       this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
 
+      // Remove focus from page when full page blocking wait
+      if (isFullPage) {
+        (document.activeElement as any).blur();
+        document.body.focus();
+      }
+
       if (isWaiting) {
-        // Propagate tab navigation if attempted into waited element
-        if (!isFullPage) {
-          let focusListenerFunc = this.renderer.listen(this.windowRef.getWindow(), 'keyup', (event: any) => {
-            if (event.key.toLowerCase() === 'tab' && busyEl.contains(document.activeElement)) {
+        // Prevent tab navigation within the waited page
+        let endListenerFunc = this.renderer.listen(document.body, 'keydown', (event: KeyboardEvent) => {
+          if (event.key.toLowerCase() === 'tab') {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            if (!isFullPage) {
+              // Propagate tab navigation if attempted into waited element
               this.focusNextElement(busyEl, event.shiftKey);
             }
-          });
-          this.parentListeners[id] = focusListenerFunc;
-        } else {
-          // Prevent tab navigation within the waited page
-          let endListenerFunc = this.renderer.listen(busyEl, 'keydown', (event: KeyboardEvent) => {
-            if (event.key.toLowerCase() === 'tab') {
-              event.preventDefault();
-            }
-          });
-          this.parentListeners[id] = endListenerFunc;
-        }
+          }
+        });
+        this.parentListeners[id] = endListenerFunc;
       } else if (id in this.parentListeners) {
         // Clean up existing listener
         this.parentListeners[id]();
