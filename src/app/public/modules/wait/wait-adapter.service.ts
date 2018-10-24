@@ -7,6 +7,7 @@ import {
 import {
   SkyWindowRefService
 } from '@skyux/core';
+import { SkyWaitComponent } from './wait.component';
 
 @Injectable()
 export class SkyWaitAdapterService implements OnDestroy {
@@ -37,18 +38,17 @@ export class SkyWaitAdapterService implements OnDestroy {
     isFullPage: boolean,
     isWaiting: boolean,
     id: string,
-    isNonBlocking = false
+    waitCmp: SkyWaitComponent
   ) {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
 
-    if (!isNonBlocking) {
+    if (!(waitCmp && waitCmp.isNonBlocking)) {
       this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
 
       // Remove focus from page when full page blocking wait
-      if (isFullPage) {
-        (document.activeElement as any).blur();
-        document.body.focus();
+      if (isFullPage || busyEl.contains(document.activeElement)) {
+        this.clearDocumentFocus();
       }
 
       if (isWaiting) {
@@ -58,9 +58,11 @@ export class SkyWaitAdapterService implements OnDestroy {
             event.preventDefault();
             event.stopPropagation();
             event.stopImmediatePropagation();
-            if (!isFullPage) {
+            if (!waitCmp.isFullPage) {
               // Propagate tab navigation if attempted into waited element
               this.focusNextElement(busyEl, event.shiftKey);
+            } else {
+              this.clearDocumentFocus();
             }
           }
         });
@@ -98,11 +100,30 @@ export class SkyWaitAdapterService implements OnDestroy {
     while (focussable[curIndex] && parentElement.contains(focussable[curIndex])) {
       curIndex += modifier;
     }
+
     if (focussable[curIndex]) {
       focussable[curIndex].focus();
     } else {
-      (document.activeElement as any).blur();
-      document.body.focus();
+      // Try wrapping the navigation
+      curIndex = modifier > 0 ? 0 : focussable.length - 1;
+      while (
+        curIndex < startingIndex &&
+        focussable[curIndex] &&
+        parentElement.contains(focussable[curIndex])
+      ) {
+        curIndex += modifier;
+      }
+      if (focussable[curIndex] && curIndex !== startingIndex) {
+        focussable[curIndex].focus();
+      } else {
+        // No valid target, wipe focus
+        this.clearDocumentFocus();
+      }
     }
+  }
+
+  private clearDocumentFocus() {
+    (document.activeElement as any).blur();
+    document.body.focus();
   }
 }

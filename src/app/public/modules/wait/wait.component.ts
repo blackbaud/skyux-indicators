@@ -45,7 +45,7 @@ export class SkyWaitComponent implements OnInit {
       this._isFullPage,
       value,
       this.id,
-      this.isNonBlocking
+      this
     );
 
     this._isWaiting = value;
