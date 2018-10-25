@@ -25,6 +25,7 @@ export class SkyWaitTestComponent {
   @Input()
   public ariaLabel: string;
 
+  public showAnchor0 = true;
   public showAnchor2 = true;
 
   @ViewChild(SkyWaitComponent)

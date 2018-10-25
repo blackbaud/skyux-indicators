@@ -129,6 +129,7 @@ describe('Wait component', () => {
     fixture.componentInstance.isWaiting = true;
     fixture.detectChanges();
 
+    let anchor0: any = document.body.querySelector('#anchor-0');
     let anchor1: any = document.body.querySelector('#anchor-1');
     let anchor2: any = document.body.querySelector('#anchor-2');
     anchor1.focus();
@@ -150,6 +151,21 @@ describe('Wait component', () => {
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor1);
 
+    fixture.componentInstance.showAnchor2 = false;
+    anchor1.focus();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
+      keyboardEventInit: { key: 'Tab', shiftKey: false }
+    });
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(document.activeElement).toBe(anchor0);
+
+    fixture.componentInstance.showAnchor0 = false;
     fixture.componentInstance.showAnchor2 = false;
     anchor1.focus();
     fixture.detectChanges();
