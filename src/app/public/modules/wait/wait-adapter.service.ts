@@ -4,18 +4,17 @@ import {
   Renderer,
   OnDestroy
 } from '@angular/core';
+
 import {
-  SkyWindowRefService
-} from '@skyux/core';
-import { SkyWaitComponent } from './wait.component';
+  SkyWaitComponent
+} from './wait.component';
 
 @Injectable()
 export class SkyWaitAdapterService implements OnDestroy {
   private parentListeners: {[key: string]: Function} = {};
 
   constructor(
-    private renderer: Renderer,
-    private windowRef: SkyWindowRefService
+    private renderer: Renderer
   ) { }
 
   public ngOnDestroy() {

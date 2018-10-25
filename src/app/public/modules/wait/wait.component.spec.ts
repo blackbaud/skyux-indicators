@@ -131,7 +131,6 @@ describe('Wait component', () => {
 
     let anchor1: any = document.body.querySelector('#anchor-1');
     let anchor2: any = document.body.querySelector('#anchor-2');
-    let button: any = document.querySelector('#inside-button');
     anchor1.focus();
 
     SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
