@@ -122,7 +122,9 @@ export class SkyWaitAdapterService implements OnDestroy {
   }
 
   private clearDocumentFocus() {
-    (document.activeElement as any).blur();
+    if (document.activeElement && (document.activeElement as any).blur) {
+      (document.activeElement as any).blur();
+    }
     document.body.focus();
   }
 }
