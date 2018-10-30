@@ -46,7 +46,6 @@ describe('Wait', () => {
     SkyHostBrowser.get('visual/wait');
     SkyHostBrowser.setWindowBreakpoint('lg');
     element(by.css('.sky-test-full-page')).click();
-    element(by.css('.sky-test-wait')).click();
     expect('.sky-wait-demo').toMatchBaselineScreenshot(done, {
       screenshotName: 'sky-wait-demo-full-page'
     });
@@ -55,9 +54,8 @@ describe('Wait', () => {
   it('should display non-blocking wait on full page', (done) => {
     SkyHostBrowser.get('visual/wait');
     SkyHostBrowser.setWindowBreakpoint('lg');
-    element(by.css('.sky-test-full-page')).click();
     element(by.css('.sky-test-non-blocking')).click();
-    element(by.css('.sky-test-wait')).click();
+    element(by.css('.sky-test-full-page')).click();
     expect('.sky-wait-demo').toMatchBaselineScreenshot(done, {
       screenshotName: 'sky-wait-demo-full-page-non-block'
     });

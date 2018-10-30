@@ -17,12 +17,12 @@
     class="sky-btn sky-btn-secondary sky-test-full-page"
     type="button"
     [ngClass]="{
-      'sky-btn-secondary': !isFullPage,
-      'sky-btn-primary': isFullPage
+      'sky-btn-secondary': !isFullPageWaiting,
+      'sky-btn-primary': isFullPageWaiting
     }"
-    (click)="isFullPage = !isFullPage"
+    (click)="isFullPageWaiting = !isFullPageWaiting"
   >
-    Toggle Full page
+    Toggle full page wait
   </button>
 
   <button
@@ -46,7 +46,6 @@
       Wait <a href="http://example.com">link</a> inside this element with text
       <sky-wait
         [isWaiting]="isWaiting"
-        [isFullPage]="isFullPage"
         [isNonBlocking]="isNonBlocking"
       >
       </sky-wait>
@@ -85,3 +84,9 @@
     </div>
   </div>
 </div>
+<sky-wait
+  [isWaiting]="isFullPageWaiting"
+  [isFullPage]="true"
+  [isNonBlocking]="isNonBlocking"
+>
+</sky-wait>
