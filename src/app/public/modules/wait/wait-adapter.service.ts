@@ -101,20 +101,21 @@ export class SkyWaitAdapterService implements OnDestroy {
     }
 
     if (focussable[curIndex] && !parentElement.contains(focussable[curIndex])) {
-      console.log(focussable[curIndex]);
       focussable[curIndex].focus();
     } else {
       // Try wrapping the navigation
       curIndex = modifier > 0 ? 0 : focussable.length - 1;
       while (
-        curIndex < startingIndex &&
+        curIndex !== startingIndex &&
         focussable[curIndex] &&
         parentElement.contains(focussable[curIndex])
       ) {
         curIndex += modifier;
       }
+
+      /* istanbul ignore else */
+      /* sanity check */
       if (focussable[curIndex] && !parentElement.contains(focussable[curIndex])) {
-        console.log(focussable[curIndex]);
         focussable[curIndex].focus();
       } else {
         // No valid target, wipe focus

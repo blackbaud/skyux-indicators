@@ -178,7 +178,8 @@ describe('Wait component', () => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    expect(document.activeElement).toBe(document.body);
+    console.log(document.activeElement);
+    expect(document.activeElement).toBe(anchor1);
 
     fixture.componentInstance.isWaiting = false;
     fixture.detectChanges();
