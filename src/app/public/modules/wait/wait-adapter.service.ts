@@ -36,13 +36,13 @@ export class SkyWaitAdapterService implements OnDestroy {
     waitEl: ElementRef,
     isFullPage: boolean,
     isWaiting: boolean,
-    id: string,
-    waitCmp: SkyWaitComponent
-  ) {
+    isNonBlocking = false,
+    waitCmp: SkyWaitComponent = undefined
+  ): void {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
 
-    if (!(waitCmp && waitCmp.isNonBlocking)) {
+    if (!(waitCmp && isNonBlocking)) {
       this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
 
       // Remove focus from page when full page blocking wait
@@ -65,11 +65,11 @@ export class SkyWaitAdapterService implements OnDestroy {
             }
           }
         });
-        this.parentListeners[id] = endListenerFunc;
-      } else if (id in this.parentListeners) {
+        this.parentListeners[waitCmp.id] = endListenerFunc;
+      } else if (waitCmp.id in this.parentListeners) {
         // Clean up existing listener
-        this.parentListeners[id]();
-        delete this.parentListeners[id];
+        this.parentListeners[waitCmp.id]();
+        delete this.parentListeners[waitCmp.id];
       }
     }
   }
@@ -100,7 +100,8 @@ export class SkyWaitAdapterService implements OnDestroy {
       curIndex += modifier;
     }
 
-    if (focussable[curIndex]) {
+    if (focussable[curIndex] && !parentElement.contains(focussable[curIndex])) {
+      console.log(focussable[curIndex]);
       focussable[curIndex].focus();
     } else {
       // Try wrapping the navigation
@@ -112,7 +113,8 @@ export class SkyWaitAdapterService implements OnDestroy {
       ) {
         curIndex += modifier;
       }
-      if (focussable[curIndex] && curIndex !== startingIndex) {
+      if (focussable[curIndex] && !parentElement.contains(focussable[curIndex])) {
+        console.log(focussable[curIndex]);
         focussable[curIndex].focus();
       } else {
         // No valid target, wipe focus

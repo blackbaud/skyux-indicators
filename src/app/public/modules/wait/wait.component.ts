@@ -30,7 +30,7 @@ export class SkyWaitComponent implements OnInit {
   @Input()
   public ariaLabel: string;
 
-  private id: string = `sky-wait-${++nextId}`;
+  public id: string = `sky-wait-${++nextId}`;
 
   @Input()
   public set isWaiting(value: boolean) {
@@ -44,7 +44,7 @@ export class SkyWaitComponent implements OnInit {
       this.elRef,
       this._isFullPage,
       value,
-      this.id,
+      this.isNonBlocking,
       this
     );
 

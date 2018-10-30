@@ -2,28 +2,40 @@
   class="sky-wait-demo"
 >
   <button
-    class="sky-btn sky-btn-primary sky-test-wait"
+    class="sky-btn sky-btn-secondary sky-test-wait"
     type="button"
+    [ngClass]="{
+      'sky-btn-secondary': !isWaiting,
+      'sky-btn-primary': isWaiting
+    }"
     (click)="isWaiting = !isWaiting"
   >
     Toggle wait
   </button>
 
   <button
-    class="sky-btn sky-btn-primary sky-test-full-page"
+    class="sky-btn sky-btn-secondary sky-test-full-page"
     type="button"
+    [ngClass]="{
+      'sky-btn-secondary': !isFullPage,
+      'sky-btn-primary': isFullPage
+    }"
     (click)="isFullPage = !isFullPage"
   >
     Toggle Full page
   </button>
 
   <button
-    class="sky-btn sky-btn-primary sky-test-non-blocking"
+    class="sky-btn sky-btn-secondary sky-test-non-blocking"
     type="button"
     style="margin-bottom: 10px;"
+    [ngClass]="{
+      'sky-btn-secondary': isNonBlocking,
+      'sky-btn-primary': !isNonBlocking
+    }"
     (click)="isNonBlocking = !isNonBlocking"
   >
-    Toggle Full page
+    Toggle blocking
   </button>
 
   <div
@@ -31,7 +43,7 @@
     style="width: 500px; height: 500px"
   >
     <div style="height: 200px; width: 200px">
-      Wait inside this element with text
+      Wait <a href="http://example.com">link</a> inside this element with text
       <sky-wait
         [isWaiting]="isWaiting"
         [isFullPage]="isFullPage"
