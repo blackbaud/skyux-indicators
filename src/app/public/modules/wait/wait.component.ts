@@ -42,10 +42,10 @@ export class SkyWaitComponent implements OnInit {
 
     this.adapterService.setBusyState(
       this.elRef,
-      this._isFullPage,
+      this.isFullPage,
       value,
       this.isNonBlocking,
-      this
+      this.id
     );
 
     this._isWaiting = value;

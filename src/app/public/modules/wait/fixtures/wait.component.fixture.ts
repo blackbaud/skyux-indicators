@@ -1,6 +1,5 @@
 import {
   Component,
-  Input,
   ViewChild
 } from '@angular/core';
 
@@ -13,17 +12,11 @@ import {
   templateUrl: './wait.component.fixture.html'
 })
 export class SkyWaitTestComponent {
-  @Input()
-  public isWaiting: boolean;
-
-  @Input()
-  public isFullPage: boolean;
-
-  @Input()
-  public isNonBlocking: boolean;
-
-  @Input()
   public ariaLabel: string;
+
+  public isWaiting: boolean = false;
+  public isFullPage: boolean = false;
+  public isNonBlocking: boolean = false;
 
   public showAnchor0 = true;
   public showAnchor2 = true;

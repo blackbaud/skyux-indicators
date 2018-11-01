@@ -1,7 +1,6 @@
 import {
   async,
   TestBed,
-  ComponentFixture,
   tick,
   fakeAsync
 } from '@angular/core/testing';
@@ -28,6 +27,7 @@ import {
 import {
   SkyWaitComponent
 } from './wait.component';
+import { SkyWaitAdapterService } from './wait-adapter.service';
 
 describe('Wait component', () => {
   beforeEach(() => {
@@ -42,6 +42,10 @@ describe('Wait component', () => {
         }
       ]
     });
+  });
+
+  afterEach(() => {
+    (SkyWaitAdapterService as any).clearListener();
   });
 
   it('should show the wait element when isWaiting is set to true', async(() => {
@@ -125,8 +129,15 @@ describe('Wait component', () => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
     fixture.detectChanges();
 
+    fixture.componentInstance.isNonBlocking = false;
     fixture.componentInstance.isFullPage = false;
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
     fixture.componentInstance.isWaiting = true;
+    fixture.detectChanges();
+    tick();
     fixture.detectChanges();
 
     let anchor0: any = document.body.querySelector('#anchor-0');
@@ -165,6 +176,22 @@ describe('Wait component', () => {
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor0);
 
+    // Wrapping navigation
+    fixture.componentInstance.showAnchor0 = true;
+    fixture.componentInstance.showAnchor2 = false;
+    anchor0.focus();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
+      keyboardEventInit: { key: 'Tab', shiftKey: true }
+    });
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(document.activeElement).toBe(anchor1);
+
     fixture.componentInstance.showAnchor0 = false;
     fixture.componentInstance.showAnchor2 = false;
     anchor1.focus();
@@ -178,7 +205,6 @@ describe('Wait component', () => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    console.log(document.activeElement);
     expect(document.activeElement).toBe(anchor1);
 
     fixture.componentInstance.isWaiting = false;
@@ -230,36 +256,57 @@ describe('Wait component', () => {
     expect(el.querySelector('.sky-wait-test-component').getAttribute('aria-busy')).toBeNull();
   });
 
-  let testlistenerCreated = (fixture: ComponentFixture<SkyWaitTestComponent>) => {
+  it('should create listener on document body when fullPage is true', fakeAsync(() => {
+    let fixture = TestBed.createComponent(SkyWaitTestComponent);
+    const waitCmp = fixture.componentInstance.waitComponent;
+
+    fixture.componentInstance.isNonBlocking = false;
+    fixture.componentInstance.isFullPage = true;
+    fixture.detectChanges();
+    tick();
     fixture.detectChanges();
 
-    let waitComponent: any = fixture.componentInstance.waitComponent;
-    let adapter: any = waitComponent.adapterService;
-    expect(waitComponent.id in adapter.parentListeners).toBeTruthy();
-    expect(Object.keys(adapter.parentListeners).length).toBe(1);
+    fixture.componentInstance.isWaiting = true;
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
+    expect((SkyWaitAdapterService as any).activeListener).toBeTruthy();
+    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeFalsy();
 
     fixture.componentInstance.isWaiting = false;
     fixture.detectChanges();
-    expect(waitComponent.id in adapter.parentListeners).toBeFalsy();
-    expect(Object.keys(adapter.parentListeners).length).toBe(0);
-  };
-
-  it('should create listener on document body when fullPage is true', () => {
-    let fixture = TestBed.createComponent(SkyWaitTestComponent);
+    tick();
     fixture.detectChanges();
 
-    fixture.componentInstance.isFullPage = true;
-    fixture.componentInstance.isWaiting = true;
-    testlistenerCreated(fixture);
-  });
+    expect((SkyWaitAdapterService as any).activeListener).toBeFalsy();
+    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeFalsy();
+  }));
 
-  it('should create listener on containing div when fullPage is set to false', () => {
+  it('should create listener on containing div when fullPage is set to false', fakeAsync(() => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
+    const waitCmp = fixture.componentInstance.waitComponent;
+
+    fixture.componentInstance.isNonBlocking = false;
+    fixture.componentInstance.isFullPage = false;
+    fixture.detectChanges();
+    tick();
     fixture.detectChanges();
 
     fixture.componentInstance.isWaiting = true;
-    testlistenerCreated(fixture);
-  });
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
+    expect((SkyWaitAdapterService as any).activeListener).toBeTruthy();
+    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeTruthy();
+
+    fixture.componentInstance.isWaiting = false;
+    fixture.detectChanges();
+
+    expect((SkyWaitAdapterService as any).activeListener).toBeFalsy();
+    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeFalsy();
+  }));
 
   function getAriaLabel(): string {
     return document.body.querySelector('.sky-wait-mask').getAttribute('aria-label');

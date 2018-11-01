@@ -5,30 +5,25 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import {
-  SkyWaitComponent
-} from './wait.component';
-
 @Injectable()
 export class SkyWaitAdapterService implements OnDestroy {
-  private parentListeners: {[key: string]: Function} = {};
+  private static activeListener: Function;
+  private static isPageWaitActive = false;
+  private static busyElements: {[key: string]: any} = {};
 
   constructor(
     private renderer: Renderer
   ) { }
 
-  public ngOnDestroy() {
-    for (let key of Object.keys(this.parentListeners)) {
-      this.parentListeners[key]();
-      delete this.parentListeners[key];
-    }
+  public ngOnDestroy(): void {
+    SkyWaitAdapterService.clearListener();
   }
 
-  public setWaitBounds(waitEl: ElementRef) {
+  public setWaitBounds(waitEl: ElementRef): void {
     this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', 'relative');
   }
 
-  public removeWaitBounds(waitEl: ElementRef) {
+  public removeWaitBounds(waitEl: ElementRef): void {
     this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', undefined);
   }
 
@@ -37,44 +32,60 @@ export class SkyWaitAdapterService implements OnDestroy {
     isFullPage: boolean,
     isWaiting: boolean,
     isNonBlocking = false,
-    waitCmp: SkyWaitComponent = undefined
+    id: string = ''
   ): void {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
 
-    if (!(waitCmp && isNonBlocking)) {
+    if (!isNonBlocking) {
       this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
 
-      // Remove focus from page when full page blocking wait
-      if (isFullPage || busyEl.contains(document.activeElement)) {
-        this.clearDocumentFocus();
-      }
-
       if (isWaiting) {
-        // Prevent tab navigation within the waited page
-        let endListenerFunc = this.renderer.listen(document.body, 'keydown', (event: KeyboardEvent) => {
-          if (event.key.toLowerCase() === 'tab') {
-            event.preventDefault();
-            event.stopPropagation();
-            event.stopImmediatePropagation();
-            if (!waitCmp.isFullPage) {
-              // Propagate tab navigation if attempted into waited element
-              this.focusNextElement(busyEl, event.shiftKey);
-            } else {
-              this.clearDocumentFocus();
+        // Remove focus from page when full page blocking wait
+        if (isFullPage || busyEl.contains(document.activeElement)) {
+          this.clearDocumentFocus();
+        }
+
+        if (isFullPage) {
+          SkyWaitAdapterService.isPageWaitActive = true;
+        } else {
+          SkyWaitAdapterService.busyElements[id] = busyEl;
+        }
+
+        if (!SkyWaitAdapterService.activeListener) {
+          // Prevent tab navigation within the waited page
+          let endListenerFunc = this.renderer.listen(document.body, 'keydown', (event: KeyboardEvent) => {
+            if (event.key.toLowerCase() === 'tab') {
+              event.preventDefault();
+              event.stopPropagation();
+              event.stopImmediatePropagation();
+
+              if (SkyWaitAdapterService.isPageWaitActive) {
+                this.clearDocumentFocus();
+              } else {
+                // Propagate tab navigation if attempted into waited element
+                this.focusNextElement(event.shiftKey);
+              }
             }
-          }
-        });
-        this.parentListeners[waitCmp.id] = endListenerFunc;
-      } else if (waitCmp.id in this.parentListeners) {
-        // Clean up existing listener
-        this.parentListeners[waitCmp.id]();
-        delete this.parentListeners[waitCmp.id];
+          });
+          SkyWaitAdapterService.activeListener = endListenerFunc;
+        }
+      } else {
+        if (isFullPage) {
+          SkyWaitAdapterService.isPageWaitActive = false;
+        } else if (id in SkyWaitAdapterService.busyElements) {
+          delete SkyWaitAdapterService.busyElements[id];
+        }
+
+        // Clear the listener if we are done waiting all elements
+        if (Object.keys(SkyWaitAdapterService.busyElements).length === 0 && !SkyWaitAdapterService.isPageWaitActive) {
+          SkyWaitAdapterService.clearListener();
+        }
       }
     }
   }
 
-  private focusNextElement(parentElement: any, shiftKey: boolean): void {
+  private focusNextElement(shiftKey: boolean): void {
     // Select all possible focussable elements
     let focussableElements =
       'a[href], ' +
@@ -96,11 +107,11 @@ export class SkyWaitAdapterService implements OnDestroy {
     // Find the next navigable element that isn't waiting
     let startingIndex = focussable.indexOf(document.activeElement);
     let curIndex = startingIndex + modifier;
-    while (focussable[curIndex] && parentElement.contains(focussable[curIndex])) {
+    while (focussable[curIndex] && this.isElementBusy(focussable[curIndex])) {
       curIndex += modifier;
     }
 
-    if (focussable[curIndex] && !parentElement.contains(focussable[curIndex])) {
+    if (focussable[curIndex] && !this.isElementBusy(focussable[curIndex])) {
       focussable[curIndex].focus();
     } else {
       // Try wrapping the navigation
@@ -108,14 +119,14 @@ export class SkyWaitAdapterService implements OnDestroy {
       while (
         curIndex !== startingIndex &&
         focussable[curIndex] &&
-        parentElement.contains(focussable[curIndex])
+        this.isElementBusy(focussable[curIndex])
       ) {
         curIndex += modifier;
       }
 
       /* istanbul ignore else */
       /* sanity check */
-      if (focussable[curIndex] && !parentElement.contains(focussable[curIndex])) {
+      if (focussable[curIndex] && !this.isElementBusy(focussable[curIndex])) {
         focussable[curIndex].focus();
       } else {
         // No valid target, wipe focus
@@ -124,10 +135,32 @@ export class SkyWaitAdapterService implements OnDestroy {
     }
   }
 
-  private clearDocumentFocus() {
+  private isElementBusy(element: any) {
+    for (let key of Object.keys(SkyWaitAdapterService.busyElements)) {
+      const parentElement = SkyWaitAdapterService.busyElements[key];
+      if (parentElement.contains(element)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private clearDocumentFocus(): void {
     if (document.activeElement && (document.activeElement as any).blur) {
       (document.activeElement as any).blur();
     }
     document.body.focus();
+  }
+
+  private static clearListener(): void {
+    if (SkyWaitAdapterService.activeListener) {
+      SkyWaitAdapterService.activeListener();
+      SkyWaitAdapterService.activeListener = undefined;
+    }
+
+    this.isPageWaitActive = false;
+    for (let key of Object.keys(SkyWaitAdapterService.busyElements)) {
+      delete SkyWaitAdapterService.busyElements[key];
+    }
   }
 }
