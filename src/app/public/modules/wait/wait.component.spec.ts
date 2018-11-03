@@ -192,6 +192,41 @@ describe('Wait component', () => {
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor1);
 
+    // test display:none
+    fixture.componentInstance.showAnchor0 = true;
+    fixture.componentInstance.showAnchor2 = true;
+    fixture.componentInstance.anchor2Display = 'none';
+    anchor0.focus();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
+      keyboardEventInit: { key: 'Tab', shiftKey: true }
+    });
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(document.activeElement).toBe(anchor1);
+
+    // test display:none
+    fixture.componentInstance.showAnchor0 = true;
+    fixture.componentInstance.showAnchor2 = true;
+    fixture.componentInstance.anchor2Display = '';
+    fixture.componentInstance.anchor2Visibility = 'hidden';
+    anchor0.focus();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
+      keyboardEventInit: { key: 'Tab', shiftKey: true }
+    });
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(document.activeElement).toBe(anchor1);
+
     fixture.componentInstance.showAnchor0 = false;
     fixture.componentInstance.showAnchor2 = false;
     anchor1.focus();

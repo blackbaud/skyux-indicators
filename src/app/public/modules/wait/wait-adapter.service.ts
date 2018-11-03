@@ -107,11 +107,11 @@ export class SkyWaitAdapterService implements OnDestroy {
     // Find the next navigable element that isn't waiting
     let startingIndex = focussable.indexOf(document.activeElement);
     let curIndex = startingIndex + modifier;
-    while (focussable[curIndex] && this.isElementBusy(focussable[curIndex])) {
+    while (focussable[curIndex] && this.isElementBusyOrHidden(focussable[curIndex])) {
       curIndex += modifier;
     }
 
-    if (focussable[curIndex] && !this.isElementBusy(focussable[curIndex])) {
+    if (focussable[curIndex] && !this.isElementBusyOrHidden(focussable[curIndex])) {
       focussable[curIndex].focus();
     } else {
       // Try wrapping the navigation
@@ -119,14 +119,14 @@ export class SkyWaitAdapterService implements OnDestroy {
       while (
         curIndex !== startingIndex &&
         focussable[curIndex] &&
-        this.isElementBusy(focussable[curIndex])
+        this.isElementBusyOrHidden(focussable[curIndex])
       ) {
         curIndex += modifier;
       }
 
       /* istanbul ignore else */
       /* sanity check */
-      if (focussable[curIndex] && !this.isElementBusy(focussable[curIndex])) {
+      if (focussable[curIndex] && !this.isElementBusyOrHidden(focussable[curIndex])) {
         focussable[curIndex].focus();
       } else {
         // No valid target, wipe focus
@@ -135,7 +135,11 @@ export class SkyWaitAdapterService implements OnDestroy {
     }
   }
 
-  private isElementBusy(element: any) {
+  private isElementBusyOrHidden(element: any) {
+    const style = window.getComputedStyle(element);
+    if (style.display === 'none' || style.visibility === 'hidden') {
+      return true;
+    }
     for (let key of Object.keys(SkyWaitAdapterService.busyElements)) {
       const parentElement = SkyWaitAdapterService.busyElements[key];
       if (parentElement.contains(element)) {

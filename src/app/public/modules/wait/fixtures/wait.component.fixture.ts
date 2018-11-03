@@ -21,6 +21,9 @@ export class SkyWaitTestComponent {
   public showAnchor0 = true;
   public showAnchor2 = true;
 
+  public anchor2Visibility: string = '';
+  public anchor2Display: string = '';
+
   @ViewChild(SkyWaitComponent)
   public waitComponent: SkyWaitComponent;
 }
