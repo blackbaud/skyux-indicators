@@ -1,12 +1,9 @@
 {
   "name": "@skyux/indicators",
-  "version": "3.0.0-rc.2",
+  "version": "3.0.0-rc.3",
   "description": "SKY UX Indicators",
   "main": "bundles/bundle.umd.js",
   "module": "index.ts",
-  "engines": {
-    "node": ">=8.11.1"
-  },
   "scripts": {
     "build": "skyux build-public-library",
     "skyux": "skyux",
