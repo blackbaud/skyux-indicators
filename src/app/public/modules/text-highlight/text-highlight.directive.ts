@@ -1,5 +1,4 @@
 import {
-  AfterContentChecked,
   AfterViewInit,
   Directive,
   ElementRef,
@@ -17,7 +16,7 @@ const className = 'sky-highlight-mark';
   selector: '[skyHighlight]'
 })
 export class SkyTextHighlightDirective
-  implements OnChanges, AfterViewInit, AfterContentChecked, OnDestroy {
+  implements OnChanges, AfterViewInit, OnDestroy {
 
   @Input()
   public skyHighlight: string = undefined;
@@ -103,10 +102,10 @@ export class SkyTextHighlightDirective
     });
 
     this.observeDom();
-  }
 
-  public ngAfterContentChecked(): void {
-    this.highlight();
+    if (this.skyHighlight) {
+      this.highlight();
+    }
   }
 
   public ngOnDestroy(): void {
@@ -143,7 +142,7 @@ export class SkyTextHighlightDirective
 
   private observeDom() {
     if (this.observer) {
-      const config = { attributes: true, childList: true, characterData: true };
+      const config = { attributes: false, childList: true, characterData: true };
       this.observer.observe(this.el.nativeElement, config);
     }
   }

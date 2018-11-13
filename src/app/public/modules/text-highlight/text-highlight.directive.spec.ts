@@ -109,6 +109,21 @@ describe('Text Highlight', () => {
     });
   }));
 
+  it('should highlight on startup if search term is set in component', async(() => {
+    const expectedHtml =
+      getHtmlOutput('Here is some <mark class="sky-highlight-mark">test</mark> text.');
+
+    fixture = TestBed.createComponent(SkyTextHighlightTestComponent);
+    nativeElement = fixture.nativeElement as HTMLElement;
+    component = fixture.componentInstance;
+
+    component.searchTerm = 'test';
+    fixture.detectChanges();
+    containerEl = getContainerEl(fixture);
+
+    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+  }));
+
   it('should highlight search term', async(() => {
     updateInputText(fixture, 'text');
 
@@ -120,6 +135,21 @@ describe('Text Highlight', () => {
     // Accessibility checks
     fixture.whenStable().then(() => {
       expect(fixture.nativeElement).toBeAccessible();
+    });
+  }));
+
+  it('highlight should NOT be called when DOM attributes are changed', ((done) => {
+    const spy = spyOn<any>(component.textHighlightDirective, 'highlight').and.callThrough();
+
+    updateInputText(fixture, 'text');
+
+    const div = nativeElement.querySelector('.sky-test-div-container');
+    div.setAttribute('foo', 'bar');
+    fixture.detectChanges();
+
+    window.setTimeout(() => {
+      expect(spy).toHaveBeenCalledTimes(1);
+      done();
     });
   }));
 
