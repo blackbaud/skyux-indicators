@@ -7,8 +7,13 @@ import {
   expect
 } from '@skyux-sdk/testing';
 
-import { SkyLabelFixturesModule } from './fixtures/label-fixtures.module';
-import { LabelTestComponent } from './fixtures/label.component.fixture';
+import {
+  SkyLabelFixturesModule
+} from './fixtures/label-fixtures.module';
+
+import {
+  LabelTestComponent
+} from './fixtures/label.component.fixture';
 
 describe('Label component', () => {
   beforeEach(() => {
@@ -24,7 +29,6 @@ describe('Label component', () => {
     let el = fixture.nativeElement as HTMLElement;
 
     fixture.detectChanges();
-
     expect(el.querySelector('.sky-label')).toHaveCssClass('sky-label-danger');
   });
 
@@ -33,7 +37,6 @@ describe('Label component', () => {
     let el = fixture.nativeElement as HTMLElement;
 
     fixture.detectChanges();
-
     expect(el.querySelector('.sky-label')).toHaveText('Test label');
 
     // Accessibility checks

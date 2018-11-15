@@ -1,6 +1,7 @@
 import {
   ApplicationRef
 } from '@angular/core';
+
 import {
   TestBed,
   inject,
@@ -15,6 +16,7 @@ import {
 import {
   SkyWaitService
 } from './wait.service';
+
 import {
   SkyWindowRefService
 } from '@skyux/core';
@@ -54,7 +56,7 @@ describe('Wait service', () => {
     )
   );
 
-  function verifyBlockingPageWaitExists(doesExist: boolean) {
+  function verifyBlockingPageWaitExists(doesExist: boolean): void {
     if (doesExist) {
       expect(document.body.querySelector(pageBlockingSelector)).not.toBeNull();
       expect(document.body.querySelectorAll(pageBlockingSelector).length).toBe(1);
@@ -63,7 +65,7 @@ describe('Wait service', () => {
     }
   }
 
-  function verifyNonBlockingPageWaitExists(doesExist: boolean) {
+  function verifyNonBlockingPageWaitExists(doesExist: boolean): void {
     if (doesExist) {
       expect(document.body.querySelector(pageNonBlockingSelector)).not.toBeNull();
       expect(document.body.querySelectorAll(pageNonBlockingSelector).length).toBe(1);

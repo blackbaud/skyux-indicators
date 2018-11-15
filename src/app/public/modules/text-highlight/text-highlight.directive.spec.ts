@@ -16,8 +16,13 @@ import {
   MutationObserverService
 } from '@skyux/core';
 
-import { SkyTextHighlightTestComponent } from './fixtures/text-highlight.component.fixture';
-import { SkyTextHighlightModule } from './text-highlight.module';
+import {
+  SkyTextHighlightTestComponent
+} from './fixtures/text-highlight.component.fixture';
+
+import {
+  SkyTextHighlightModule
+} from './text-highlight.module';
 
 function getContainerEl(fixture: ComponentFixture<SkyTextHighlightTestComponent>) {
   return fixture.nativeElement.querySelector('.sky-test-div-container') as HTMLElement;
@@ -99,9 +104,7 @@ describe('Text Highlight', () => {
   });
 
   it('should not highlight any text when search term is blank', async(() => {
-    const expectedHtml = getHtmlOutput('Here is some test text.');
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    expect(containerEl.querySelector('mark')).toBeFalsy();
 
     // Accessibility checks
     fixture.whenStable().then(() => {
@@ -110,9 +113,6 @@ describe('Text Highlight', () => {
   }));
 
   it('should highlight on startup if search term is set in component', async(() => {
-    const expectedHtml =
-      getHtmlOutput('Here is some <mark class="sky-highlight-mark">test</mark> text.');
-
     fixture = TestBed.createComponent(SkyTextHighlightTestComponent);
     nativeElement = fixture.nativeElement as HTMLElement;
     component = fixture.componentInstance;
@@ -121,16 +121,17 @@ describe('Text Highlight', () => {
     fixture.detectChanges();
     containerEl = getContainerEl(fixture);
 
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = containerEl.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('test');
   }));
 
   it('should highlight search term', async(() => {
     updateInputText(fixture, 'text');
 
-    const expectedHtml =
-      getHtmlOutput('Here is some test <mark class="sky-highlight-mark">text</mark>.');
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('text');
 
     // Accessibility checks
     fixture.whenStable().then(() => {
@@ -156,52 +157,42 @@ describe('Text Highlight', () => {
   it('should highlight case insensitive search term', () => {
     updateInputText(fixture, 'here');
 
-    const expectedHtml =
-      getHtmlOutput('<mark class="sky-highlight-mark">Here</mark> is some test text.');
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('Here');
   });
 
   it('should highlight search term in nested component', () => {
     component.showAdditionalContent = true;
     fixture.detectChanges();
-
     updateInputText(fixture, 'here');
 
-    const text = '<mark class="sky-highlight-mark">Here</mark> is some test text.';
-    // tslint:disable-next-line:max-line-length
-    const additional = `<mark class="sky-highlight-mark">Here</mark> is additional text that was previously hidden in src\\app.`;
-    const expectedHtml = getHtmlOutputAdditionalText(text, additional);
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = fixture.nativeElement.querySelectorAll('mark');
+    expect(mark.length).toBe(2);
+    expect(mark[0].innerHTML.trim()).toBe('Here');
+    expect(mark[1].innerHTML.trim()).toBe('Here');
   });
 
   it('should support illegal characters in the search term', () => {
     component.innerText1 = 'foo-\/^$*+?.()|{}[]bar';
     fixture.detectChanges();
-
     updateInputText(fixture, '-\/^$*+?.()|{}[]');
-    const expectedHtml =
-      getHtmlOutput('foo<mark class="sky-highlight-mark">-\/^$*+?.()|{}[]</mark>bar');
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+
+    let mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('-\/^$*+?.()|{}[]');
   });
 
   it('changed search term should highlight new term and old term should not highlight', () => {
     updateInputText(fixture, 'some');
-
-    const expectedHtml =
-      getHtmlOutput('Here is <mark class="sky-highlight-mark">some</mark> test text.');
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('some');
 
     updateInputText(fixture, 'Here');
-
-    const containerElChanged =
-      nativeElement.querySelector('.sky-test-div-container') as HTMLElement;
-    const expectedHtmlChanged =
-      getHtmlOutput('<mark class="sky-highlight-mark">Here</mark> is some test text.');
-
-    expect(containerElChanged.innerHTML.trim()).toBe(expectedHtmlChanged);
+    mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('Here');
   });
 
   it('highlight search term of html that was previously hidden', () => {
@@ -210,10 +201,9 @@ describe('Text Highlight', () => {
 
     updateInputText(fixture, 'is');
 
-    const expectedHtml =
-      getHtmlOutput('Here <mark class="sky-highlight-mark">is</mark> some test text.');
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('is');
 
     // check box to show extra content
     const checkboxEl =
@@ -224,17 +214,12 @@ describe('Text Highlight', () => {
 
     // mock the mutation observer callback on DOM change
     callbacks[0](undefined);
-
     fixture.detectChanges();
 
-    const containerElUpdated = getContainerEl(fixture);
-
-    const text = 'Here <mark class="sky-highlight-mark">is</mark> some test text.';
-    // tslint:disable-next-line:max-line-length
-    const additional = 'Here <mark class="sky-highlight-mark">is</mark> additional text that was previously hidden in src\\app.';
-    const expectedHtmlChanged = getHtmlOutputAdditionalText(text, additional);
-
-    expect(containerElUpdated.innerHTML.trim()).toBe(expectedHtmlChanged);
+    let marks = fixture.nativeElement.querySelectorAll('mark');
+    expect(marks.length).toBe(2);
+    expect(marks[0].innerHTML.trim()).toBe('is');
+    expect(marks[1].innerHTML.trim()).toBe('is');
   });
 
   it('highlight hidden search term where only highlighted term was hidden', () => {
@@ -242,11 +227,8 @@ describe('Text Highlight', () => {
     fixture.detectChanges();
 
     updateInputText(fixture, 'additional');
-
-    const expectedHtml =
-      getHtmlOutput('Here is some test text.');
-
-    expect(containerEl.innerHTML.trim()).toBe(expectedHtml);
+    let mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeFalsy();
 
     // check box to show extra content
     const checkboxEl =
@@ -257,17 +239,10 @@ describe('Text Highlight', () => {
 
     // mock the mutation observer callback on DOM change
     callbacks[0](undefined);
-
     fixture.detectChanges();
 
-    const containerElUpdated =
-      nativeElement.querySelector('.sky-test-div-container') as HTMLElement;
-
-    const text = 'Here is some test text.';
-    // tslint:disable-next-line:max-line-length
-    const additional = 'Here is <mark class="sky-highlight-mark">additional</mark> text that was previously hidden in src\\app.';
-    const expectedHtmlChanged = getHtmlOutputAdditionalText(text, additional);
-
-    expect(containerElUpdated.innerHTML.trim()).toBe(expectedHtmlChanged);
+    mark = fixture.nativeElement.querySelector('mark');
+    expect(mark).toBeTruthy();
+    expect(mark.innerHTML.trim()).toBe('additional');
   });
 });

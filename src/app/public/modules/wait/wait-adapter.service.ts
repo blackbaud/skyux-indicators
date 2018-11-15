@@ -7,13 +7,15 @@ import {
 @Injectable()
 export class SkyWaitAdapterService {
 
-  constructor(private renderer: Renderer) { }
+  constructor(
+    private renderer: Renderer
+  ) { }
 
-  public setWaitBounds(waitEl: ElementRef) {
+  public setWaitBounds(waitEl: ElementRef): void {
     this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', 'relative');
   }
 
-  public removeWaitBounds(waitEl: ElementRef) {
+  public removeWaitBounds(waitEl: ElementRef): void {
     this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', undefined);
   }
 

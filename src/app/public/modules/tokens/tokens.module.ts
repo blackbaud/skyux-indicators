@@ -1,6 +1,7 @@
 import {
   NgModule
 } from '@angular/core';
+
 import {
   CommonModule
 } from '@angular/common';
@@ -8,9 +9,11 @@ import {
 import {
   SkyTokenComponent
 } from './token.component';
+
 import {
   SkyTokensComponent
 } from './tokens.component';
+
 import {
   SkyIconModule
 } from '../icon';

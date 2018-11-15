@@ -4,9 +4,6 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { SkyChevronComponent } from './chevron.component';
-import { SkyChevronModule } from './chevron.module';
-
 import {
   SkyAppTestModule
 } from '@blackbaud/skyux-builder/runtime/testing/browser';
@@ -14,6 +11,14 @@ import {
 import {
   expect
 } from '@skyux-sdk/testing';
+
+import {
+  SkyChevronComponent
+} from './chevron.component';
+
+import {
+  SkyChevronModule
+} from './chevron.module';
 
 describe('Chevron component', () => {
   let fixture: ComponentFixture<SkyChevronComponent>;
@@ -48,29 +53,23 @@ describe('Chevron component', () => {
     let el = fixture.nativeElement;
 
     fixture.detectChanges();
-
     validateDirection('up');
 
-    cmp.directionChange.subscribe((direction: string) => {
+    cmp.directionChange.subscribe(() => {
       validateDirection('down');
     });
-
     clickChevron(el);
   });
 
   it('should not be able to click disabled chevron', () => {
     let el = fixture.nativeElement;
-
-    // make disabled
     fixture.componentInstance.disabled = true;
     fixture.detectChanges();
 
     validateDirection('up');
-
     clickChevron(el);
 
     fixture.detectChanges();
-
     validateDirection('up');
   });
 

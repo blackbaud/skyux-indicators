@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {
+  Component
+} from '@angular/core';
 
 @Component({
   selector: 'sky-help-inline-demo',
@@ -9,6 +11,5 @@ export class SkyHelpInlineDemoComponent {
 
   public onActionClick(): void {
     this.buttonIsClicked = true;
-    console.log('Help inline clicked!');
   }
 }

@@ -3,7 +3,9 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule
+} from '@angular/platform-browser';
 
 import {
   expect
@@ -17,8 +19,13 @@ import {
   SkyLibResourcesTestService
 } from '@skyux/i18n/testing';
 
-import { AlertTestComponent } from './fixtures/alert.component.fixture';
-import { SkyAlertModule } from '../alert/alert.module';
+import {
+  AlertTestComponent
+} from './fixtures/alert.component.fixture';
+
+import {
+  SkyAlertModule
+} from '../alert/alert.module';
 
 describe('Alert component', () => {
   beforeEach(() => {
@@ -39,23 +46,21 @@ describe('Alert component', () => {
     });
   });
 
-  it('should hide the close button if it is not cloesable', async(() => {
+  it('should hide the close button if it is not closeable', async(() => {
     let fixture = TestBed.createComponent(AlertTestComponent);
     let cmp = fixture.componentInstance as AlertTestComponent;
     let el = fixture.nativeElement as HTMLElement;
 
     cmp.closeable = true;
-
     fixture.detectChanges();
 
-    let closeAttrs: any = el.querySelector('.sky-alert-close').attributes;
-
-    expect(closeAttrs['hidden']).toBe(undefined);
+    let attributes: any = el.querySelector('.sky-alert-close').attributes;
+    expect(attributes['hidden']).toBe(undefined);
 
     cmp.closeable = false;
     fixture.detectChanges();
 
-    expect(closeAttrs['hidden']).not.toBeNull();
+    expect(attributes['hidden']).not.toBeNull();
     expect(fixture.nativeElement).toBeAccessible();
   }));
 
@@ -65,12 +70,10 @@ describe('Alert component', () => {
     let el = fixture.nativeElement;
 
     cmp.closeable = true;
-
     fixture.detectChanges();
-
     el.querySelector('.sky-alert-close').click();
 
-    expect(el.querySelector('.sky-alert').attributes.hidden).not.toBeNull();
+    expect(el.querySelector('.sky-alert').attributes['hidden']).not.toBeNull();
     expect(cmp.closed).toBe(true);
     expect(fixture.nativeElement).toBeAccessible();
   }));
@@ -79,14 +82,11 @@ describe('Alert component', () => {
     let fixture = TestBed.createComponent(AlertTestComponent);
     let cmp = fixture.componentInstance as AlertTestComponent;
     let el = fixture.nativeElement as HTMLElement;
-    let closeEl: any;
 
     cmp.closeable = true;
-
     fixture.detectChanges();
 
-    closeEl = el.querySelector('.sky-alert-close');
-
+    let closeEl = el.querySelector('.sky-alert-close');
     expect(closeEl.getAttribute('aria-label')).toBe('Close the alert');
     expect(fixture.nativeElement).toBeAccessible();
   }));
@@ -97,11 +97,9 @@ describe('Alert component', () => {
     let el = fixture.nativeElement as HTMLElement;
 
     cmp.alertType = 'success';
-
     fixture.detectChanges();
 
     let alertEl = el.querySelector('.sky-alert');
-
     expect(alertEl.classList.contains('sky-alert-success')).toBe(true);
     expect(fixture.nativeElement).toBeAccessible();
   }));
@@ -112,11 +110,9 @@ describe('Alert component', () => {
     let el = fixture.nativeElement as HTMLElement;
 
     cmp.alertType = undefined;
-
     fixture.detectChanges();
 
     let alertEl = el.querySelector('.sky-alert');
-
     expect(alertEl.classList.contains('sky-alert-warning')).toBe(true);
     expect(fixture.nativeElement).toBeAccessible();
   }));
@@ -127,11 +123,9 @@ describe('Alert component', () => {
     let el = fixture.nativeElement as HTMLElement;
 
     cmp.alertType = undefined;
-
     fixture.detectChanges();
 
     let alertEl = el.querySelector('.sky-alert');
-
     expect(alertEl.getAttribute('role')).toBe('alert');
     expect(fixture.nativeElement).toBeAccessible();
   }));

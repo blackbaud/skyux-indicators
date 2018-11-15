@@ -1,5 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
-import { SkyTextHighlightDirective } from '../text-highlight.directive';
+import {
+  Component,
+  ViewChild
+} from '@angular/core';
+
+import {
+  SkyTextHighlightDirective
+} from '../text-highlight.directive';
 
 @Component({
     selector: 'sky-text-highlight-component',

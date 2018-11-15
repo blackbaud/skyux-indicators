@@ -19,38 +19,35 @@ import {
 })
 export class SkyTokenComponent {
   @Input()
+  public get disabled(): boolean {
+    return !!this._disabled;
+  }
   public set disabled(value: boolean) {
     this._disabled = value;
   }
 
-  public get disabled(): boolean {
-    return (this._disabled === true);
-  }
-
   @Input()
+  public get ariaLabel(): string {
+    return this._ariaLabel || this.getString('skyux_tokens_dismiss_button_title');
+  }
   public set ariaLabel(value: string) {
     this._ariaLabel = value;
   }
-  public get ariaLabel() {
-    return this._ariaLabel || this.getString('skyux_tokens_dismiss_button_title');
-  }
 
   @Input()
+  public get dismissible(): boolean {
+    return this._dismissible !== false;
+  }
   public set dismissible(value: boolean) {
     this._dismissible = value;
   }
 
-  public get dismissible(): boolean {
-    return (this._dismissible !== false);
-  }
-
   @Input()
-  public set focusable(value: boolean) {
-    this._focusable = value;
-  }
-
   public get focusable(): boolean {
     return (this._focusable !== false);
+  }
+  public set focusable(value: boolean) {
+    this._focusable = value;
   }
 
   @Output()
@@ -73,11 +70,14 @@ export class SkyTokenComponent {
     private resourcesService: SkyLibResourcesService
   ) { }
 
-  public dismissToken() {
+  public dismissToken(event: Event = undefined): void {
+    if (event) {
+      event.stopPropagation();
+    }
     this.dismiss.emit();
   }
 
-  public focusElement() {
+  public focusElement(): void {
     this.elementRef.nativeElement.querySelector('.sky-token').focus();
   }
 

@@ -1,5 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  NgModule
+} from '@angular/core';
+
+import {
+  CommonModule
+} from '@angular/common';
 
 import {
   SkyI18nModule
@@ -9,15 +14,21 @@ import {
   SkyIndicatorsResourcesModule
 } from '../shared';
 
-import { SkyChevronComponent } from './chevron.component';
+import {
+  SkyChevronComponent
+} from './chevron.component';
 
 @NgModule({
-  declarations: [SkyChevronComponent],
+  declarations: [
+    SkyChevronComponent
+  ],
   imports: [
     CommonModule,
     SkyI18nModule,
     SkyIndicatorsResourcesModule
   ],
-  exports: [SkyChevronComponent]
+  exports: [
+    SkyChevronComponent
+  ]
 })
 export class SkyChevronModule { }

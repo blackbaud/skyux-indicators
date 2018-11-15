@@ -7,8 +7,13 @@ import {
   expect
 } from '@skyux-sdk/testing';
 
-import { SkyKeyInfoFixturesModule } from './fixtures/key-info-fixtures.module';
-import { KeyInfoTestComponent } from './fixtures/key-info.component.fixture';
+import {
+  SkyKeyInfoFixturesModule
+} from './fixtures/key-info-fixtures.module';
+
+import {
+  KeyInfoTestComponent
+} from './fixtures/key-info.component.fixture';
 
 describe('Key info component', () => {
   beforeEach(() => {
@@ -26,17 +31,14 @@ describe('Key info component', () => {
     let horizontalCls = 'sky-key-info-horizontal';
 
     cmp.layout = 'horizontal';
-
     fixture.detectChanges();
 
     let keyInfoEl = el.querySelector('.sky-key-info');
-
     expect(keyInfoEl.classList.contains(horizontalCls)).toBe(true);
 
     // Should treat any other value as vertical
     // (enforced by the default .sky-key-info class).
     cmp.layout = undefined;
-
     fixture.detectChanges();
 
     expect(keyInfoEl.classList.contains(horizontalCls)).toBe(false);
