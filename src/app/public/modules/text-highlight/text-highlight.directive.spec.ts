@@ -43,26 +43,6 @@ function updateInputText(fixture: ComponentFixture<SkyTextHighlightTestComponent
   fixture.detectChanges();
 }
 
-const additionalTextHidden = `
-  <!--bindings={
-  "ng-reflect-ng-if": "false"
-}-->`;
-
-const additionalTextVisible = `
-  <!--bindings={
-  "ng-reflect-ng-if": "true"
-}-->`;
-
-function getHtmlOutput(text: string) {
-  return `${text}${additionalTextHidden}`;
-}
-
-function getHtmlOutputAdditionalText(text: string, additionalText: string) {
-  return `${text}${additionalTextVisible}<div>
-    ${additionalText}
-  </div>`;
-}
-
 describe('Text Highlight', () => {
 
   let fixture: ComponentFixture<SkyTextHighlightTestComponent>;
