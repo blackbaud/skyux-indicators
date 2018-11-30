@@ -16,7 +16,7 @@ import {
 
 import {
   SkyIconModule
-} from '../icon';
+} from '../icon/icon.module';
 
 @NgModule({
   declarations: [

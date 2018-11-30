@@ -17,7 +17,7 @@ import {
 
 import {
   SkyTokensMessageType
-} from './types';
+} from './types/tokens-message-type';
 
 import {
   SkyTokensFixturesModule

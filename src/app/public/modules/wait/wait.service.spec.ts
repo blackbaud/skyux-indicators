@@ -10,16 +10,16 @@ import {
 } from '@angular/core/testing';
 
 import {
+  SkyWindowRefService
+} from '@skyux/core';
+
+import {
   SkyWaitFixturesModule
 } from './fixtures/wait-fixtures.module';
 
 import {
   SkyWaitService
 } from './wait.service';
-
-import {
-  SkyWindowRefService
-} from '@skyux/core';
 
 describe('Wait service', () => {
   let waitService: SkyWaitService;

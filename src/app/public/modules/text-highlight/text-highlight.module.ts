@@ -3,12 +3,12 @@ import {
 } from '@angular/core';
 
 import {
-  SkyTextHighlightDirective
-} from './text-highlight.directive';
-
-import {
   MutationObserverService
 } from '@skyux/core';
+
+import {
+  SkyTextHighlightDirective
+} from './text-highlight.directive';
 
 @NgModule({
   declarations: [

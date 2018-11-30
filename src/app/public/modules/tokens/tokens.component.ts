@@ -20,11 +20,20 @@ import {
 import 'rxjs/add/operator/takeUntil';
 
 import {
-  SkyToken,
-  SkyTokensMessage,
-  SkyTokensMessageType,
+  SkyToken
+} from './types/token';
+
+import {
+  SkyTokensMessage
+} from './types/tokens-message';
+
+import {
+  SkyTokensMessageType
+} from './types/tokens-message-type';
+
+import {
   SkyTokenSelectedEventArgs
-} from './types';
+} from './types/token-selected-event-args';
 
 import {
   SkyTokenComponent
