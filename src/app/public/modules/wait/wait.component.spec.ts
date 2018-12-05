@@ -8,12 +8,13 @@ import {
 import {
   SkyLibResourcesService
 } from '@skyux/i18n';
+
 import {
   SkyLibResourcesTestService
 } from '@skyux/i18n/testing';
+
 import {
-  expect,
-  SkyAppTestUtility
+  expect, SkyAppTestUtility
 } from '@skyux-sdk/testing';
 
 import {
@@ -27,7 +28,10 @@ import {
 import {
   SkyWaitComponent
 } from './wait.component';
-import { SkyWaitAdapterService } from './wait-adapter.service';
+
+import {
+  SkyWaitAdapterService
+} from './wait-adapter.service';
 
 describe('Wait component', () => {
   beforeEach(() => {
@@ -42,10 +46,6 @@ describe('Wait component', () => {
         }
       ]
     });
-  });
-
-  afterEach(() => {
-    (SkyWaitAdapterService as any).clearListener();
   });
 
   it('should show the wait element when isWaiting is set to true', async(() => {
@@ -125,7 +125,7 @@ describe('Wait component', () => {
     expect(el.querySelector('.sky-wait-mask-loading-blocking')).toBeNull();
   });
 
-  it('should propagate tab navigation forward and backward avoiding waited element', fakeAsync(() => {
+  fit('should propagate tab navigation forward and backward avoiding waited element', fakeAsync(() => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
     fixture.detectChanges();
 
@@ -140,70 +140,73 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
+    let waitButton = document.body.querySelector('#inside-button');
     let anchor0: any = document.body.querySelector('#anchor-0');
     let anchor1: any = document.body.querySelector('#anchor-1');
     let anchor2: any = document.body.querySelector('#anchor-2');
-    anchor1.focus();
 
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab' }
-    });
+    anchor1.focus();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor1
+    } as any);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor2);
 
     anchor2.focus();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab', shiftKey: true }
-    });
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
+
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor2
+    } as any);
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    console.log(document.activeElement);
     expect(document.activeElement).toBe(anchor1);
 
+    // Wrapping navigation
+    fixture.componentInstance.showAnchor0 = true;
     fixture.componentInstance.showAnchor2 = false;
     anchor1.focus();
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab', shiftKey: false }
-    });
 
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor1
+    } as any);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor0);
-
-    // Wrapping navigation
-    fixture.componentInstance.showAnchor0 = true;
-    fixture.componentInstance.showAnchor2 = false;
-    anchor0.focus();
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab', shiftKey: true }
-    });
 
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor1);
 
+    // Invisible elements
     // test display:none
     fixture.componentInstance.showAnchor0 = true;
     fixture.componentInstance.showAnchor2 = true;
     fixture.componentInstance.anchor2Display = 'none';
+
     anchor0.focus();
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab', shiftKey: true }
-    });
 
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor0
+    } as any);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -218,10 +221,10 @@ describe('Wait component', () => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab', shiftKey: true }
-    });
 
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor0
+    } as any);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -233,10 +236,10 @@ describe('Wait component', () => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab', shiftKey: false }
-    });
 
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor1
+    } as any);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -248,9 +251,9 @@ describe('Wait component', () => {
     fixture.detectChanges();
 
     anchor1.focus();
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'Tab' }
-    });
+    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
+      relatedTarget: anchor1
+    } as any);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -293,7 +296,6 @@ describe('Wait component', () => {
 
   it('should create listener on document body when fullPage is true', fakeAsync(() => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
-    const waitCmp = fixture.componentInstance.waitComponent;
 
     fixture.componentInstance.isNonBlocking = false;
     fixture.componentInstance.isFullPage = true;
@@ -306,16 +308,14 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    expect((SkyWaitAdapterService as any).activeListener).toBeTruthy();
-    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeFalsy();
+    expect((SkyWaitAdapterService as any).isPageWaitActive).toBeTruthy();
 
     fixture.componentInstance.isWaiting = false;
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
 
-    expect((SkyWaitAdapterService as any).activeListener).toBeFalsy();
-    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeFalsy();
+    expect((SkyWaitAdapterService as any).isPageWaitActive).toBeFalsy();
   }));
 
   it('should create listener on containing div when fullPage is set to false', fakeAsync(() => {
@@ -333,14 +333,13 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    expect((SkyWaitAdapterService as any).activeListener).toBeTruthy();
-    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeTruthy();
+    let service = TestBed.get(SkyWaitAdapterService);
+    expect(waitCmp.id in (service as any).listeners).toBeTruthy();
 
     fixture.componentInstance.isWaiting = false;
     fixture.detectChanges();
 
-    expect((SkyWaitAdapterService as any).activeListener).toBeFalsy();
-    expect(waitCmp.id in (SkyWaitAdapterService as any).busyElements).toBeFalsy();
+    expect(waitCmp.id in (service as any).listeners).toBeFalsy();
   }));
 
   function getAriaLabel(): string {

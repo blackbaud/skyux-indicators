@@ -105,11 +105,13 @@ describe('Wait service', () => {
     waitService.beginBlockingPageWait();
     tick();
     applicationRef.tick();
-     verifyBlockingPageWaitExists(true);
+
+    verifyBlockingPageWaitExists(true);
     let button = document.body.querySelector('button');
     button.focus();
     expect(document.activeElement).toBe(button);
-     SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
+
+    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
       keyboardEventInit: { key: 'tab' }
     });
     button = document.body.querySelector('button');
