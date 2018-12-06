@@ -1,6 +1,7 @@
 import {
   ApplicationRef
 } from '@angular/core';
+
 import {
   TestBed,
   inject,
@@ -19,6 +20,7 @@ import {
 import {
   SkyWaitService
 } from './wait.service';
+
 import {
   SkyWindowRefService
 } from '@skyux/core';
@@ -105,16 +107,13 @@ describe('Wait service', () => {
     waitService.beginBlockingPageWait();
     tick();
     applicationRef.tick();
-
     verifyBlockingPageWaitExists(true);
-    let button = document.body.querySelector('button');
-    button.focus();
-    expect(document.activeElement).toBe(button);
 
-    SkyAppTestUtility.fireDomEvent(document.body, 'keydown', {
-      keyboardEventInit: { key: 'tab' }
-    });
-    button = document.body.querySelector('button');
+    let button = document.body.querySelector('button');
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: document.body });
+    event.initEvent('focusin', true, true);
+    button.dispatchEvent(event);
+
     expect(document.activeElement).toBe(document.body);
   }));
 

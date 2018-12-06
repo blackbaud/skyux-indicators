@@ -14,7 +14,7 @@ import {
 } from '@skyux/i18n/testing';
 
 import {
-  expect, SkyAppTestUtility
+  expect
 } from '@skyux-sdk/testing';
 
 import {
@@ -50,7 +50,6 @@ describe('Wait component', () => {
 
   it('should show the wait element when isWaiting is set to true', async(() => {
     const fixture = TestBed.createComponent(SkyWaitComponent);
-
     fixture.detectChanges();
 
     let el = fixture.nativeElement;
@@ -60,7 +59,6 @@ describe('Wait component', () => {
     fixture.detectChanges();
 
     expect(el.querySelector('.sky-wait')).not.toBeNull();
-
     fixture.whenStable().then(() => {
       expect(fixture.nativeElement).toBeAccessible();
     });
@@ -125,7 +123,7 @@ describe('Wait component', () => {
     expect(el.querySelector('.sky-wait-mask-loading-blocking')).toBeNull();
   });
 
-  fit('should propagate tab navigation forward and backward avoiding waited element', fakeAsync(() => {
+  it('should propagate tab navigation forward and backward avoiding waited element', fakeAsync(() => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
     fixture.detectChanges();
 
@@ -150,9 +148,9 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor1
-    } as any);
+    let event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor1 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -163,13 +161,13 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor2
-    } as any);
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor2 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
+
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    console.log(document.activeElement);
     expect(document.activeElement).toBe(anchor1);
 
     // Wrapping navigation
@@ -180,18 +178,13 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor1
-    } as any);
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor1 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
     expect(document.activeElement).toBe(anchor0);
-
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(document.activeElement).toBe(anchor1);
 
     // Invisible elements
     // test display:none
@@ -204,9 +197,9 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor0
-    } as any);
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor0 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -222,9 +215,9 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor0
-    } as any);
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor0 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -237,9 +230,9 @@ describe('Wait component', () => {
     tick();
     fixture.detectChanges();
 
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor1
-    } as any);
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor1 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -251,9 +244,9 @@ describe('Wait component', () => {
     fixture.detectChanges();
 
     anchor1.focus();
-    SkyAppTestUtility.fireDomEvent(waitButton, 'focusin', {
-      relatedTarget: anchor1
-    } as any);
+    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: anchor1 });
+    event.initEvent('focusin', true, true);
+    waitButton.dispatchEvent(event);
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
@@ -281,7 +274,6 @@ describe('Wait component', () => {
 
   it('should set aria-busy on containing div when fullPage is set to false', () => {
     const fixture = TestBed.createComponent(SkyWaitTestComponent);
-
     fixture.detectChanges();
 
     let el = fixture.nativeElement;
@@ -294,7 +286,7 @@ describe('Wait component', () => {
     expect(el.querySelector('.sky-wait-test-component').getAttribute('aria-busy')).toBeNull();
   });
 
-  it('should create listener on document body when fullPage is true', fakeAsync(() => {
+  it('should set isPageWaitActive when fullPage is true', fakeAsync(() => {
     let fixture = TestBed.createComponent(SkyWaitTestComponent);
 
     fixture.componentInstance.isNonBlocking = false;
@@ -316,30 +308,6 @@ describe('Wait component', () => {
     fixture.detectChanges();
 
     expect((SkyWaitAdapterService as any).isPageWaitActive).toBeFalsy();
-  }));
-
-  it('should create listener on containing div when fullPage is set to false', fakeAsync(() => {
-    let fixture = TestBed.createComponent(SkyWaitTestComponent);
-    const waitCmp = fixture.componentInstance.waitComponent;
-
-    fixture.componentInstance.isNonBlocking = false;
-    fixture.componentInstance.isFullPage = false;
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-
-    fixture.componentInstance.isWaiting = true;
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-
-    let service = TestBed.get(SkyWaitAdapterService);
-    expect(waitCmp.id in (service as any).listeners).toBeTruthy();
-
-    fixture.componentInstance.isWaiting = false;
-    fixture.detectChanges();
-
-    expect(waitCmp.id in (service as any).listeners).toBeFalsy();
   }));
 
   function getAriaLabel(): string {
