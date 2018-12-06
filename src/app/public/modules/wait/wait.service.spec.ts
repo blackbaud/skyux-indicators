@@ -110,7 +110,7 @@ describe('Wait service', () => {
     verifyBlockingPageWaitExists(true);
 
     let button = document.body.querySelector('button');
-    event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: document.body });
+    let event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: document.body });
     event.initEvent('focusin', true, true);
     button.dispatchEvent(event);
 
