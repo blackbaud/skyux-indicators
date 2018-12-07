@@ -10,10 +10,6 @@ import {
 } from '@angular/core/testing';
 
 import {
-  SkyAppTestUtility
-} from '@blackbaud/skyux-builder/runtime/testing/browser';
-
-import {
   SkyWaitFixturesModule
 } from './fixtures/wait-fixtures.module';
 
