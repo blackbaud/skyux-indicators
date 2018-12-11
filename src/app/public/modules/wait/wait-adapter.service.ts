@@ -5,10 +5,6 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import {
-  SkyWaitComponent
-} from './wait.component';
-
 @Injectable()
 export class SkyWaitAdapterService implements OnDestroy {
   private static isPageWaitActive: boolean = false;
@@ -37,7 +33,7 @@ export class SkyWaitAdapterService implements OnDestroy {
     isFullPage: boolean,
     isWaiting: boolean,
     isNonBlocking = false,
-    waitCmp: SkyWaitComponent = undefined
+    id?: string
   ): void {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
@@ -58,14 +54,17 @@ export class SkyWaitAdapterService implements OnDestroy {
             'keydown',
             (event: KeyboardEvent) => {
               if (event.key.toLowerCase() === 'tab') {
-                (event.target as any).blur();
-                event.preventDefault();
-                event.stopPropagation();
-                event.stopImmediatePropagation();
-                this.clearDocumentFocus();
+                let focussable = this.getFocussableElements();
+                let edgeElem: any = focussable[focussable.length - 1];
+                if (event.shiftKey) {
+                  edgeElem = focussable[0];
+                }
+                edgeElem.focus({
+                  preventScroll: true
+                });
               }
           });
-          SkyWaitAdapterService.busyElements[waitCmp.id] = {
+          SkyWaitAdapterService.busyElements[id] = {
             listener: endListenerFunc,
             busyEl: undefined
           };
@@ -74,7 +73,7 @@ export class SkyWaitAdapterService implements OnDestroy {
             busyEl,
             'focusin',
             (event: KeyboardEvent) => {
-              if (!waitCmp.isNonBlocking) {
+              if (!isNonBlocking) {
                 event.preventDefault();
                 event.stopPropagation();
                 event.stopImmediatePropagation();
@@ -89,7 +88,7 @@ export class SkyWaitAdapterService implements OnDestroy {
                 }
               }
           });
-          SkyWaitAdapterService.busyElements[waitCmp.id] = {
+          SkyWaitAdapterService.busyElements[id] = {
             listener: endListenerFunc,
             busyEl: busyEl
           };
@@ -98,9 +97,9 @@ export class SkyWaitAdapterService implements OnDestroy {
         if (isFullPage) {
           SkyWaitAdapterService.isPageWaitActive = false;
         }
-        if (waitCmp.id in SkyWaitAdapterService.busyElements) {
-          SkyWaitAdapterService.busyElements[waitCmp.id].listener();
-          delete SkyWaitAdapterService.busyElements[waitCmp.id];
+        if (id in SkyWaitAdapterService.busyElements) {
+          SkyWaitAdapterService.busyElements[id].listener();
+          delete SkyWaitAdapterService.busyElements[id];
         }
       }
     }
