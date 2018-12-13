@@ -33,7 +33,7 @@ export class SkyWaitAdapterService implements OnDestroy {
     isFullPage: boolean,
     isWaiting: boolean,
     isNonBlocking = false,
-    id?: string
+    waitComponentId?: string
   ): void {
     let busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
     let state = isWaiting ? 'true' : undefined;
@@ -64,7 +64,7 @@ export class SkyWaitAdapterService implements OnDestroy {
                 });
               }
           });
-          SkyWaitAdapterService.busyElements[id] = {
+          SkyWaitAdapterService.busyElements[waitComponentId] = {
             listener: endListenerFunc,
             busyEl: undefined
           };
@@ -88,7 +88,7 @@ export class SkyWaitAdapterService implements OnDestroy {
                 }
               }
           });
-          SkyWaitAdapterService.busyElements[id] = {
+          SkyWaitAdapterService.busyElements[waitComponentId] = {
             listener: endListenerFunc,
             busyEl: busyEl
           };
@@ -97,9 +97,9 @@ export class SkyWaitAdapterService implements OnDestroy {
         if (isFullPage) {
           SkyWaitAdapterService.isPageWaitActive = false;
         }
-        if (id in SkyWaitAdapterService.busyElements) {
-          SkyWaitAdapterService.busyElements[id].listener();
-          delete SkyWaitAdapterService.busyElements[id];
+        if (waitComponentId in SkyWaitAdapterService.busyElements) {
+          SkyWaitAdapterService.busyElements[waitComponentId].listener();
+          delete SkyWaitAdapterService.busyElements[waitComponentId];
         }
       }
     }
