@@ -1,6 +1,6 @@
 import {
-  ComponentFactoryResolver,
   ApplicationRef,
+  ComponentFactoryResolver,
   Injectable
 } from '@angular/core';
 
@@ -19,8 +19,8 @@ import {
 @Injectable()
 export class SkyWaitService {
   private static waitComponent: SkyWaitPageComponent;
-  private static pageWaitBlockingCount: number = 0;
-  private static pageWaitNonBlockingCount: number = 0;
+  private static pageWaitBlockingCount = 0;
+  private static pageWaitNonBlockingCount = 0;
 
   constructor(
     private resolver: ComponentFactoryResolver,
@@ -76,12 +76,10 @@ export class SkyWaitService {
           crashing when wait service is called in Angular lifecycle functions.
       */
       this.windowSvc.getWindow().setTimeout(() => {
-        let factory = this.resolver.resolveComponentFactory(SkyWaitPageComponent);
-
+        const factory = this.resolver.resolveComponentFactory(SkyWaitPageComponent);
         this.waitAdapter.addPageWaitEl();
 
-        let cmpRef = this.appRef.bootstrap(factory);
-
+        const cmpRef = this.appRef.bootstrap(factory);
         SkyWaitService.waitComponent = cmpRef.instance;
 
         this.setWaitComponentProperties(isBlocking);

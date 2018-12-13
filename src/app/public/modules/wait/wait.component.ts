@@ -1,7 +1,7 @@
 import {
   Component,
-  Input,
   ElementRef,
+  Input,
   OnInit,
   Optional
 } from '@angular/core';
@@ -71,7 +71,7 @@ export class SkyWaitComponent implements OnInit {
 
   public ariaLabelStream = new BehaviorSubject<string>('');
 
-  private id: string = `sky-wait-${++nextId}`;
+  private id = `sky-wait-${++nextId}`;
   private _isFullPage: boolean;
   private _isWaiting: boolean;
 

@@ -3,9 +3,9 @@ import {
 } from '@angular/core';
 
 import {
-  TestBed,
-  inject,
   fakeAsync,
+  inject,
+  TestBed,
   tick
 } from '@angular/core/testing';
 
@@ -25,9 +25,9 @@ describe('Wait service', () => {
   let waitService: SkyWaitService;
   let applicationRef: ApplicationRef;
 
-  let pageBlockingSelector =
+  const pageBlockingSelector =
     '.sky-wait-page .sky-wait-mask-loading-fixed.sky-wait-mask-loading-blocking';
-  let pageNonBlockingSelector =
+  const pageNonBlockingSelector =
     '.sky-wait-page .sky-wait-mask-loading-fixed.sky-wait-mask-loading-non-blocking';
 
   beforeEach(() => {
@@ -105,8 +105,8 @@ describe('Wait service', () => {
     applicationRef.tick();
     verifyBlockingPageWaitExists(true);
 
-    let button = document.body.querySelector('button');
-    let event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: document.body });
+    const button = document.body.querySelector('button');
+    const event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: document.body });
     event.initEvent('focusin', true, true);
     button.dispatchEvent(event);
 

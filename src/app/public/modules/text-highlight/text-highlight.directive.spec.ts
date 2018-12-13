@@ -24,17 +24,17 @@ import {
   SkyTextHighlightModule
 } from './text-highlight.module';
 
-function getContainerEl(fixture: ComponentFixture<SkyTextHighlightTestComponent>) {
+function getContainerEl(fixture: ComponentFixture<SkyTextHighlightTestComponent>): HTMLElement {
   return fixture.nativeElement.querySelector('.sky-test-div-container') as HTMLElement;
 }
 
-function updateInputText(fixture: ComponentFixture<SkyTextHighlightTestComponent>, text: string) {
-  let params = {
+function updateInputText(fixture: ComponentFixture<SkyTextHighlightTestComponent>, text: string): void {
+  const params = {
     bubbles: false,
     cancelable: false
   };
 
-  let inputEvent = document.createEvent('Event');
+  const inputEvent = document.createEvent('Event');
   inputEvent.initEvent('input', params.bubbles, params.cancelable);
 
   const inputEl = fixture.nativeElement.querySelector('.sky-input-search-term') as HTMLInputElement;
@@ -63,7 +63,7 @@ describe('Text Highlight', () => {
       providers: [{
         provide: MutationObserverService,
         useValue: {
-          create: function(callback: Function) {
+          create: function(callback: Function): any {
             callbacks.push(callback);
 
             return {
@@ -101,7 +101,7 @@ describe('Text Highlight', () => {
     fixture.detectChanges();
     containerEl = getContainerEl(fixture);
 
-    let mark = containerEl.querySelector('mark');
+    const mark = containerEl.querySelector('mark');
     expect(mark).toBeTruthy();
     expect(mark.innerHTML.trim()).toBe('test');
   }));
@@ -109,7 +109,7 @@ describe('Text Highlight', () => {
   it('should highlight search term', async(() => {
     updateInputText(fixture, 'text');
 
-    let mark = fixture.nativeElement.querySelector('mark');
+    const mark = fixture.nativeElement.querySelector('mark');
     expect(mark).toBeTruthy();
     expect(mark.innerHTML.trim()).toBe('text');
 
@@ -137,7 +137,7 @@ describe('Text Highlight', () => {
   it('should highlight case insensitive search term', () => {
     updateInputText(fixture, 'here');
 
-    let mark = fixture.nativeElement.querySelector('mark');
+    const mark = fixture.nativeElement.querySelector('mark');
     expect(mark).toBeTruthy();
     expect(mark.innerHTML.trim()).toBe('Here');
   });
@@ -147,7 +147,7 @@ describe('Text Highlight', () => {
     fixture.detectChanges();
     updateInputText(fixture, 'here');
 
-    let mark = fixture.nativeElement.querySelectorAll('mark');
+    const mark = fixture.nativeElement.querySelectorAll('mark');
     expect(mark.length).toBe(2);
     expect(mark[0].innerHTML.trim()).toBe('Here');
     expect(mark[1].innerHTML.trim()).toBe('Here');
@@ -158,7 +158,7 @@ describe('Text Highlight', () => {
     fixture.detectChanges();
     updateInputText(fixture, '-\/^$*+?.()|{}[]');
 
-    let mark = fixture.nativeElement.querySelector('mark');
+    const mark = fixture.nativeElement.querySelector('mark');
     expect(mark).toBeTruthy();
     expect(mark.innerHTML.trim()).toBe('-\/^$*+?.()|{}[]');
   });
@@ -181,7 +181,7 @@ describe('Text Highlight', () => {
 
     updateInputText(fixture, 'is');
 
-    let mark = fixture.nativeElement.querySelector('mark');
+    const mark = fixture.nativeElement.querySelector('mark');
     expect(mark).toBeTruthy();
     expect(mark.innerHTML.trim()).toBe('is');
 
@@ -196,7 +196,7 @@ describe('Text Highlight', () => {
     callbacks[0](undefined);
     fixture.detectChanges();
 
-    let marks = fixture.nativeElement.querySelectorAll('mark');
+    const marks = fixture.nativeElement.querySelectorAll('mark');
     expect(marks.length).toBe(2);
     expect(marks[0].innerHTML.trim()).toBe('is');
     expect(marks[1].innerHTML.trim()).toBe('is');

@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'alert-visual',
+  selector: 'sky-alert-visual',
   templateUrl: './alert-visual.component.html'
 })
 export class AlertVisualComponent {

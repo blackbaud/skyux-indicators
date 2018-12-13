@@ -25,16 +25,16 @@ describe('Label component', () => {
   });
 
   it('should add the appropriate CSS class based on the label type', () => {
-    let fixture = TestBed.createComponent(LabelTestComponent);
-    let el = fixture.nativeElement as HTMLElement;
+    const fixture = TestBed.createComponent(LabelTestComponent);
+    const el = fixture.nativeElement as HTMLElement;
 
     fixture.detectChanges();
     expect(el.querySelector('.sky-label')).toHaveCssClass('sky-label-danger');
   });
 
   it('should render the label\'s contents in the expected location', async(() => {
-    let fixture = TestBed.createComponent(LabelTestComponent);
-    let el = fixture.nativeElement as HTMLElement;
+    const fixture = TestBed.createComponent(LabelTestComponent);
+    const el = fixture.nativeElement as HTMLElement;
 
     fixture.detectChanges();
     expect(el.querySelector('.sky-label')).toHaveText('Test label');

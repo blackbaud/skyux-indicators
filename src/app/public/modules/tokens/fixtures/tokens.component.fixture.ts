@@ -12,8 +12,8 @@ import {
 import {
   SkyToken,
   SkyTokensComponent,
-  SkyTokensMessage,
-  SkyTokenSelectedEventArgs
+  SkyTokenSelectedEventArgs,
+  SkyTokensMessage
 } from '../index';
 
 @Component({

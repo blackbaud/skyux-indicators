@@ -70,7 +70,7 @@ export class SkyTokenComponent {
     private resourcesService: SkyLibResourcesService
   ) { }
 
-  public dismissToken(event: Event = undefined): void {
+  public dismissToken(event?: Event): void {
     if (event) {
       event.stopPropagation();
     }

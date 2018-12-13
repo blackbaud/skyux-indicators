@@ -4,7 +4,9 @@ import {
 } from '@skyux-sdk/e2e';
 
 import {
-  browser, element, by
+  browser,
+  by,
+  element
 } from 'protractor';
 
 describe('Help inline', () => {

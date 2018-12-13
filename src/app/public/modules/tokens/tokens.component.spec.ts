@@ -1,8 +1,8 @@
 import {
   async,
   ComponentFixture,
-  TestBed,
   fakeAsync,
+  TestBed,
   tick
 } from '@angular/core/testing';
 
@@ -190,7 +190,7 @@ describe('Tokens component', () => {
       tick();
       fixture.detectChanges();
 
-      let token = fixture.nativeElement.querySelector('.sky-token-btn-close');
+      const token = fixture.nativeElement.querySelector('.sky-token-btn-close');
       expect(token.getAttribute('aria-label')).toBe('this is a custom label');
       expect(token.getAttribute('title')).toBe('this is a custom label');
     }));

@@ -37,9 +37,9 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
   }
 
   public ngAfterViewInit(): void {
-    let me = this;
+    const self = this;
     this.observer = this.observerService.create((mutations: MutationRecord[]) => {
-      me.highlight();
+      self.highlight();
     });
 
     this.observeDom();
@@ -129,7 +129,7 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
 
     } else if (node.nodeType === 1 && node.childNodes) {
       for (let i = 0; i < node.childNodes.length; i++) {
-        let childNode = node.childNodes[i] as HTMLElement;
+        const childNode = node.childNodes[i] as HTMLElement;
         i += SkyTextHighlightDirective.markTextNodes(childNode, searchText);
       }
     }

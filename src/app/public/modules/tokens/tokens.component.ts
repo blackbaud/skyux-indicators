@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  SimpleChanges,
   Component,
   EventEmitter,
   Input,
@@ -10,6 +9,7 @@ import {
   OnInit,
   Output,
   QueryList,
+  SimpleChanges,
   ViewChildren
 } from '@angular/core';
 

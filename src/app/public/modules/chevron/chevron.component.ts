@@ -18,9 +18,9 @@ export class SkyChevronComponent {
   public direction = 'up';
 
   @Input()
-  public disabled: boolean = false;
+  public disabled = false;
 
-  public chevronClick(event: Event = undefined): void {
+  public chevronClick(event?: Event): void {
     if (event) {
       event.stopPropagation();
     }
