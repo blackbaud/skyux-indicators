@@ -21,6 +21,10 @@ import {
   SkyWaitService
 } from './wait.service';
 
+import {
+  SkyWindowRefService
+} from '@skyux/core';
+
 describe('Wait service', () => {
   let waitService: SkyWaitService;
   let applicationRef: ApplicationRef;
@@ -97,6 +101,20 @@ describe('Wait service', () => {
     applicationRef.tick();
     verifyBlockingPageWaitExists(false);
 
+  }));
+
+  it('should block tab navigation when a blocking page wait is active', fakeAsync(() => {
+    waitService.beginBlockingPageWait();
+    tick();
+    applicationRef.tick();
+    verifyBlockingPageWaitExists(true);
+
+    let button = document.body.querySelector('button');
+    let event = Object.assign(document.createEvent('CustomEvent'), { relatedTarget: document.body });
+    event.initEvent('focusin', true, true);
+    button.dispatchEvent(event);
+
+    expect(document.activeElement).toBe(document.body);
   }));
 
   it('should add a nonblocking page wait when beginPageWait is called with isBlocking false',

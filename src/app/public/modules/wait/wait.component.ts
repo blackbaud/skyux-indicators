@@ -18,6 +18,8 @@ import {
   SkyWaitAdapterService
 } from './wait-adapter.service';
 
+let nextId = 0;
+
 @Component({
   selector: 'sky-wait',
   templateUrl: './wait.component.html',
@@ -41,9 +43,10 @@ export class SkyWaitComponent implements OnInit {
 
     this.adapterService.setBusyState(
       this.elRef,
-      this._isFullPage,
+      this.isFullPage,
       value,
-      this.isNonBlocking
+      this.isNonBlocking,
+      this.id
     );
 
     this._isWaiting = value;
@@ -68,6 +71,7 @@ export class SkyWaitComponent implements OnInit {
 
   public ariaLabelStream = new BehaviorSubject<string>('');
 
+  private id: string = `sky-wait-${++nextId}`;
   private _isFullPage: boolean;
   private _isWaiting: boolean;
 
