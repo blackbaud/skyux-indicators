@@ -30,8 +30,6 @@ export class SkyWaitComponent implements OnInit {
   @Input()
   public ariaLabel: string;
 
-  private id: string = `sky-wait-${++nextId}`;
-
   @Input()
   public set isWaiting(value: boolean) {
     if (value && !this._isFullPage) {
@@ -75,6 +73,7 @@ export class SkyWaitComponent implements OnInit {
 
   public ariaLabelStream = new BehaviorSubject<string>('');
 
+  private id: string = `sky-wait-${++nextId}`;
   private _isFullPage: boolean;
   private _isWaiting: boolean;
 
