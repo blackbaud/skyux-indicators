@@ -54,14 +54,11 @@ export class SkyWaitAdapterService implements OnDestroy {
             'keydown',
             (event: KeyboardEvent) => {
               if (event.key.toLowerCase() === 'tab') {
-                let focussable = this.getFocussableElements();
-                let edgeElem: any = focussable[focussable.length - 1];
-                if (event.shiftKey) {
-                  edgeElem = focussable[0];
-                }
-                edgeElem.focus({
-                  preventScroll: true
-                });
+                (event.target as any).blur();
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                this.clearDocumentFocus();
               }
           });
           SkyWaitAdapterService.busyElements[waitComponentId] = {
@@ -128,6 +125,8 @@ export class SkyWaitAdapterService implements OnDestroy {
         focussable[curIndex] &&
         this.isElementBusyOrHidden(focussable[curIndex])
       ) {
+        /* istanbul ignore next */
+        /* sanity check */
         curIndex += modifier;
       }
 

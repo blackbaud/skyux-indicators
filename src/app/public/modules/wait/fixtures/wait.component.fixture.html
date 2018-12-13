@@ -2,6 +2,10 @@
   class="sky-btn sky-btn-secondary"
   id="anchor-0"
   href="/"
+  [ngStyle]="{
+    'display': anchor0Display,
+    'visibility': anchor0Visibility
+  }"
 >
   Anchor tag 0
 </button>
@@ -27,14 +31,22 @@
     >
     </sky-wait>
 </div>
-<button *ngIf="showAnchor2"
-  class="sky-btn sky-btn-secondary"
-  id="anchor-2"
-  href="/"
-  [ngStyle]="{
-    'display': anchor2Display,
-    'visibility': anchor2Visibility
-  }"
->
-  Anchor tag 2
-</button>
+<div>
+  <button *ngIf="showAnchor2"
+    class="sky-btn sky-btn-secondary"
+    id="anchor-2"
+    href="/"
+    [ngStyle]="{
+      'display': anchor2Display,
+      'visibility': anchor2Visibility
+    }"
+  >
+    Anchor tag 2
+  </button>
+  <sky-wait
+    [isFullPage]="false"
+    [isNonBlocking]="false"
+    [isWaiting]="secondWaitIsWaiting"
+  >
+  </sky-wait>
+</div>
