@@ -167,7 +167,7 @@ export class SkyWaitAdapterService implements OnDestroy {
       return true;
     }
 
-    for (let key of Object.keys(SkyWaitAdapterService.busyElements)) {
+    for (const key of Object.keys(SkyWaitAdapterService.busyElements)) {
       const parentElement = SkyWaitAdapterService.busyElements[key].busyEl;
       if (parentElement && parentElement.contains(element)) {
         return true;
@@ -211,7 +211,7 @@ export class SkyWaitAdapterService implements OnDestroy {
 
   private clearListeners(): void {
     SkyWaitAdapterService.isPageWaitActive = false;
-    for (let key of Object.keys(SkyWaitAdapterService.busyElements)) {
+    for (const key of Object.keys(SkyWaitAdapterService.busyElements)) {
       SkyWaitAdapterService.busyElements[key].listener();
       delete SkyWaitAdapterService.busyElements[key];
     }
