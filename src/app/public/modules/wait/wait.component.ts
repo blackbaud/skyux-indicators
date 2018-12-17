@@ -31,9 +31,6 @@ export class SkyWaitComponent implements OnInit {
   public ariaLabel: string;
 
   @Input()
-  public get isWaiting(): boolean {
-    return this._isWaiting;
-  }
   public set isWaiting(value: boolean) {
     if (value && !this._isFullPage) {
       this.adapterService.setWaitBounds(this.elRef);
@@ -52,10 +49,11 @@ export class SkyWaitComponent implements OnInit {
     this._isWaiting = value;
   }
 
-  @Input()
-  public get isFullPage(): boolean {
-    return this._isFullPage;
+  public get isWaiting(): boolean {
+    return this._isWaiting;
   }
+
+  @Input()
   public set isFullPage(value: boolean) {
     if (value) {
       this.adapterService.removeWaitBounds(this.elRef);
@@ -64,6 +62,10 @@ export class SkyWaitComponent implements OnInit {
     }
 
     this._isFullPage = value;
+  }
+
+  public get isFullPage(): boolean {
+    return this._isFullPage;
   }
 
   @Input()

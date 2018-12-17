@@ -10,11 +10,12 @@ import {
 })
 export class SkyLabelComponent {
   @Input()
-  public get labelType(): string {
-    return this._labelType || 'info';
-  }
   public set labelType(value: string) {
     this._labelType = value;
+  }
+
+  public get labelType(): string {
+    return this._labelType || 'info';
   }
 
   private _labelType: string;

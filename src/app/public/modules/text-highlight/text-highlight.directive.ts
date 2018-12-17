@@ -18,7 +18,6 @@ const className = 'sky-highlight-mark';
   selector: '[skyHighlight]'
 })
 export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDestroy {
-
   @Input()
   public skyHighlight: string = undefined;
 

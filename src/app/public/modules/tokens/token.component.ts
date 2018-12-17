@@ -19,35 +19,39 @@ import {
 })
 export class SkyTokenComponent {
   @Input()
-  public get disabled(): boolean {
-    return !!this._disabled;
-  }
   public set disabled(value: boolean) {
     this._disabled = value;
   }
 
-  @Input()
-  public get ariaLabel(): string {
-    return this._ariaLabel || this.getString('skyux_tokens_dismiss_button_title');
+  public get disabled(): boolean {
+    return !!this._disabled;
   }
+
+  @Input()
   public set ariaLabel(value: string) {
     this._ariaLabel = value;
   }
 
-  @Input()
-  public get dismissible(): boolean {
-    return this._dismissible !== false;
+  public get ariaLabel(): string {
+    return this._ariaLabel || this.getString('skyux_tokens_dismiss_button_title');
   }
+
+  @Input()
   public set dismissible(value: boolean) {
     this._dismissible = value;
   }
 
-  @Input()
-  public get focusable(): boolean {
-    return (this._focusable !== false);
+  public get dismissible(): boolean {
+    return this._dismissible !== false;
   }
+
+  @Input()
   public set focusable(value: boolean) {
     this._focusable = value;
+  }
+
+  public get focusable(): boolean {
+    return (this._focusable !== false);
   }
 
   @Output()

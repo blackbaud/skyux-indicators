@@ -47,44 +47,49 @@ import {
 })
 export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
-  public get disabled(): boolean {
-    return !!this._disabled;
-  }
   public set disabled(value: boolean) {
     this._disabled = value;
   }
 
-  @Input()
-  public get dismissible(): boolean {
-    return (this._dismissible !== false);
+  public get disabled(): boolean {
+    return !!this._disabled;
   }
+
+  @Input()
   public set dismissible(value: boolean) {
     this._dismissible = value;
   }
 
-  @Input()
-  public get displayWith(): string {
-    return this._displayWith || 'name';
+  public get dismissible(): boolean {
+    return (this._dismissible !== false);
   }
+
+  @Input()
   public set displayWith(value: string) {
     this._displayWith = value;
   }
 
-  @Input()
-  public get focusable(): boolean {
-    return (this._focusable !== false);
+  public get displayWith(): string {
+    return this._displayWith || 'name';
   }
+
+  @Input()
   public set focusable(value: boolean) {
     this._focusable = value;
   }
 
-  @Input()
-  public get tokens(): SkyToken[] {
-    return this._tokens || [];
+  public get focusable(): boolean {
+    return (this._focusable !== false);
   }
+
+  @Input()
   public set tokens(value: SkyToken[]) {
     this._tokens = value;
     this.tokensChange.emit(this._tokens);
+  }
+
+  public get tokens(): SkyToken[] {
+    return this._tokens || [];
   }
 
   @Input()

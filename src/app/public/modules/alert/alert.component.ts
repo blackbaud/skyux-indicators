@@ -14,11 +14,12 @@ const ALERT_TYPE_DEFAULT = 'warning';
 })
 export class SkyAlertComponent {
   @Input()
-  public get alertType(): string {
-    return this._alertType || ALERT_TYPE_DEFAULT;
-  }
   public set alertType(value: string) {
     this._alertType = value;
+  }
+
+  public get alertType(): string {
+    return this._alertType || ALERT_TYPE_DEFAULT;
   }
 
   @Input()
