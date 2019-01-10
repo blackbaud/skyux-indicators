@@ -1,6 +1,6 @@
 {
   "name": "@skyux/indicators",
-  "version": "3.0.0-rc.6",
+  "version": "3.0.0",
   "description": "SKY UX Indicators",
   "main": "bundles/bundle.umd.js",
   "module": "index.ts",
