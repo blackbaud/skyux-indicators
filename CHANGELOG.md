@@ -1,6 +1,6 @@
 # 3.0.0 (2019-01-10)
 
-- Full version release.
+- Major version release.
 
 # 3.0.0-rc.6 (2018-12-13)
 
