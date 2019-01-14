@@ -9,12 +9,10 @@ import {
 } from '@skyux-sdk/testing';
 
 import {
-  SkyIconModule
-} from './icon.module';
-
-import {
   IconTestComponent
 } from './fixtures/icon.component.fixture';
+
+import { IconTestModule } from './fixtures/icon.fixture.module';
 
 describe('Icon component', () => {
   let fixture: ComponentFixture<IconTestComponent>;
@@ -23,11 +21,8 @@ describe('Icon component', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        IconTestComponent
-      ],
       imports: [
-        SkyIconModule
+        IconTestModule
       ]
     });
 

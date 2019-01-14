@@ -3,6 +3,10 @@ import {
 } from '@angular/core';
 
 import {
+  SkyAppLinkModule
+} from '@skyux/router';
+
+import {
   SkyAlertModule,
   SkyChevronModule,
   SkyHelpInlineModule,
@@ -14,20 +18,18 @@ import {
   SkyWaitModule
 } from './public';
 
-const modules = [
-  SkyAlertModule,
-  SkyChevronModule,
-  SkyHelpInlineModule,
-  SkyIconModule,
-  SkyKeyInfoModule,
-  SkyLabelModule,
-  SkyTextHighlightModule,
-  SkyTokensModule,
-  SkyWaitModule
-];
-
 @NgModule({
-  imports: modules,
-  exports: modules
+  exports: [
+    SkyAlertModule,
+    SkyAppLinkModule,
+    SkyChevronModule,
+    SkyHelpInlineModule,
+    SkyIconModule,
+    SkyKeyInfoModule,
+    SkyLabelModule,
+    SkyTextHighlightModule,
+    SkyTokensModule,
+    SkyWaitModule
+  ]
 })
 export class AppExtrasModule { }

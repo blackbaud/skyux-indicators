@@ -12,36 +12,17 @@ import {
 } from '@skyux-sdk/testing';
 
 import {
-  SkyLibResourcesService
-} from '@skyux/i18n';
-
-import {
-  SkyLibResourcesTestService
-} from '@skyux/i18n/testing';
-
-import {
   AlertTestComponent
 } from './fixtures/alert.component.fixture';
 
-import {
-  SkyAlertModule
-} from '../alert/alert.module';
+import { AlertTestModule } from './fixtures/alert.fixture.module';
 
 describe('Alert component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AlertTestComponent
-      ],
       imports: [
         BrowserModule,
-        SkyAlertModule
-      ],
-      providers: [
-        {
-          provide: SkyLibResourcesService,
-          useClass: SkyLibResourcesTestService
-        }
+        AlertTestModule
       ]
     });
   });

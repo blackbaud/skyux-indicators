@@ -5,10 +5,6 @@ import {
 } from '@angular/core/testing';
 
 import {
-  FormsModule
-} from '@angular/forms';
-
-import {
   expect
 } from '@skyux-sdk/testing';
 
@@ -20,9 +16,7 @@ import {
   SkyTextHighlightTestComponent
 } from './fixtures/text-highlight.component.fixture';
 
-import {
-  SkyTextHighlightModule
-} from './text-highlight.module';
+import { TextHighlightTestModule } from './fixtures/text-highlight.fixture.module';
 
 function getContainerEl(fixture: ComponentFixture<SkyTextHighlightTestComponent>): HTMLElement {
   return fixture.nativeElement.querySelector('.sky-test-div-container') as HTMLElement;
@@ -53,12 +47,8 @@ describe('Text Highlight', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        SkyTextHighlightTestComponent
-      ],
       imports: [
-        SkyTextHighlightModule,
-        FormsModule
+        TextHighlightTestModule
       ],
       providers: [{
         provide: MutationObserverService,
