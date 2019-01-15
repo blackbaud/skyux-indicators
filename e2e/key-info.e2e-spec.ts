@@ -4,15 +4,21 @@ import {
 } from '@skyux-sdk/e2e';
 
 describe('Key info', () => {
-  it('should match previous screenshot', (done) => {
+  beforeEach(() => {
     SkyHostBrowser.get('visual/key-info');
+  });
+
+  it('should match previous screenshot', (done) => {
     SkyHostBrowser.setWindowBreakpoint('lg');
-    expect('.sky-key-info-visual').toMatchBaselineScreenshot(done);
+    expect('.sky-key-info-visual').toMatchBaselineScreenshot(done, {
+      screenshotName: 'key-info-lg'
+    });
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('visual/key-info');
     SkyHostBrowser.setWindowBreakpoint('xs');
-    expect('.sky-key-info-visual').toMatchBaselineScreenshot(done);
+    expect('.sky-key-info-visual').toMatchBaselineScreenshot(done, {
+      screenshotName: 'key-info-xs'
+    });
   });
 });
