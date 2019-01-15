@@ -10,14 +10,18 @@ import {
 } from 'protractor';
 
 describe('Help inline', () => {
-  it('should match previous screenshot', (done) => {
+  beforeEach(() => {
     SkyHostBrowser.get('visual/help-inline');
+  });
+
+  it('should match previous screenshot', (done) => {
     SkyHostBrowser.setWindowBreakpoint('lg');
-    expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'help-inline-lg'
+    });
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('visual/help-inline');
     SkyHostBrowser.setWindowBreakpoint('xs');
 
     // Hover over the button.
@@ -26,6 +30,8 @@ describe('Help inline', () => {
       .mouseMove(element(by.css('.sky-help-inline')))
       .perform();
 
-    expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'help-inline-hover-xs'
+    });
   });
 });

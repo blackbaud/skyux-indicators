@@ -4,15 +4,21 @@ import {
 } from '@skyux-sdk/e2e';
 
 describe('Icon', () => {
-  it('should match previous screenshot', (done) => {
+  beforeEach(() => {
     SkyHostBrowser.get('visual/icon');
+  });
+
+  it('should match previous screenshot', (done) => {
     SkyHostBrowser.setWindowBreakpoint('lg');
-    expect('.sky-icon-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-icon-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'icon-lg'
+    });
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('visual/icon');
     SkyHostBrowser.setWindowBreakpoint('xs');
-    expect('.sky-icon-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-icon-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'icon-xs'
+    });
   });
 });
