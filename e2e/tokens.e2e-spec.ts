@@ -4,15 +4,21 @@ import {
 } from '@skyux-sdk/e2e';
 
 describe('Tokens', () => {
-  it('should match previous screenshot', (done) => {
+  beforeEach(() => {
     SkyHostBrowser.get('visual/tokens');
+  });
+
+  it('should match previous screenshot', (done) => {
     SkyHostBrowser.setWindowBreakpoint('lg');
-    expect('.sky-tokens-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'tokens-lg'
+    });
   });
 
   it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.get('visual/tokens');
     SkyHostBrowser.setWindowBreakpoint('xs');
-    expect('.sky-tokens-demo').toMatchBaselineScreenshot(done);
+    expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'tokens-xs'
+    });
   });
 });
