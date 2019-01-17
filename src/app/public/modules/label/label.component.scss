@@ -1,5 +1,9 @@
 @import "~@skyux/theme/scss/mixins";
 
+:host {
+  display: inline-block;
+}
+
 .sky-label {
   color: $sky-text-color-default;
   display: inline;
