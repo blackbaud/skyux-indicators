@@ -16,7 +16,7 @@ before_install:
   - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-before-install.sh)
 
 install:
-  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-install.sh)
+  - bash <(curl -s https://blackbaud-stevebrush.github.io/skyux-travis/v3/library-install.sh)
 
 script:
   - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-script.sh)
