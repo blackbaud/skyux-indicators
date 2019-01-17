@@ -12,6 +12,7 @@
   width: $sky-context-menu-size;
   cursor: pointer;
   position: relative;
+  vertical-align: top;
 
   &:hover .sky-chevron-part {
     border-color: darken($sky-text-color-icon-borderless, 20%);
@@ -25,7 +26,7 @@
   display: inline-block;
   height: 10px;
   position: absolute;
-  top: 8px;
+  top: 10px;
   transition: transform $sky-transition-time-medium, left $sky-transition-time-medium;
   vertical-align: top;
   width: 10px;
@@ -38,7 +39,7 @@
   }
 
   .sky-chevron-right {
-    left: 6px;
+    left: 7px;
     transform: rotate(45deg);
   }
 }
@@ -50,7 +51,7 @@
   }
 
   .sky-chevron-right {
-    left: 11px;
+    left: 12px;
     transform: rotate(-45deg);
   }
 }

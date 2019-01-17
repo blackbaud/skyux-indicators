@@ -1,10 +1,22 @@
+# 3.0.3 (2019-01-16)
+
+- Fixed chevron component to properly align its icon in Firefox. [#31](https://github.com/blackbaud/skyux-indicators/pull/31)
+
+# 3.0.2 (2019-01-15)
+
+- Fixed chevron component to properly center its icon within the button element. [#30](https://github.com/blackbaud/skyux-indicators/pull/30)
+
+# 3.0.1 (2019-01-15)
+
+- Fixed chevron component to properly position its elements when container is resized. [#26](https://github.com/blackbaud/skyux-indicators/pull/26)
+
 # 3.0.0 (2019-01-11)
 
 - Major version release.
 
 # 3.0.0-rc.6 (2018-12-13)
 
-- Fixed blocking wait components not blocking focus on tab navigation. [#4](https://github.com/blackbaud/skyux-indicators/pull/4)
+- Fixed wait component to prevent tab navigation during blocking waits. [#4](https://github.com/blackbaud/skyux-indicators/pull/4)
 
 # 3.0.0-rc.5 (2018-11-19)
 
