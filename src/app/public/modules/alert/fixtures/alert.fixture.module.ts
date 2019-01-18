@@ -2,10 +2,21 @@ import {
   NgModule
 } from '@angular/core';
 
-import { AlertTestComponent } from './alert.component.fixture';
-import { SkyAlertModule } from '../alert.module';
-import { SkyLibResourcesService } from '@skyux/i18n';
-import { SkyLibResourcesTestService } from '@skyux/i18n/testing';
+import {
+  SkyLibResourcesService
+} from '@skyux/i18n';
+
+import {
+  SkyLibResourcesTestService
+} from '@skyux/i18n/testing';
+
+import {
+  SkyAlertModule
+} from '../alert.module';
+
+import {
+  AlertTestComponent
+} from './alert.component.fixture';
 
 @NgModule({
   declarations: [

@@ -16,7 +16,9 @@ import {
   SkyTextHighlightTestComponent
 } from './fixtures/text-highlight.component.fixture';
 
-import { TextHighlightTestModule } from './fixtures/text-highlight.fixture.module';
+import {
+  TextHighlightTestModule
+} from './fixtures/text-highlight.fixture.module';
 
 function getContainerEl(fixture: ComponentFixture<SkyTextHighlightTestComponent>): HTMLElement {
   return fixture.nativeElement.querySelector('.sky-test-div-container') as HTMLElement;

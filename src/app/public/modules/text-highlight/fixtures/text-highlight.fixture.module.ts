@@ -2,13 +2,21 @@ import {
   NgModule
 } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+import {
+  CommonModule
+} from '@angular/common';
 
-import { FormsModule } from '@angular/forms';
+import {
+  FormsModule
+} from '@angular/forms';
 
-import { SkyTextHighlightModule } from '../text-highlight.module';
+import {
+  SkyTextHighlightModule
+} from '../text-highlight.module';
 
-import { SkyTextHighlightTestComponent } from './text-highlight.component.fixture';
+import {
+  SkyTextHighlightTestComponent
+} from './text-highlight.component.fixture';
 
 @NgModule({
   declarations: [

@@ -12,7 +12,9 @@ import {
   IconTestComponent
 } from './fixtures/icon.component.fixture';
 
-import { IconTestModule } from './fixtures/icon.fixture.module';
+import {
+  IconTestModule
+} from './fixtures/icon.fixture.module';
 
 describe('Icon component', () => {
   let fixture: ComponentFixture<IconTestComponent>;

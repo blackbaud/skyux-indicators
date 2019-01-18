@@ -4,10 +4,6 @@ import {
 } from '@angular/core/testing';
 
 import {
-  BrowserModule
-} from '@angular/platform-browser';
-
-import {
   expect
 } from '@skyux-sdk/testing';
 
@@ -15,13 +11,14 @@ import {
   AlertTestComponent
 } from './fixtures/alert.component.fixture';
 
-import { AlertTestModule } from './fixtures/alert.fixture.module';
+import {
+  AlertTestModule
+} from './fixtures/alert.fixture.module';
 
 describe('Alert component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserModule,
         AlertTestModule
       ]
     });
