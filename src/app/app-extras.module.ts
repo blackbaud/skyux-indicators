@@ -7,29 +7,13 @@ import {
 } from '@skyux/router';
 
 import {
-  SkyAlertModule,
-  SkyChevronModule,
-  SkyHelpInlineModule,
-  SkyIconModule,
-  SkyKeyInfoModule,
-  SkyLabelModule,
-  SkyTextHighlightModule,
-  SkyTokensModule,
-  SkyWaitModule
+  SkyIconModule
 } from './public';
 
 @NgModule({
   exports: [
-    SkyAlertModule,
     SkyAppLinkModule,
-    SkyChevronModule,
-    SkyHelpInlineModule,
-    SkyIconModule,
-    SkyKeyInfoModule,
-    SkyLabelModule,
-    SkyTextHighlightModule,
-    SkyTokensModule,
-    SkyWaitModule
+    SkyIconModule
   ]
 })
 export class AppExtrasModule { }
