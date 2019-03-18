@@ -3,14 +3,6 @@ import {
 } from '@angular/core';
 
 import {
-  SkyLibResourcesService
-} from '@skyux/i18n';
-
-import {
-  SkyLibResourcesTestService
-} from '@skyux/i18n/testing';
-
-import {
   SkyAlertModule
 } from '../alert.module';
 
@@ -24,12 +16,6 @@ import {
   ],
   imports: [
     SkyAlertModule
-  ],
-  providers: [
-    {
-      provide: SkyLibResourcesService,
-      useClass: SkyLibResourcesTestService
-    }
   ]
 })
 export class AlertTestModule { }

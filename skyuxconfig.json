@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/@skyux/config/skyuxconfig-schema.json",
   "name": "skyux-indicators",
   "mode": "easy",
   "compileMode": "aot",
@@ -8,6 +9,9 @@
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
+  "moduleAliases": {
+    "@skyux/indicators": "./src/app/public"
+  },
   "app": {
     "styles": [
       "src/app/visual-styles.scss"
