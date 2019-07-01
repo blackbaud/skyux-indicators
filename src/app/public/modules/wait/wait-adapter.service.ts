@@ -2,7 +2,7 @@ import {
   ElementRef,
   Injectable,
   OnDestroy,
-  Renderer2
+  Renderer
 } from '@angular/core';
 
 // Need to add the following to classes which contain static methods.
@@ -10,14 +10,13 @@ import {
 // @dynamic
 @Injectable()
 export class SkyWaitAdapterService implements OnDestroy {
-
   private static isPageWaitActive = false;
   private static busyElements: {[key: string]: {busyEl: HTMLElement, listener: any}} = {};
 
   private focussableElements: HTMLElement[];
 
   constructor(
-    private renderer: Renderer2
+    private renderer: Renderer
   ) { }
 
   public ngOnDestroy(): void {
@@ -25,11 +24,11 @@ export class SkyWaitAdapterService implements OnDestroy {
   }
 
   public setWaitBounds(waitEl: ElementRef): void {
-    this.renderer.setStyle(waitEl.nativeElement.parentElement, 'position', 'relative');
+    this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', 'relative');
   }
 
   public removeWaitBounds(waitEl: ElementRef): void {
-    this.renderer.setStyle(waitEl.nativeElement.parentElement, 'position', undefined);
+    this.renderer.setElementStyle(waitEl.nativeElement.parentElement, 'position', undefined);
   }
 
   public setBusyState(
@@ -43,7 +42,7 @@ export class SkyWaitAdapterService implements OnDestroy {
     const state = isWaiting ? 'true' : undefined;
 
     if (!isNonBlocking) {
-      this.renderer.setAttribute(busyEl, 'aria-busy', state);
+      this.renderer.setElementAttribute(busyEl, 'aria-busy', state);
 
       if (isWaiting) {
         // Remove focus from page when full page blocking wait
