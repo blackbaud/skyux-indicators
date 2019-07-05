@@ -11,7 +11,7 @@
       "browserSet": "speedy"
     },
     "unit": {
-      "browserSet": "quirky"
+      "browserSet": "paranoid"
     }
   },
   "app": {
