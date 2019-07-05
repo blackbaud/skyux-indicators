@@ -3,9 +3,6 @@
   "name": "skyux-indicators",
   "mode": "easy",
   "compileMode": "aot",
-  "skyuxModules": [
-    "SkyErrorModule"
-  ],
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
@@ -16,5 +13,10 @@
     "unit": {
       "browserSet": "paranoid"
     }
+  },
+  "app": {
+    "styles": [
+      "@skyux/theme/css/sky.css"
+    ]
   }
 }
