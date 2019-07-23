@@ -9,12 +9,21 @@ import {
 } from '@skyux/core';
 
 import {
-  SkyWaitPageComponent
-} from './wait-page.component';
+  defer,
+  Observable
+} from 'rxjs';
+
+import {
+  finalize
+} from 'rxjs/operators';
 
 import {
   SkyWaitPageAdapterService
 } from './wait-page-adapter.service';
+
+import {
+  SkyWaitPageComponent
+} from './wait-page.component';
 
 // Need to add the following to classes which contain static methods.
 // See: https://github.com/ng-packagr/ng-packagr/issues/641
@@ -61,6 +70,20 @@ export class SkyWaitService {
       SkyWaitService.pageWaitNonBlockingCount = 0;
       this.waitAdapter.removePageWaitEl();
     }
+  }
+
+  public blockingWrap<T>(observable: Observable<T>): Observable<T> {
+    return defer(() => {
+      this.beginBlockingPageWait();
+      return observable.pipe(finalize(() => this.endBlockingPageWait()));
+    });
+  }
+
+  public nonBlockingWrap<T>(observable: Observable<T>): Observable<T> {
+    return defer(() => {
+      this.beginNonBlockingPageWait();
+      return observable.pipe(finalize(() => this.endNonBlockingPageWait()));
+    });
   }
 
   private setWaitComponentProperties(isBlocking: boolean): void {
