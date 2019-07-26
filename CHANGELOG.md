@@ -2,7 +2,7 @@
 
 - Added methods to `SkyWaitService` to launch a wait component until an observable is completed. [#39](https://github.com/blackbaud/skyux-indicators/pull/39) (Thanks [@Blackbaud-ColbyWhite](https://github.com/Blackbaud-ColbyWhite)!)
 - Added support for `@skyux-sdk/builder@3.7.1`. [#37](https://github.com/blackbaud/skyux-indicators/pull/37)
-- Dropped peer dependency on `@skyux/theme`. [#35](https://github.com/blackbaud/skyux-indicators/pull/35)
+- Removed a peer dependency on `@skyux/theme`. [#35](https://github.com/blackbaud/skyux-indicators/pull/35)
 
 # 3.0.3 (2019-01-16)
 
