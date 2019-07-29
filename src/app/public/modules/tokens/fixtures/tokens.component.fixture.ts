@@ -7,7 +7,7 @@ import {
 
 import {
   Subject
-} from 'rxjs/Subject';
+} from 'rxjs';
 
 import {
   SkyToken,

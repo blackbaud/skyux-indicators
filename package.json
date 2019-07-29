@@ -6,7 +6,6 @@
   "module": "index.ts",
   "scripts": {
     "build": "skyux build-public-library",
-    "skyux": "skyux",
     "start": "skyux serve --hmr",
     "test": "skyux test --coverage library --logFormat none",
     "test:visual": "skyux e2e --logFormat none"
@@ -23,10 +22,10 @@
   },
   "homepage": "https://github.com/blackbaud/skyux-indicators#readme",
   "peerDependencies": {
-    "@angular/common": ">=4.3.6",
-    "@angular/core": ">=4.3.6",
-    "@skyux/core": "^3.5.1",
-    "@skyux/i18n": "^3.5.0"
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@skyux/core": "^4.0.0",
+    "@skyux/i18n": "^4.0.0"
   },
   "dependencies": {},
   "devDependencies": {
@@ -40,21 +39,21 @@
     "@angular/platform-browser": "7.2.15",
     "@angular/platform-browser-dynamic": "7.2.15",
     "@angular/router": "7.2.15",
-    "@blackbaud/auth-client": "2.16.0",
+    "@blackbaud/auth-client": "2.17.1",
     "@pact-foundation/pact": "9.0.1",
-    "@pact-foundation/pact-web": "7.4.0",
-    "@skyux-sdk/builder": "^3.8.0",
+    "@pact-foundation/pact-web": "9.0.1",
+    "@skyux-sdk/builder": "3.8.1",
     "@skyux-sdk/builder-plugin-skyux": "1.0.0",
     "@skyux-sdk/e2e": "3.1.2",
-    "@skyux-sdk/pact": "3.2.1",
+    "@skyux-sdk/pact": "3.3.0",
     "@skyux-sdk/testing": "3.1.0",
-    "@skyux/assets": "3.0.0",
+    "@skyux/assets": "3.1.0",
     "@skyux/config": "3.5.0",
-    "@skyux/core": "3.6.0",
-    "@skyux/http": "3.4.1",
+    "@skyux/core": "3.6.1",
+    "@skyux/http": "3.5.0",
     "@skyux/i18n": "3.7.1",
-    "@skyux/indicators": "3.0.3",
-    "@skyux/modals": "3.0.5",
+    "@skyux/indicators": "3.1.0",
+    "@skyux/modals": "3.0.6",
     "@skyux/omnibar-interop": "3.1.0",
     "@skyux/router": "3.1.1",
     "@skyux/theme": "3.7.0",
@@ -65,6 +64,6 @@
     "ts-node": "8.3.0",
     "tslint": "5.18.0",
     "typescript": "3.2.4",
-    "zone.js": "0.8.28"
+    "zone.js": "0.8.29"
   }
 }
