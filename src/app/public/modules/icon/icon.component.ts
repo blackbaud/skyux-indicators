@@ -4,6 +4,10 @@ import {
   Input
 } from '@angular/core';
 
+import {
+  SkyIconType
+} from './icon-type';
+
 @Component({
   selector: 'sky-icon',
   templateUrl: './icon.component.html',
@@ -20,8 +24,24 @@ export class SkyIconComponent {
   @Input()
   public fixedWidth: boolean;
 
+  @Input()
+  public set iconType(value: SkyIconType) {
+    this._iconType = value;
+  }
+
+  public get iconType(): SkyIconType {
+    return this._iconType || 'solid';
+  }
+
+  private _iconType: SkyIconType;
+
   public classList(): string[] {
-    const list: string[] = ['fa-' + this.icon];
+    const iconPrefix = (this.iconType === 'solid') ? 'fas' : 'fab';
+
+    const list: string[] = [
+      iconPrefix,
+      `fa-${this.icon}`
+    ];
 
     if (this.size) {
       list.push('fa-' + this.size);

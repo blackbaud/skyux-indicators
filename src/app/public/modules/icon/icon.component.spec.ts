@@ -1,7 +1,9 @@
 import {
   async,
   ComponentFixture,
-  TestBed
+  fakeAsync,
+  TestBed,
+  tick
 } from '@angular/core/testing';
 
 import {
@@ -73,4 +75,30 @@ describe('Icon component', () => {
     expect(element.querySelector('.sky-icon')).toHaveCssClass('fa-spinner');
     expect(element.querySelector('.sky-icon').classList.length).toBe(3);
   });
+
+  it('should set the appropriate icon prefix based on icon type', fakeAsync(() => {
+    cmp.icon = 'circle';
+    cmp.iconType = undefined; // test default value
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    tick();
+
+    let iconElement = element.querySelector('.sky-icon');
+
+    expect(iconElement).toHaveCssClass('fa-circle');
+    expect(iconElement).toHaveCssClass('fas');
+
+    cmp.iconType = 'brands';
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    tick();
+
+    iconElement = element.querySelector('.sky-icon');
+
+    expect(iconElement).toHaveCssClass('fab');
+  }));
 });
