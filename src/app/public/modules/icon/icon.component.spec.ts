@@ -100,5 +100,16 @@ describe('Icon component', () => {
     iconElement = element.querySelector('.sky-icon');
 
     expect(iconElement).toHaveCssClass('fab');
+
+    cmp.iconType = 'outline';
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    tick();
+
+    iconElement = element.querySelector('.sky-icon');
+
+    expect(iconElement).toHaveCssClass('far');
   }));
 });

@@ -36,7 +36,7 @@ export class SkyIconComponent {
   private _iconType: SkyIconType;
 
   public classList(): string[] {
-    const iconPrefix = (this.iconType === 'solid') ? 'fas' : 'fab';
+    const iconPrefix = this.getIconPrefix();
 
     const list: string[] = [
       iconPrefix,
@@ -51,5 +51,17 @@ export class SkyIconComponent {
     }
 
     return list;
+  }
+
+  private getIconPrefix(): string {
+    switch (this.iconType) {
+      case 'brands':
+        return 'fab';
+      case 'outline':
+        return 'far';
+      default:
+      case 'solid':
+        return 'fas';
+    }
   }
 }

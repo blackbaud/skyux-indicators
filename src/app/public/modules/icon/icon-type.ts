@@ -1,1 +1,1 @@
-export type SkyIconType = 'solid' | 'brands';
+export type SkyIconType = 'brands' | 'outline'| 'solid';
