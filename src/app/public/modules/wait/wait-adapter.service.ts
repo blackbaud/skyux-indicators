@@ -44,11 +44,10 @@ export class SkyWaitAdapterService implements OnDestroy {
     waitComponentId?: string
   ): void {
     const busyEl = isFullPage ? document.body : waitEl.nativeElement.parentElement;
-    const state = isWaiting ? 'true' : null;
 
     if (!isNonBlocking) {
       if (isWaiting) {
-        this.renderer.setAttribute(busyEl, 'aria-busy', state);
+        this.renderer.setAttribute(busyEl, 'aria-busy', 'true');
 
         // Remove focus from page when full page blocking wait
         if (isFullPage || busyEl.contains(document.activeElement)) {
