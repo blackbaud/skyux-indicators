@@ -1,3 +1,7 @@
+# 3.1.1 (2019-11-21)
+
+- Fixed the wait component's DOM adapter services to use the new `Renderer2` utility, instead of the deprecated `Renderer` utility. [#46](https://github.com/blackbaud/skyux-indicators/pull/46)
+
 # 3.1.0 (2019-07-26)
 
 - Added methods to `SkyWaitService` to launch a wait component until an observable is completed. [#39](https://github.com/blackbaud/skyux-indicators/pull/39) (Thanks [@Blackbaud-ColbyWhite](https://github.com/Blackbaud-ColbyWhite)!)
