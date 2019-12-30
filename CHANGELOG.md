@@ -1,6 +1,6 @@
 # 3.1.2 (2019-12-30)
 
-- Fixed the wait component to prevent throwing errors when using the keyboard. [#50](https://github.com/blackbaud/skyux-indicators/pull/50)
+- Fixed the wait and token components to prevent errors when using the keyboard. [#50](https://github.com/blackbaud/skyux-indicators/pull/50)
 
 # 3.1.1 (2019-11-21)
 
