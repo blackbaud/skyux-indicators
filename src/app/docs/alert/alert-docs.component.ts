@@ -30,6 +30,5 @@ export class AlertDocsComponent {
     if (change.alertType) {
       this.demoSettings.type = change.alertType;
     }
-    console.log(this.demoSettings.closable);
   }
 }
