@@ -96,6 +96,7 @@ describe('Tokens component', () => {
 
     fixture = TestBed.createComponent(SkyTokensTestComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
     tokensComponent = component.tokensComponent;
   });
 
