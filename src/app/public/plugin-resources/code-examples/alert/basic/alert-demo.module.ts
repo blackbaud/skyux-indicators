@@ -1,17 +1,31 @@
+
 import {
-  Component
+  NgModule
 } from '@angular/core';
 
-@Component({
-  selector: 'sky-alert-demo',
-  templateUrl: './alert-demo.component.html'
-})
-export class SkyAlertDemoComponent {
-  public closeable = true;
-  public closed = false;
-  public alertType = 'warning';
+import {
+  CommonModule
+} from '@angular/common';
 
-  public openAlert() {
-    this.closed = false;
-  }
-}
+import {
+  SkyAlertModule
+} from '@skyux/indicators';
+
+import {
+  AlertDemoComponent
+} from './alert-demo.component';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    SkyAlertModule
+  ],
+  declarations: [
+    AlertDemoComponent
+  ],
+  exports: [
+    AlertDemoComponent
+  ]
+})
+
+export class SkyAlertDemoComponent { }
