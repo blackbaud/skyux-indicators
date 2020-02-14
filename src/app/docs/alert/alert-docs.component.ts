@@ -19,6 +19,8 @@ export class AlertDocsComponent {
     { value: 'warning', label: 'Warning' }
   ];
 
+  public alertMessage = 'Danger alert message';
+
   public demoSettings: any = {};
 
   public onDemoSelectionChange(change: SkyDocsDemoControlPanelChange): void {
@@ -29,6 +31,15 @@ export class AlertDocsComponent {
     }
     if (change.alertType) {
       this.demoSettings.type = change.alertType;
+      if (this.demoSettings.type === 'danger') {
+        this.alertMessage = 'Danger alert message';
+      } else if (this.demoSettings.type === 'info') {
+        this.alertMessage = 'Info alert message';
+      } else if (this.demoSettings.type === 'success') {
+        this.alertMessage = 'Success alert message';
+      } else if (this.demoSettings.type === 'warning') {
+        this.alertMessage = 'Warning alert message';
+      }
     }
   }
 }
