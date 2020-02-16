@@ -25,8 +25,8 @@
   "peerDependencies": {
     "@angular/common": ">=4.3.6",
     "@angular/core": ">=4.3.6",
-    "@skyux/core": "^4.0.0-rc",
-    "@skyux/i18n": "^4.0.0-rc"
+    "@skyux/core": "^3.5.1",
+    "@skyux/i18n": "^3.5.0"
   },
   "dependencies": {},
   "devDependencies": {
@@ -52,17 +52,17 @@
     "@skyux-sdk/pact": "3.3.1",
     "@skyux-sdk/testing": "3.1.0",
     "@skyux/animations": "3.0.0",
-    "@skyux/assets": "4.0.0-rc.0",
-    "@skyux/config": "4.0.0-rc.0",
-    "@skyux/core": "4.0.0-rc.0",
+    "@skyux/assets": "3.1.0",
+    "@skyux/config": "3.7.0",
+    "@skyux/core": "3.10.1",
     "@skyux/docs-tools": "3.1.0",
     "@skyux/forms": "3.6.3",
     "@skyux/http": "4.0.0-rc.1",
-    "@skyux/i18n": "4.0.0-rc.1",
+    "@skyux/i18n": "3.9.3",
     "@skyux/indicators": "^3.1.0",
     "@skyux/inline-form": "3.1.0",
     "@skyux/layout": "3.7.0",
-    "@skyux/lists": "3.8.1",
+    "@skyux/lists": "3.8.0",
     "@skyux/lookup": "3.2.1",
     "@skyux/modals": "3.1.2",
     "@skyux/omnibar-interop": "3.1.0",
