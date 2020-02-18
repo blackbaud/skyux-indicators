@@ -26,19 +26,19 @@ export class AlertDocsComponent {
   public onDemoSelectionChange(change: SkyDocsDemoControlPanelChange): void {
     this.demoSettings.closed = false;
 
-    if (change.closable !== undefined) {
-      this.demoSettings.closable = change.closable;
+    if (change.closeable !== undefined) {
+      this.demoSettings.closeable = change.closeable;
     }
     if (change.alertType) {
       this.demoSettings.type = change.alertType;
       if (this.demoSettings.type === 'danger') {
-        this.alertMessage = 'Danger alert message';
+        this.alertMessage = 'Danger alert message.';
       } else if (this.demoSettings.type === 'info') {
-        this.alertMessage = 'Info alert message';
+        this.alertMessage = 'Info alert message.';
       } else if (this.demoSettings.type === 'success') {
-        this.alertMessage = 'Success alert message';
+        this.alertMessage = 'Success alert message.';
       } else if (this.demoSettings.type === 'warning') {
-        this.alertMessage = 'Warning alert message';
+        this.alertMessage = 'Warning alert message.';
       }
     }
   }
