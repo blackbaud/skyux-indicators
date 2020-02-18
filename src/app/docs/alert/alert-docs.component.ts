@@ -21,7 +21,15 @@ export class AlertDocsComponent {
 
   public alertMessage = 'Danger alert message';
 
+  public alerts: any[] = [];
+
   public demoSettings: any = {};
+
+  private defaultAlerts = [{}];
+
+  constructor() {
+    this.alerts = this.defaultAlerts;
+  }
 
   public onDemoSelectionChange(change: SkyDocsDemoControlPanelChange): void {
     this.demoSettings.closed = false;
@@ -41,5 +49,9 @@ export class AlertDocsComponent {
         this.alertMessage = 'Warning alert message';
       }
     }
+  }
+
+  public onDemoReset(): void {
+    this.alerts = this.defaultAlerts;
   }
 }
