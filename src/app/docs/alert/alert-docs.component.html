@@ -10,6 +10,7 @@
   <sky-docs-demo>
     <sky-docs-demo-control-panel
       (selectionChange)="onDemoSelectionChange($event)"
+      (reset)="onDemoReset()"
     >
       <sky-docs-demo-control-panel-section>
         <sky-docs-demo-control-panel-radio-group
@@ -31,7 +32,7 @@
       </sky-docs-demo-control-panel-section>
     </sky-docs-demo-control-panel>
 
-    <sky-alert
+    <sky-alert *ngFor="let alert of alerts"
       [alertType]="demoSettings.type"
       [closeable]="demoSettings.closeable"
       [(closed)]="demoSettings.closed">
@@ -143,7 +144,7 @@
     <sky-docs-demo-page-section
       heading="Options"
     >
-      
+
         <sky-docs-design-guideline
         heading="Alert type"
       >
@@ -202,7 +203,7 @@
           </tr>
         </table>
       </sky-docs-design-guideline>
-        
+
 
       <sky-docs-design-guideline
         heading="Close button"
@@ -266,7 +267,7 @@
         </sky-docs-design-guideline-thumbnail>
       </sky-docs-design-guideline>
     </sky-docs-demo-page-section>
-  
+
   </sky-docs-design-guidelines>
 
 </sky-docs-demo-page>
