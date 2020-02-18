@@ -25,7 +25,7 @@
       <sky-docs-demo-control-panel-section>
         <sky-docs-demo-control-panel-checkbox
           label="Closeable"
-          propertyName="closable"
+          propertyName="closeable"
           [checked]="false"
         >
         </sky-docs-demo-control-panel-checkbox>
@@ -34,9 +34,8 @@
 
     <sky-alert *ngFor="let alert of alerts"
       [alertType]="demoSettings.type"
-      [closeable]="demoSettings.closable"
-      [(closed)]="demoSettings.closed"
-    >
+      [closeable]="demoSettings.closeable"
+      [(closed)]="demoSettings.closed">
       {{ alertMessage }}
     </sky-alert>
   </sky-docs-demo>
