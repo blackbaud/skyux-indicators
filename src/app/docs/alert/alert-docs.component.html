@@ -58,7 +58,7 @@
         headingStyle="success"
       >
         <p>
-          Use alerts when something on the page the user is viewing is important and out of the ordinary, and the user needs to know about it before digesting the rest of the page.
+          Use alerts when information is important enough and exceptional enough that users should see it before the rest of the page.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-usage-1.png"
@@ -74,7 +74,7 @@
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-usage-2.png"
-          caption="Do use alerts when a system state requires a call to action."
+          caption="Do use alerts when the system state requires a call to action."
           captionType="success"
         >
         </sky-docs-design-guideline-thumbnail>
@@ -85,7 +85,7 @@
         headingStyle="danger"
       >
         <p>
-          Don’t use alerts to convey a normal lifecycle status of a record or page. Use <a href="https://developer.blackbaud.com/skyux/components/label">labels</a> or <a href="https://developer.blackbaud.com/skyux-theme/docs/status-indicator?docs-active-tab=design">status indicators</a> instead.
+          Don’t use alerts to convey the normal lifecycle statuses of records or pages. Use <a href="https://developer.blackbaud.com/skyux/components/label">labels</a> or <a href="https://developer.blackbaud.com/skyux-theme/docs/status-indicator?docs-active-tab=design">status indicators</a> instead.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-usage-3.png"
@@ -95,7 +95,7 @@
         </sky-docs-design-guideline-thumbnail>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-usage-4.png"
-          caption="Do use labels or status indicators to convey record status."
+          caption="Do use labels or status indicators to convey record statuses."
           captionType="success"
         >
         </sky-docs-design-guideline-thumbnail>
@@ -104,7 +104,7 @@
       <sky-docs-design-guideline
       >
         <p>
-            Don’t use alerts to show messages about the success of failure of user actions. Use <a href="https://developer.blackbaud.com/skyux/components/toast">toasts</a> instead.
+            Don’t use alerts to display messages about the success of failure of user actions. Use <a href="https://developer.blackbaud.com/skyux/components/toast">toasts</a> instead.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-usage-5.png"
@@ -144,11 +144,45 @@
     <sky-docs-demo-page-section
       heading="Options"
     >
-
-        <sky-docs-design-guideline
+      <sky-docs-design-guideline
         heading="Alert type"
       >
-        <table class="sky-docs-table">
+        <p>
+          Use the danger alert for error messages or to let users know that the system is in an unusable state.
+        </p>
+        <sky-docs-design-guideline-thumbnail
+          imageSource="~/assets/img/guidelines/alert/alert-type-1.png"
+        >
+        </sky-docs-design-guideline-thumbnail>
+      </sky-docs-design-guideline>
+      <sky-docs-design-guideline>
+        <p>
+          Use the info alert for messages that provide helpful information or context but do not require user action.
+        </p>
+        <sky-docs-design-guideline-thumbnail
+          imageSource="~/assets/img/guidelines/alert/alert-type-2.png"
+        >
+        </sky-docs-design-guideline-thumbnail>
+      </sky-docs-design-guideline>
+      <sky-docs-design-guideline>
+        <p>
+          Use the success alert for messages that convey a positive or successful state.
+        </p>
+        <sky-docs-design-guideline-thumbnail
+          imageSource="~/assets/img/guidelines/alert/alert-type-3.png"
+        >
+        </sky-docs-design-guideline-thumbnail>
+      </sky-docs-design-guideline>
+      <sky-docs-design-guideline>
+        <p>
+          Use the warning alert for messages that users should know about and perhaps act on but that do not constitute error states or indicate that something is wrong.
+        </p>
+        <sky-docs-design-guideline-thumbnail
+          imageSource="~/assets/img/guidelines/alert/alert-type-4.png"
+        >
+        </sky-docs-design-guideline-thumbnail>
+
+<!--        <table class="sky-docs-table">
           <tr>
             <td class="sky-docs-table-cell">
               <sky-docs-design-guideline-thumbnail
@@ -201,7 +235,8 @@
               </p>
             </td>
           </tr>
-        </table>
+        </table>  -->
+
       </sky-docs-design-guideline>
 
 
@@ -209,14 +244,14 @@
         heading="Close button"
       >
         <p>
-          If the user should be able to dismiss the alert from the page after reading, you can include an optional close button.
+          If users should be able to dismiss alerts from the page after reading, you can include the close button.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-option-1.png"
         >
         </sky-docs-design-guideline-thumbnail>
         <p>
-          Do not make an alert dismissible if it is important for users see every time or if it is triggered by underlying data.
+          Do not make alerts dismissible when it is important for users to see the alerts every time they access a page or when underlying data triggers the alerts.
         </p>
       </sky-docs-design-guideline>
     </sky-docs-demo-page-section>
@@ -226,7 +261,7 @@
     >
       <sky-docs-design-guideline>
         <p>
-          Text inside an alert can contain hyperlinks. For accessibility reasons, these links will not be styled blue as other links in the system are.
+          The text inside alerts can contain hyperlinks. For accessibility reasons, these links are not styled with blue text like other links.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-usage-2.png"
@@ -242,7 +277,7 @@
     >
       <sky-docs-design-guideline>
         <p>
-          When present, an alert should always be placed at the top of the page, above the page header.
+          Always place alerts at the top of the page above the page header.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-layout-1.png"
@@ -251,20 +286,41 @@
         </sky-docs-design-guideline>
         <sky-docs-design-guideline>
         <p>
-          Be careful of situations where multiple alerts may stack up; they quickly lose their value and become cluttered if several are present. Think about alternate methods of presenting the information or consolidating messages into one alert.
+          Avoid stacking multiple alerts because they quickly lose their impact and clutter the page. Try alternate methods to display the information, or consolidate messages into one alert.
         </p>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-layout-2.png"
-          caption="Don't use alerts in a way that allows them to accumulate."
+          caption="Don't accumulate multiple alerts at the top of a page."
           captionType="danger"
         >
         </sky-docs-design-guideline-thumbnail>
         <sky-docs-design-guideline-thumbnail
           imageSource="~/assets/img/guidelines/alert/alert-layout-3.png"
-          caption="Consolidate multiple important messages into a single alert when possible."
+          caption="Do use a single alert to consolidate multiple messages when possible and use alternate display methods such as labels."
           captionType="success"
         >
         </sky-docs-design-guideline-thumbnail>
+      </sky-docs-design-guideline>
+    </sky-docs-demo-page-section>
+
+    <sky-docs-demo-page-section
+      heading="Related information"
+    >
+      <sky-docs-design-guideline
+        heading="Components"
+      >
+        <ul>
+          <li><a href="https://developer.blackbaud.com/skyux/components/label">Label</a></li>
+          <li><a href="https://developer.blackbaud.com/skyux/components/status-indicator?docs-active-tab=design">Status indicator</a></li>
+          <li><a href="https://developer.blackbaud.com/skyux/components/toast">Toast</a></li>
+        </ul>
+      </sky-docs-design-guideline>
+      <sky-docs-design-guideline
+        heading="Guidelines"
+      >
+        <ul>
+          <li><a href="https://developer.blackbaud.com/skyux/design/guidelines/call-out-info">Call out information</a></li>
+        </ul>
       </sky-docs-design-guideline>
     </sky-docs-demo-page-section>
 
