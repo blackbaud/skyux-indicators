@@ -1,3 +1,13 @@
+# 4.0.0-rc.0 (2020-02-19)
+
+### New features
+
+- Updated the pipeline to transpile to the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview). [#58](https://github.com/blackbaud/skyux-indicators/pull/58)
+
+### Breaking changes
+
+- Dropped support for `rxjs@5`. Consumers may install `rxjs-compat@^6` to support older versions of `rxjs`. [#58](https://github.com/blackbaud/skyux-indicators/pull/58)
+
 # 3.1.3 (2020-02-12)
 
 - Fixed an Angular compiler template checking error on the tokens component's HTML template. [#55](https://github.com/blackbaud/skyux-indicators/pull/55)
