@@ -247,8 +247,10 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private initMessageStream(): void {
-    this.messageStream.pipe(
-      takeUntil(this.ngUnsubscribe))
+    this.messageStream
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
       .subscribe((message: SkyTokensMessage) => {
         /* tslint:disable-next-line:switch-default */
         switch (message.type) {
