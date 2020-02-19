@@ -27,5 +27,4 @@ import {
     AlertDemoComponent
   ]
 })
-
 export class SkyAlertDemoComponent { }
