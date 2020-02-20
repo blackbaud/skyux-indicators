@@ -8,6 +8,7 @@
 
 ### New features
 
+- Added support for `@angular/core@^9`. [#58](https://github.com/blackbaud/skyux-indicators/pull/58)
 - Updated the pipeline to transpile to the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview). [#58](https://github.com/blackbaud/skyux-indicators/pull/58)
 
 ### Breaking changes
