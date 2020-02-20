@@ -1,3 +1,9 @@
+# 4.0.0-rc.1 (2020-02-20)
+
+### Bug fixes
+
+- Added missing components and directives to the exports API. [#63](https://github.com/blackbaud/skyux-indicators/pull/63)
+
 # 4.0.0-rc.0 (2020-02-19)
 
 ### New features
