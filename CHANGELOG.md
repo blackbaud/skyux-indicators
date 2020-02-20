@@ -1,3 +1,9 @@
+# 4.0.0-rc.2 (2020-02-20)
+
+### Bug fixes
+
+- Removed internal components and directives from the exports API. [#64](https://github.com/blackbaud/skyux-indicators/pull/64)
+
 # 4.0.0-rc.1 (2020-02-20)
 
 ### Bug fixes
