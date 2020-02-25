@@ -44,7 +44,7 @@ export class SkyAlertComponent {
   /**
    * Fires when users close the alert.
    */
-   @Output()
+  @Output()
   public closedChange = new EventEmitter<boolean>();
 
   private _alertType: string;
