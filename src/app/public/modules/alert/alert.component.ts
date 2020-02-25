@@ -38,7 +38,7 @@ export class SkyAlertComponent {
    * Indicates whether the alert is closed.
    * @default false
    */
-   @Input()
+  @Input()
   public closed: boolean;
 
   /**
