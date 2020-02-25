@@ -29,7 +29,7 @@ export class SkyAlertComponent {
 
   /**
    * Indicates whether to include a close button for users to dismiss the alert.
-   * @default "false"
+   * @default false
    */
   @Input()
   public closeable: boolean;
