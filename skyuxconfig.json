@@ -6,9 +6,7 @@
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
-  "omnibar": {
-    "experimental": true
-  },
+  "omnibar": {},
   "params": {
     "svcid": {
       "value": "skyux"
