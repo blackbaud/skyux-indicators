@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import {
-  SkyWindowRefService
+  SkyAppWindowRef
 } from '@skyux/core';
 
 import {
@@ -37,7 +37,7 @@ export class SkyWaitService {
     private resolver: ComponentFactoryResolver,
     private appRef: ApplicationRef,
     private waitAdapter: SkyWaitPageAdapterService,
-    private windowSvc: SkyWindowRefService
+    private windowSvc: SkyAppWindowRef
   ) {}
 
   public beginBlockingPageWait(): void {
