@@ -6,8 +6,4 @@ import {
   selector: 'sky-key-info-value',
   template: '<ng-content></ng-content>'
 })
-export class SkyKeyInfoValueComponent {
-  /**
-   * test
-   */
-}
+export class SkyKeyInfoValueComponent {}
