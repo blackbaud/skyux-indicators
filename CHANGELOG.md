@@ -1,3 +1,7 @@
+# 3.2.0 (2020-04-02)
+
+- Updated the icon component to support icons from the SKY UX icon font. [#74](https://github.com/blackbaud/skyux-indicators/pull/74)
+
 # 4.0.0-rc.2 (2020-02-20)
 
 ### Bug fixes

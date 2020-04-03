@@ -26,7 +26,8 @@
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@skyux/core": "^4.0.0-rc.3",
-    "@skyux/i18n": "^4.0.0-rc.2"
+    "@skyux/i18n": "^4.0.0-rc.3",
+    "@skyux/theme": "^4.0.0-rc.2"
   },
   "dependencies": {},
   "devDependencies": {
@@ -66,9 +67,9 @@
     "@skyux/popovers": "4.0.0-rc.0",
     "@skyux/router": "4.0.0-rc.0",
     "@skyux/tabs": "4.0.0-rc.0",
-    "@skyux/theme": "4.0.0-rc.1",
+    "@skyux/theme": "4.0.0-rc.2",
     "codelyzer": "5.2.2",
-    "rxjs": "6.5.4",
+    "rxjs": "6.5.5",
     "ts-node": "8.6.2",
     "tslint": "5.20.1",
     "typescript": "3.6.5",
