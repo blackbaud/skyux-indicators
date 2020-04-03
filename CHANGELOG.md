@@ -1,3 +1,9 @@
+# 4.0.0-rc.3 (2020-04-03)
+
+### New features
+
+- Added bug fixes and features from the `master` branch. [#73](https://github.com/blackbaud/skyux-indicators/pull/73)
+
 # 3.2.0 (2020-04-02)
 
 - Updated the icon component to support icons from the SKY UX icon font. [#74](https://github.com/blackbaud/skyux-indicators/pull/74)
