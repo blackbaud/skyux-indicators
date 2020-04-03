@@ -1,6 +1,6 @@
 # 3.2.0 (2020-04-02)
 
-- Added support for displaying icons from the SKY UX icon font to the icon component. [#74](https://github.com/blackbaud/skyux-indicators/pull/74)
+- Updated the icon component to support icons from the SKY UX icon font. [#74](https://github.com/blackbaud/skyux-indicators/pull/74)
 
 # 3.1.3 (2020-02-12)
 
