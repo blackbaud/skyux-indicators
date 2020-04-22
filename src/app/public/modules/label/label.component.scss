@@ -1,4 +1,5 @@
 @import "~@skyux/theme/scss/mixins";
+@import "~@skyux/theme/scss/_compat/mixins";
 
 .sky-label {
   color: $sky-text-color-default;
@@ -9,6 +10,10 @@
   margin: 0 3px;
   padding: .3em .6em .3em .6em;
   white-space: nowrap;
+
+  &:before {
+    padding-right: $sky-padding-half;
+  }
 }
 
 .sky-label-success {
@@ -45,4 +50,8 @@
     content: "\f071";
     font-family: FontAwesome;
   }
+}
+
+.sky-label-text {
+  display: inline-block;
 }
