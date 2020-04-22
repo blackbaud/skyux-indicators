@@ -10,10 +10,6 @@
   margin: 0 3px;
   padding: .3em .6em .3em .6em;
   white-space: nowrap;
-
-  &:before {
-    padding-right: $sky-padding-half;
-  }
 }
 
 .sky-label-success {
@@ -54,4 +50,5 @@
 
 .sky-label-text {
   display: inline-block;
+  padding-left: $sky-padding-half;
 }
