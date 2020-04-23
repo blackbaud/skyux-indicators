@@ -1,3 +1,7 @@
+# 4.0.0-rc.4 (2020-04-23)
+
+- Added bug fixes and features from the `master` branch. [#79](https://github.com/blackbaud/skyux-indicators/pull/79)
+
 # 3.2.1 (2020-04-23)
 
 - Fixed the label component to add space between the label icon and text. [#77](https://github.com/blackbaud/skyux-indicators/pull/77)
