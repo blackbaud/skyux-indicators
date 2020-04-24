@@ -1,3 +1,4 @@
+@import "~@skyux/theme/scss/variables";
 @import "~@skyux/theme/scss/mixins";
 @import "~@skyux/theme/scss/_compat/mixins";
 
@@ -104,5 +105,63 @@
 .sky-alert-closeable {
   .sky-alert-close {
     display: block;
+  }
+}
+
+/* Theming */
+
+.sky-alert-close-icon-theme-modern,
+.sky-alert-icon-theme-modern {
+  display: none;
+}
+
+@include sky-theme-modern {
+  .sky-alert {
+    border-left-width: 7px;
+
+    &.sky-rounded-corners {
+      border-radius: 6px;
+    }
+
+    .sky-alert-content {
+      padding: $sky-theme-modern-padding-even-md;
+    }
+  }
+
+  .sky-alert-info,
+  .sky-alert-success,
+  .sky-alert-warning,
+  .sky-alert-danger {
+    &:before {
+      display: none;
+    }
+  }
+
+  .sky-alert-info .sky-alert-icon-theme-modern {
+    color: $sky-highlight-color-info;
+  }
+
+  .sky-alert-success .sky-alert-icon-theme-modern {
+    color: $sky-highlight-color-success;
+  }
+
+  .sky-alert-warning .sky-alert-icon-theme-modern {
+    color: $sky-highlight-color-warning;
+  }
+
+  .sky-alert-danger .sky-alert-icon-theme-modern {
+    color: $sky-highlight-color-danger;
+  }
+
+  .sky-alert-icon-theme-modern {
+    display: block;
+  }
+
+  .sky-alert-close-icon-theme-default {
+    display: none;
+  }
+
+  .sky-alert-close-icon-theme-modern {
+    display: inline;
   }
 }

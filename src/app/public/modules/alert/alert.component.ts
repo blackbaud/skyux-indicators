@@ -2,6 +2,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnInit,
   Output
 } from '@angular/core';
 
@@ -12,7 +13,7 @@ const ALERT_TYPE_DEFAULT = 'warning';
   styleUrls: ['./alert.component.scss'],
   templateUrl: './alert.component.html'
 })
-export class SkyAlertComponent {
+export class SkyAlertComponent implements OnInit {
   /**
    * Specifies a style for the alert to determine the icon and background color.
    * The valid options are `danger`, `info`, `success`, and `warning`.
@@ -21,6 +22,7 @@ export class SkyAlertComponent {
   @Input()
   public set alertType(value: string) {
     this._alertType = value;
+    this.updateAlertIcon();
   }
 
   public get alertType(): string {
@@ -47,10 +49,26 @@ export class SkyAlertComponent {
   @Output()
   public closedChange = new EventEmitter<boolean>();
 
+  public alertIcon: string;
+
   private _alertType: string;
+
+  public ngOnInit(): void {
+    this.updateAlertIcon();
+  }
 
   public close(): void {
     this.closed = true;
     this.closedChange.emit(true);
+  }
+
+  private updateAlertIcon(): void {
+    switch (this.alertType) {
+      case 'danger':
+        this.alertIcon = 'warning';
+        break;
+      default:
+        this.alertIcon = this.alertType;
+    }
   }
 }
