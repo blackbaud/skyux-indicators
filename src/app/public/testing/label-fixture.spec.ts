@@ -1,5 +1,3 @@
-//#region Imports
-
 import {
   TestBed
 } from '@angular/core/testing';
@@ -15,8 +13,6 @@ import {
 import {
   SkyLabelFixture
 } from './label-fixture';
-
-//#endregion Imports
 
 //#region Test component
 @Component({

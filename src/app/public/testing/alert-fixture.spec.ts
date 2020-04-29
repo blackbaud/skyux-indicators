@@ -1,5 +1,3 @@
-//#region Imports
-
 import {
   TestBed
 } from '@angular/core/testing';
@@ -11,9 +9,10 @@ import {
 import {
   SkyAlertModule
 } from '@skyux/indicators';
-import { SkyAlertFixture } from './alert-fixture';
 
-//#endregion Imports
+import {
+  SkyAlertFixture
+} from './alert-fixture';
 
 //#region Test component
 @Component({
