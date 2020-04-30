@@ -1,3 +1,9 @@
+# 4.0.0-rc.5 (2020-04-30)
+
+### New features
+
+- Added test fixtures for the alert and label components to be used in consumer unit tests. [#81](https://github.com/blackbaud/skyux-indicators/pull/81)
+
 # 4.0.0-rc.4 (2020-04-23)
 
 - Added bug fixes and features from the `master` branch. [#79](https://github.com/blackbaud/skyux-indicators/pull/79)

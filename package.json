@@ -1,6 +1,6 @@
 {
   "name": "@skyux/indicators",
-  "version": "4.0.0-rc.4",
+  "version": "4.0.0-rc.5",
   "description": "SKY UX Indicators",
   "scripts": {
     "build": "skyux build-public-library",
