@@ -81,7 +81,7 @@ export class SkyAlertFixture {
   /**
    * Closes the alert.  If the alert is not closeable, an error is thrown.
    */
-  public close() {
+  public close(): void {
     if (this.closeable) {
       const closeBtnEl = this.getCloseBtnEl();
 
