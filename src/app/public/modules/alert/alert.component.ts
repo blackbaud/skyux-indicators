@@ -6,6 +6,10 @@ import {
   Output
 } from '@angular/core';
 
+import {
+  SkyIconStackItem
+} from '../icon/icon-stack-item';
+
 const ALERT_TYPE_DEFAULT = 'warning';
 
 @Component({
@@ -49,7 +53,9 @@ export class SkyAlertComponent implements OnInit {
   @Output()
   public closedChange = new EventEmitter<boolean>();
 
-  public alertIcon: string;
+  public alertBaseIcon: SkyIconStackItem;
+
+  public alertTopIcon: SkyIconStackItem;
 
   private _alertType: string;
 
@@ -63,12 +69,32 @@ export class SkyAlertComponent implements OnInit {
   }
 
   private updateAlertIcon(): void {
+    let baseIcon: string;
+    let topIcon: string;
+
     switch (this.alertType) {
       case 'danger':
-        this.alertIcon = 'warning';
+      case 'warning':
+        baseIcon = 'exclamation-triangle';
+        topIcon = 'exclamation';
+        break;
+      case 'info':
+        baseIcon = 'circle';
+        topIcon = 'info';
+        break;
+      case 'success':
+        baseIcon = 'circle';
+        topIcon = 'check';
         break;
       default:
-        this.alertIcon = this.alertType;
     }
+
+    this.alertBaseIcon = {
+      icon: baseIcon
+    };
+
+    this.alertTopIcon = {
+      icon: topIcon
+    };
   }
 }

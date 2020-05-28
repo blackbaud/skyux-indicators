@@ -1,0 +1,15 @@
+<span
+  class="sky-icon-stack fa-stack"
+  [ngClass]="size ? 'fa-' + size : ''"
+>
+  <i *ngIf="baseIcon"
+    aria-hidden="true"
+    class="sky-icon fa-stack-2x"
+    [ngClass]="baseIcon.icon | skyIconClassList:baseIcon.iconType"
+  ></i>
+  <i *ngIf="topIcon"
+    aria-hidden="true"
+    class="sky-icon fa-stack-1x fa-inverse"
+    [ngClass]="topIcon.icon | skyIconClassList:topIcon.iconType"
+  ></i>
+</span>
