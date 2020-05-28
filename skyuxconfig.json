@@ -6,9 +6,7 @@
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
-  "omnibar": {
-    "experimental": true
-  },
+  "omnibar": {},
   "params": {
     "svcid": {
       "value": "skyux"
@@ -27,8 +25,16 @@
       "@skyux/docs-tools/css/docs-tools.css"
     ],
     "theming": {
-      "supportedThemes": ["default", "modern"],
+      "supportedThemes": [
+        "default",
+        "modern"
+      ],
       "theme": "default"
+    }
+  },
+  "host": {
+    "frameOptions": {
+      "none": true
     }
   }
 }
