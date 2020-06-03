@@ -11,7 +11,7 @@ import {
 export class SkyKeyInfoComponent {
 
 /**
- * Indicates whether to display key info in a vertical layout with the label under the primary
+ * Specifies whether to display key info in a vertical layout with the label under the primary
  * value or in a horizontal layout with the label beside the primary value.
  * @default "vertical"
  */
