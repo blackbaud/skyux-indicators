@@ -1,0 +1,30 @@
+name: GitHub Actions
+
+on:
+  pull_request:
+    branches: [
+      master
+    ]
+
+jobs:
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: npm i -g @skyux-sdk/cli@next
+      - run: npm ci
+      - run: npm i --no-save --no-package-lock blackbaud/skyux-sdk-builder-config
+      - name: Test
+        run: skyux test --coverage library --platform travis
+        env:
+          BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
+          BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
+      - name: Visual
+        run: skyux e2e --platform travis
+        env:
+          BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
+          BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
