@@ -72,29 +72,31 @@ export class SkyAlertComponent implements OnInit {
     let baseIcon: string;
     let topIcon: string;
 
+    // tslint:disable-next-line: switch-default
     switch (this.alertType) {
       case 'danger':
       case 'warning':
-        baseIcon = 'exclamation-triangle';
+        baseIcon = 'triangle-solid';
         topIcon = 'exclamation';
         break;
       case 'info':
-        baseIcon = 'circle';
-        topIcon = 'info';
+        baseIcon = 'circle-solid';
+        topIcon = 'help-i';
         break;
       case 'success':
-        baseIcon = 'circle';
+        baseIcon = 'circle-solid';
         topIcon = 'check';
         break;
-      default:
     }
 
     this.alertBaseIcon = {
-      icon: baseIcon
+      icon: baseIcon,
+      iconType: 'skyux'
     };
 
     this.alertTopIcon = {
-      icon: topIcon
+      icon: topIcon,
+      iconType: 'skyux'
     };
   }
 }

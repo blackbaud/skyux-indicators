@@ -4,7 +4,7 @@ import {
   SkyVisualThemeSelector
 } from '@skyux-sdk/e2e';
 
-describe('Alert', () => {
+describe('Icon stack', () => {
   let currentTheme: string;
   let currentThemeMode: string;
 
@@ -30,21 +30,21 @@ describe('Alert', () => {
   async function validateBasic(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
-    expect('.sky-alert-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('alert-lg')
+    expect('.sky-icon-stack-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: getScreenshotName('icon-stack-lg')
     });
   }
 
   async function validateBasicXs(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
-    expect('.sky-alert-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('alert-xs')
+    expect('.sky-icon-stack-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: getScreenshotName('icon-stack-xs')
     });
   }
 
-  beforeEach(async () => {
-    await SkyHostBrowser.get('visual/alert');
+  beforeEach(() => {
+    SkyHostBrowser.get('visual/icon-stack');
   });
 
   it('should match previous screenshot', (done) => {
