@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 
 /**
- * Specifies the primary content to display in large, bold text.
+ * Specifies a value to display in larger, bold text.
  * @required
  */
 @Component({

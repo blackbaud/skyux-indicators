@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 
 /**
- * Specifies a label to display in smaller, plain text under or beside the primary value.
+ * Specifies a label to display in smaller, plain text under or beside the value.
  * @required
  */
 @Component({
