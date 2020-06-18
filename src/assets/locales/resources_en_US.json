@@ -20,7 +20,7 @@
     "message": "Completed:"
   },
   "skyux_status_indicator_sr_error": {
-    "_description": "Screen reader text when the status indicator is a danger indicator",
+    "_description": "Screen reader text when the status indicator is an error indicator",
     "message": "Error:"
   },
   "skyux_status_indicator_sr_important_info": {

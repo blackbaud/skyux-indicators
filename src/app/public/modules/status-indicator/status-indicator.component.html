@@ -27,7 +27,7 @@
   <div
     class="sky-status-indicator-message-wrapper"
   >
-    <span
+    <span *ngIf="descriptionComputed"
       class="sky-screen-reader-only"
     >
       {{ descriptionComputed }}

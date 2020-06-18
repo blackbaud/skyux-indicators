@@ -25,7 +25,7 @@ import {
   SkyIconStackItem
 } from '../icon/icon-stack-item';
 
-const INDICATOR_TYPE_DEFAULT = 'warning';
+const INDICATOR_TYPE_DEFAULT: SkyIndicatorIconType = 'warning';
 
 @Component({
   selector: 'sky-status-indicator',

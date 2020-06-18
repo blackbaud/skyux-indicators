@@ -53,7 +53,7 @@ describe('Status indicator component', () => {
   function validateDescription(
     fixture: ComponentFixture<StatusIndicatorTestComponent>,
     descriptionType: string,
-    expectedDescription: string
+    expectedDescription?: string
   ): void {
     fixture.componentInstance.descriptionType = descriptionType;
 
@@ -65,7 +65,11 @@ describe('Status indicator component', () => {
       '.sky-status-indicator-message-wrapper .sky-screen-reader-only'
     );
 
-    expect(descriptionEl).toHaveText(expectedDescription);
+    if (expectedDescription) {
+      expect(descriptionEl).toHaveText(expectedDescription);
+    } else {
+      expect(descriptionEl).not.toExist();
+    }
   }
 
   beforeEach(() => {
@@ -107,8 +111,8 @@ describe('Status indicator component', () => {
     validateIcon(fixture, undefined, 'warning');
 
     validateIcon(fixture, 'danger', 'warning');
-    validateIcon(fixture, 'info', 'info-circle');
-    validateIcon(fixture, 'success', 'check-circle');
+    validateIcon(fixture, 'info', 'exclamation-circle');
+    validateIcon(fixture, 'success', 'check');
     validateIcon(fixture, 'warning', 'warning');
   });
 
@@ -120,7 +124,7 @@ describe('Status indicator component', () => {
     validateDescription(fixture, 'custom', fixture.componentInstance.customDescription);
     validateDescription(fixture, 'error', 'Error:');
     validateDescription(fixture, 'important-info', 'Important information:');
-    validateDescription(fixture, 'none', '');
+    validateDescription(fixture, 'none');
     validateDescription(fixture, 'warning', 'Warning:');
   });
 
