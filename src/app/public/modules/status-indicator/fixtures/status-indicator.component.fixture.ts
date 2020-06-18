@@ -8,10 +8,10 @@ import {
 })
 export class StatusIndicatorTestComponent {
 
-  public indicatorType: string;
+  public customDescription: string;
 
   public descriptionType: string;
 
-  public customDescription: string;
+  public indicatorType: string;
 
 }
