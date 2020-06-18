@@ -25,12 +25,12 @@ export  class SkyIndicatorIconUtility {
         topIcon = 'exclamation';
         break;
       case 'info':
-        icon = 'info-circle';
+        icon = 'exclamation-circle';
         baseIcon = 'circle-solid';
         topIcon = 'help-i';
         break;
       case 'success':
-        icon = 'check-circle';
+        icon = 'check';
         baseIcon = 'circle-solid';
         topIcon = 'check';
         break;
