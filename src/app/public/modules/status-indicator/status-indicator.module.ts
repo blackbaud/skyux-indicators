@@ -7,6 +7,14 @@ import {
 } from '@angular/common';
 
 import {
+  SkyI18nModule
+} from '@skyux/i18n';
+
+import {
+  SkyIndicatorsResourcesModule
+} from '../shared/indicators-resources.module';
+
+import {
   SkyIconModule
 } from '../icon/icon.module';
 
@@ -20,7 +28,9 @@ import {
   ],
   imports: [
     CommonModule,
-    SkyIconModule
+    SkyI18nModule,
+    SkyIconModule,
+    SkyIndicatorsResourcesModule
   ],
   exports: [
     SkyStatusIndicatorComponent

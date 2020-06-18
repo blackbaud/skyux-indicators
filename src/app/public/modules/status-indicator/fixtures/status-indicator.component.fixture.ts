@@ -10,4 +10,8 @@ export class StatusIndicatorTestComponent {
 
   public indicatorType: string;
 
+  public descriptionType: string;
+
+  public customDescription: string;
+
 }

@@ -17,6 +17,12 @@ import {
 
 describe('Status indicator component', () => {
 
+  function getStatusIndicatorEl(
+    fixture: ComponentFixture<StatusIndicatorTestComponent>
+  ): HTMLDivElement {
+    return fixture.nativeElement.querySelector('.sky-status-indicator');
+  }
+
   function validateIconWrapperClass(
     statusIndicatorEl: HTMLElement,
     indicatorType: string
@@ -35,13 +41,31 @@ describe('Status indicator component', () => {
 
     fixture.detectChanges();
 
-    const statusIndicatorEl = fixture.nativeElement.querySelector('.sky-status-indicator');
+    const statusIndicatorEl = getStatusIndicatorEl(fixture);
 
     validateIconWrapperClass(statusIndicatorEl, indicatorType);
 
     const iconEl = statusIndicatorEl.querySelector('.sky-icon');
 
     expect(iconEl).toHaveCssClass(`fa-${expectedIcon}`);
+  }
+
+  function validateDescription(
+    fixture: ComponentFixture<StatusIndicatorTestComponent>,
+    descriptionType: string,
+    expectedDescription: string
+  ): void {
+    fixture.componentInstance.descriptionType = descriptionType;
+
+    fixture.detectChanges();
+
+    const statusIndicatorEl = getStatusIndicatorEl(fixture);
+
+    const descriptionEl = statusIndicatorEl.querySelector(
+      '.sky-status-indicator-message-wrapper .sky-screen-reader-only'
+    );
+
+    expect(descriptionEl).toHaveText(expectedDescription);
   }
 
   beforeEach(() => {
@@ -55,12 +79,21 @@ describe('Status indicator component', () => {
     });
   });
 
-  it('should display the expected text', () => {
+  it('should not display the status indicator if `descriptionType` is not specified', () => {
     const fixture = TestBed.createComponent(StatusIndicatorTestComponent);
 
     fixture.detectChanges();
 
-    const statusIndicatorEl = fixture.nativeElement.querySelector('.sky-status-indicator');
+    expect(getStatusIndicatorEl(fixture)).not.toExist();
+  });
+
+  it('should display the expected text', () => {
+    const fixture = TestBed.createComponent(StatusIndicatorTestComponent);
+    fixture.componentInstance.descriptionType = 'none';
+
+    fixture.detectChanges();
+
+    const statusIndicatorEl = getStatusIndicatorEl(fixture);
 
     const messageEl = statusIndicatorEl.querySelector('.sky-status-indicator-message');
 
@@ -69,6 +102,7 @@ describe('Status indicator component', () => {
 
   it('should display the expected icon', () => {
     const fixture = TestBed.createComponent(StatusIndicatorTestComponent);
+    fixture.componentInstance.descriptionType = 'none';
 
     validateIcon(fixture, undefined, 'warning');
 
@@ -76,6 +110,28 @@ describe('Status indicator component', () => {
     validateIcon(fixture, 'info', 'info-circle');
     validateIcon(fixture, 'success', 'check-circle');
     validateIcon(fixture, 'warning', 'warning');
+  });
+
+  it('should add the expected screen reader description based on `descriptionType`', () => {
+    const fixture = TestBed.createComponent(StatusIndicatorTestComponent);
+    fixture.componentInstance.customDescription = 'Custom description';
+
+    validateDescription(fixture, 'completed', 'Completed:');
+    validateDescription(fixture, 'custom', fixture.componentInstance.customDescription);
+    validateDescription(fixture, 'error', 'Error:');
+    validateDescription(fixture, 'important-info', 'Important information:');
+    validateDescription(fixture, 'none', '');
+    validateDescription(fixture, 'warning', 'Warning:');
+  });
+
+  it('should be accessible', () => {
+    const fixture = TestBed.createComponent(StatusIndicatorTestComponent);
+    fixture.componentInstance.customDescription = 'Custom description';
+    fixture.componentInstance.descriptionType = 'custom';
+
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement).toBeAccessible();
   });
 
   describe('when modern theme', () => {
@@ -90,7 +146,7 @@ describe('Status indicator component', () => {
 
       fixture.detectChanges();
 
-      const statusIndicatorEl = fixture.nativeElement.querySelector('.sky-status-indicator');
+      const statusIndicatorEl = getStatusIndicatorEl(fixture);
 
       validateIconWrapperClass(statusIndicatorEl, indicatorType);
 
@@ -105,9 +161,9 @@ describe('Status indicator component', () => {
 
     it('should display the expected icon', () => {
       const fixture = TestBed.createComponent(StatusIndicatorTestComponent);
+      fixture.componentInstance.descriptionType = 'none';
 
       validateIconStack(fixture, undefined, 'triangle-solid', 'exclamation');
-
       validateIconStack(fixture, 'danger', 'triangle-solid', 'exclamation');
       validateIconStack(fixture, 'info', 'circle-solid', 'help-i');
       validateIconStack(fixture, 'success', 'circle-solid', 'check');

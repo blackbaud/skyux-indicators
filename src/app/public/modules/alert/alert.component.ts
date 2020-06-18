@@ -13,6 +13,7 @@ import {
 import {
   SkyIconStackItem
 } from '../icon/icon-stack-item';
+import { SkyIndicatorIconType } from '../shared/indicator-icon-type';
 
 const ALERT_TYPE_DEFAULT = 'warning';
 
@@ -73,7 +74,9 @@ export class SkyAlertComponent implements OnInit {
   }
 
   private updateAlertIcon(): void {
-    const indicatorIcon = SkyIndicatorIconUtility.getIconsForType(this.alertType);
+    const indicatorIcon = SkyIndicatorIconUtility.getIconsForType(
+      this.alertType as SkyIndicatorIconType
+    );
 
     this.alertBaseIcon = indicatorIcon.modernThemeBaseIcon;
     this.alertTopIcon = indicatorIcon.modernThemeTopIcon;

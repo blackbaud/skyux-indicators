@@ -28,18 +28,31 @@ describe('Status indicator', () => {
   }
 
   async function validateBasic(done: DoneFn): Promise<void> {
+    await SkyHostBrowser.setWindowBreakpoint('lg');
+
     expect('.sky-status-indicator-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('status-indicator-lg')
+      screenshotName: getScreenshotName('status-indicator')
+    });
+  }
+
+  async function validateWrap(done: DoneFn): Promise<void> {
+    await SkyHostBrowser.setWindowBreakpoint('xs');
+
+    expect('.sky-status-indicator-visual-wrap').toMatchBaselineScreenshot(done, {
+      screenshotName: getScreenshotName('status-indicator-wrap')
     });
   }
 
   beforeEach(async () => {
     await SkyHostBrowser.get('visual/status-indicator');
-    await SkyHostBrowser.setWindowBreakpoint('lg');
   });
 
   it('should match previous screenshot', (done) => {
     validateBasic(done);
+  });
+
+  it('should match previous screenshot when text wraps', (done) => {
+    validateWrap(done);
   });
 
   describe('when modern theme', () => {
@@ -52,6 +65,10 @@ describe('Status indicator', () => {
       validateBasic(done);
     });
 
+    it('should match previous screenshot when text wraps', (done) => {
+      validateWrap(done);
+    });
+
   });
 
   describe('when modern theme in dark mode', () => {
@@ -62,6 +79,10 @@ describe('Status indicator', () => {
 
     it('should match previous screenshot', (done) => {
       validateBasic(done);
+    });
+
+    it('should match previous screenshot when text wraps', (done) => {
+      validateWrap(done);
     });
 
   });

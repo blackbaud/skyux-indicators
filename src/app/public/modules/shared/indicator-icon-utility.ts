@@ -1,8 +1,17 @@
-import { SkyIndicatorIcon } from './indicator-icon';
+import {
+  SkyIndicatorIcon
+} from './indicator-icon';
 
+import {
+  SkyIndicatorIconType
+} from './indicator-icon-type';
+
+/**
+ * @internl
+ */
 export  class SkyIndicatorIconUtility {
 
-  public static getIconsForType(indicatorType: string): SkyIndicatorIcon {
+  public static getIconsForType(indicatorType: SkyIndicatorIconType): SkyIndicatorIcon {
     let icon: string;
     let baseIcon: string;
     let topIcon: string;

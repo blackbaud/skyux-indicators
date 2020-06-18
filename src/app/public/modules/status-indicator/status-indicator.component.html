@@ -1,5 +1,7 @@
-<span class="sky-status-indicator">
-  <span
+<div *ngIf="descriptionType"
+  class="sky-status-indicator"
+>
+  <div
     aria-hidden="true"
     class="sky-status-indicator-icon"
     [ngClass]="'sky-status-indicator-icon-' + indicatorType"
@@ -13,7 +15,7 @@
       ></sky-icon>
     </span>
     <span
-      class="sky-status-indicator-icon-modern"
+      class="sky-status-indicator-icon-modern sky-margin-inline-xs"
     >
       <sky-icon-stack
         size="xs"
@@ -22,10 +24,19 @@
       >
       </sky-icon-stack>
     </span>
-  </span>
-  <span
-    class="sky-status-indicator-message"
+  </div>
+  <div
+    class="sky-status-indicator-message-wrapper"
   >
-    <ng-content></ng-content>
-  </span>
-</span>
+    <span
+      class="sky-screen-reader-only"
+    >
+      {{ descriptionComputed }}
+    </span>
+    <span
+      class="sky-status-indicator-message"
+    >
+      <ng-content></ng-content>
+    </span>
+  </div>
+</div>

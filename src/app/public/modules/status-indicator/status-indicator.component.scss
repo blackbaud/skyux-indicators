@@ -1,5 +1,14 @@
 @import "~@skyux/theme/scss/mixins";
 
+.sky-status-indicator {
+  align-items: baseline;
+  display: flex;
+}
+
+.sky-status-indicator-icon {
+  flex-shrink: 1;
+}
+
 .sky-status-indicator-icon-modern {
   display: none;
 }
