@@ -1,6 +1,6 @@
 # 4.2.0 (2020-06-19)
 
-- Added the status indicator component to replace the pure CSS version. [#91](https://github.com/blackbaud/skyux-indicators/pull/91)
+- Added the status indicator component to replace the previous CSS version. [#91](https://github.com/blackbaud/skyux-indicators/pull/91)
 
 # 4.1.0 (2020-06-09)
 
