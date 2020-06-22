@@ -8,7 +8,7 @@ import {
 } from '@angular/common';
 
 import {
-  SkyIconModule
+  SkyStatusIndicatorModule
 } from '@skyux/indicators';
 
 import {
@@ -18,7 +18,7 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    SkyIconModule
+    SkyStatusIndicatorModule
   ],
   declarations: [
     StatusIndicatorDemoComponent
