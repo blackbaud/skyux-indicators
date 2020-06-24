@@ -1,20 +1,18 @@
-name: SKY UX Pipeline
+name: SKY UX CI
 
 on:
   pull_request:
   push:
     branches:
       - master
+      - 3.x.x
 
 jobs:
-  coverage:
-    name: Coverage
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - uses: Blackbaud-SteveBrush/skyux-libraries-action@v1.0.0-alpha.2
         with:
           browser-stack-access-key: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
