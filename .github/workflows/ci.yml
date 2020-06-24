@@ -1,10 +1,10 @@
-name: GitHub Actions
+name: SKY UX Pipeline
 
 on:
   pull_request:
-    branches: [
-      master
-    ]
+  push:
+    branches:
+      - master
 
 jobs:
   coverage:
@@ -14,17 +14,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
-      - run: npm i -g @skyux-sdk/cli@next
-      - run: npm ci
-      - run: npm i --no-save --no-package-lock blackbaud/skyux-sdk-builder-config
-      - name: Test
-        run: skyux test --coverage library --platform travis
-        env:
-          BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
-          BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
-      - name: Visual
-        run: skyux e2e --platform travis
-        env:
-          BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
-          BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
+          node-version: '12.x'
+      - uses: Blackbaud-SteveBrush/skyux-libraries-action@v1.0.0-alpha.2
+        with:
+          browser-stack-access-key: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
+          browser-stack-username: ${{ secrets.BROWSER_STACK_USERNAME }}
+          visual-baselines-repo: ${{ secrets.VISUAL_BASELINES_REPO_URL }}
+          visual-failures-repo: ${{ secrets.VISUAL_FAILURES_REPO_URL }}

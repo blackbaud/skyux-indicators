@@ -4,11 +4,14 @@ export * from './modules/chevron/chevron.module';
 
 export * from './modules/help-inline/help-inline.module';
 
+export * from './modules/icon/icon-stack-item';
 export * from './modules/icon/icon.module';
 
 export * from './modules/key-info/key-info.module';
 
 export * from './modules/label/label.module';
+
+export * from './modules/status-indicator/status-indicator.module';
 
 export * from './modules/text-highlight/text-highlight.module';
 

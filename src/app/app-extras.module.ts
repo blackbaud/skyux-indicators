@@ -12,6 +12,10 @@ import {
 } from '@skyux/router';
 
 import {
+  SkyThemeModule
+} from '@skyux/theme';
+
+import {
   SkyCodeModule
 } from '@blackbaud/skyux-lib-code-block';
 
@@ -22,6 +26,7 @@ import {
   SkyIconModule,
   SkyKeyInfoModule,
   SkyLabelModule,
+  SkyStatusIndicatorModule,
   SkyTextHighlightModule,
   SkyTokensModule,
   SkyWaitModule
@@ -38,7 +43,9 @@ import {
     SkyIconModule,
     SkyKeyInfoModule,
     SkyLabelModule,
+    SkyStatusIndicatorModule,
     SkyTextHighlightModule,
+    SkyThemeModule,
     SkyTokensModule,
     SkyWaitModule
   ],
