@@ -13,9 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: Blackbaud-SteveBrush/skyux-libraries-action@v1.0.0-alpha.2
+      - uses: Blackbaud-SteveBrush/skyux-libraries-action@v1.0.0-alpha.9
         with:
           browser-stack-access-key: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
           browser-stack-username: ${{ secrets.BROWSER_STACK_USERNAME }}
-          visual-baselines-repo: ${{ secrets.VISUAL_BASELINES_REPO_URL }}
-          visual-failures-repo: ${{ secrets.VISUAL_FAILURES_REPO_URL }}
+          npm-token: ${{ secrets.NPM_TOKEN }}
+          personal-access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
