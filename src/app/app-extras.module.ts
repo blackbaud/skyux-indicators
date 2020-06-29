@@ -29,7 +29,8 @@ import {
   SkyStatusIndicatorModule,
   SkyTextHighlightModule,
   SkyTokensModule,
-  SkyWaitModule
+  SkyWaitModule,
+  SkyTooltipModule
 } from './public/public_api';
 
 @NgModule({
@@ -46,6 +47,7 @@ import {
     SkyStatusIndicatorModule,
     SkyTextHighlightModule,
     SkyThemeModule,
+    SkyTooltipModule,
     SkyTokensModule,
     SkyWaitModule
   ],

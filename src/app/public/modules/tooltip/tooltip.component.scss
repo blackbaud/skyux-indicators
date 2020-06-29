@@ -1,0 +1,51 @@
+.sky-tooltip-container {
+  position: relative;
+  display: inline-block;
+
+  .sky-tooltip {
+    display: none;
+  }
+
+  &:hover .sky-tooltip {
+    display: block;
+  }
+}
+
+.sky-tooltip {
+  position: absolute;
+  max-width: none;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+}
+
+.sky-tooltip-content {
+  font-size: 11px;
+  background-color: #000;
+  color: white;
+  padding: 5px 8px 4px 8px;
+  text-align: center;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.sky-tooltip-arrow {
+  top: -20%;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border-right-style: dashed;
+  border-right-width: 5px;
+  border-bottom-color: rgb(0, 0, 0);
+  border-bottom-width: 5px;
+  border-left-style: dashed;
+  border-left-width: 5px;
+}

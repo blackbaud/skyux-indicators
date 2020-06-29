@@ -15,6 +15,9 @@ export * from './modules/status-indicator/status-indicator.module';
 
 export * from './modules/text-highlight/text-highlight.module';
 
+export * from './modules/tooltip/tooltip.module';
+export * from './modules/tooltip/tooltip.component';
+
 export * from './modules/tokens/tokens.module';
 export * from './modules/tokens/types/token';
 export * from './modules/tokens/types/token-selected-event-args';
