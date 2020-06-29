@@ -11,4 +11,7 @@ import {
 export class SkyTooltipComponent {
   @Input()
   public label: string;
+
+  @Input()
+  public disabled: boolean = false;
 }

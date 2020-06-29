@@ -8,4 +8,5 @@ import {
 })
 export class TooltipFixtureComponent {
   public label: string = 'Best label';
+  public disabled: boolean = false;
 }

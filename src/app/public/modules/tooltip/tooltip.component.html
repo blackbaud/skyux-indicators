@@ -2,7 +2,7 @@
   class="sky-tooltip-container"
 >
   <ng-content></ng-content>
-  <div
+  <div *ngIf="!disabled"
     aria-hidden="true"
     class="sky-tooltip"
   >

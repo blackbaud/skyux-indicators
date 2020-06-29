@@ -59,4 +59,12 @@ describe('Tooltips', () => {
     const tooltipContent = fixture.nativeElement.querySelector('.sky-tooltip-content');
     expect(tooltipContent).toHaveText(expectedLabel);
   }));
+
+  it('should not render tooltip if disabled', fakeAsync(() => {
+    fixture.componentInstance.disabled = true;
+    detectChanges();
+
+    const tooltip = fixture.nativeElement.querySelector('.sky-tooltip');
+    expect(tooltip).toBeFalsy();
+  }));
 });
