@@ -18,12 +18,3 @@ install:
 
 script:
   - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-script.sh)
-
-after_script:
-  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-after-script.sh)
-
-after_success:
-  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-after-success.sh)
-
-after_failure:
-  - bash <(curl -s https://blackbaud.github.io/skyux-travis/v3/library-after-failure.sh)
