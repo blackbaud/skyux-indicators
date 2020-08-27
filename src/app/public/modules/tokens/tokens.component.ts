@@ -48,6 +48,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
+
+  /**
+   * Indicates whether to disable the tokens list to prevent users from selecting tokens,
+   * dismissing tokens, or navigating through the list with the arrow keys. When the tokens list
+   * is disabled, users can still place focus on items in the list using the `Tab` key.
+   * @default false
+   */
   @Input()
   public set disabled(value: boolean) {
     this._disabled = value;
@@ -57,6 +64,11 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     return !!this._disabled;
   }
 
+  /**
+   * Indicates whether users can remove tokens from the list by selecting their close buttons
+   * or pressing the `Backspace` key.
+   * @default true
+   */
   @Input()
   public set dismissible(value: boolean) {
     this._dismissible = value;
@@ -66,6 +78,10 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     return (this._dismissible !== false);
   }
 
+  /**
+   * Specifies the token property to display for each item in the tokens list.
+   * @default "name"
+   */
   @Input()
   public set displayWith(value: string) {
     this._displayWith = value;
@@ -75,6 +91,12 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     return this._displayWith || 'name';
   }
 
+  /**
+   * Indicates whether users can focus on items in the list using the `Tab` key.
+   * This does not affect the ability of users to select tokens, dismiss tokens,
+   * or navigate through the list with the arrow keys.
+   * @default true
+   */
   @Input()
   public set focusable(value: boolean) {
     this._focusable = value;
@@ -84,6 +106,9 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     return (this._focusable !== false);
   }
 
+  /**
+   * Specifies an array of tokens to include in the list.
+   */
   @Input()
   public set tokens(value: SkyToken[]) {
     this._tokens = value;
@@ -94,21 +119,43 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     return this._tokens || [];
   }
 
+  /**
+   * Specifies an observable of `SkyTokensMessage` that can place focus on a
+   * particular token or remove the active token from the list.
+   */
   @Input()
   public messageStream = new Subject<SkyTokensMessage>();
 
-  @Output()
-  public tokensChange = new EventEmitter<SkyToken[]>();
-
+  /**
+   * Fires when users navigate through the tokens list with the `Tab` key
+   * and attempt to move past the final token in the list.
+   */
   @Output()
   public focusIndexOverRange = new EventEmitter<void>();
 
+  /**
+   * Fires when usersnavigate through the tokens list with the `Tab` key
+   * and attempt to move before the first token in the list.
+   */
   @Output()
   public focusIndexUnderRange = new EventEmitter<void>();
 
+  /**
+   * Fires when users select a token in the list. This event emits the selected token.
+   */
   @Output()
   public tokenSelected = new EventEmitter<SkyTokenSelectedEventArgs>();
 
+  /**
+   * Fires when the tokens in the list change.
+   * This event emits an array of the tokens in the updated list.
+   */
+  @Output()
+  public tokensChange = new EventEmitter<SkyToken[]>();
+
+  /**
+   * @internal
+   */
   public get activeIndex(): number {
     return this._activeIndex || 0;
   }
@@ -142,12 +189,20 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     private changeDetector: ChangeDetectorRef
   ) { }
 
+  /**
+   * Angular's ngOnInit lifecycle hook.
+   * @internal
+   */
   public ngOnInit(): void {
     if (this.messageStream) {
       this.initMessageStream();
     }
   }
 
+  /**
+   * Angular's ngOnChanges lifecycle hook.
+   * @internal
+   */
   public ngOnChanges(changes: SimpleChanges): void {
     if (
       changes.messageStream &&
@@ -158,6 +213,10 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * Angular's ngOnDestroy lifecycle hook.
+   * @internal
+   */
   public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
@@ -167,6 +226,9 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * @internal
+   */
   public onTokenClick(token: SkyToken): void {
     if (this.disabled) {
       return;
@@ -175,6 +237,9 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     this.notifyTokenSelected(token);
   }
 
+  /**
+   * @internal
+   */
   public onTokenKeyDown(event: KeyboardEvent): void {
     /*istanbul ignore else */
     if (event.key) {
@@ -200,6 +265,9 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * @internal
+   */
   public selectToken(token: SkyToken): void {
     if (this.disabled) {
       return;
@@ -208,6 +276,9 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     this.notifyTokenSelected(token);
   }
 
+  /**
+   * @internal
+   */
   public removeToken(token: SkyToken): void {
     this.tokens = this.tokens.filter(t => t !== token);
     this.changeDetector.detectChanges();
