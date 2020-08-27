@@ -37,20 +37,12 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
     private observerService: MutationObserverService
   ) { }
 
-  /**
-   * Angular's ngOnChanges lifecycle hook.
-   * @internal
-   */
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.skyHighlight && !changes.skyHighlight.firstChange) {
       this.highlight();
     }
   }
 
-  /**
-   * Angular's ngAfterViewInit lifecycle hook.
-   * @internal
-   */
   public ngAfterViewInit(): void {
     const self = this;
     this.observer = this.observerService.create((mutations: MutationRecord[]) => {
@@ -63,10 +55,6 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
     }
   }
 
-  /**
-   * Angular's ngOnDestroy lifecycle hook.
-   * @internal
-   */
   public ngOnDestroy(): void {
     if (this.observer) {
       this.observer.disconnect();

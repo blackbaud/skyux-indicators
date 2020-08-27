@@ -80,7 +80,7 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
 
   /**
    * Specifies the token property to display for each item in the tokens list.
-   * @default "name"
+   * @default 'name'
    */
   @Input()
   public set displayWith(value: string) {
@@ -189,20 +189,12 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     private changeDetector: ChangeDetectorRef
   ) { }
 
-  /**
-   * Angular's ngOnInit lifecycle hook.
-   * @internal
-   */
   public ngOnInit(): void {
     if (this.messageStream) {
       this.initMessageStream();
     }
   }
 
-  /**
-   * Angular's ngOnChanges lifecycle hook.
-   * @internal
-   */
   public ngOnChanges(changes: SimpleChanges): void {
     if (
       changes.messageStream &&
@@ -213,10 +205,6 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  /**
-   * Angular's ngOnDestroy lifecycle hook.
-   * @internal
-   */
   public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
@@ -226,9 +214,6 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  /**
-   * @internal
-   */
   public onTokenClick(token: SkyToken): void {
     if (this.disabled) {
       return;
@@ -237,9 +222,6 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     this.notifyTokenSelected(token);
   }
 
-  /**
-   * @internal
-   */
   public onTokenKeyDown(event: KeyboardEvent): void {
     /*istanbul ignore else */
     if (event.key) {
@@ -265,9 +247,6 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  /**
-   * @internal
-   */
   public selectToken(token: SkyToken): void {
     if (this.disabled) {
       return;
@@ -276,9 +255,6 @@ export class SkyTokensComponent implements OnInit, OnChanges, OnDestroy {
     this.notifyTokenSelected(token);
   }
 
-  /**
-   * @internal
-   */
   public removeToken(token: SkyToken): void {
     this.tokens = this.tokens.filter(t => t !== token);
     this.changeDetector.detectChanges();
