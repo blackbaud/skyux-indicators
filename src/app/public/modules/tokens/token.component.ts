@@ -36,7 +36,7 @@ export class SkyTokenComponent {
 
   /**
    * Sets the `aria-label` and title attributes for the token's close button to support accessibility.
-   * @default "Remove item"
+   * @default 'Remove item'
    */
   @Input()
   public set ariaLabel(value: string) {
