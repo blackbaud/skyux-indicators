@@ -1,7 +1,11 @@
 import {
   Component
 } from '@angular/core';
-import { SkyDocsDemoControlPanelRadioChoice, SkyDocsDemoControlPanelChange } from '@skyux/docs-tools';
+
+import {
+  SkyDocsDemoControlPanelChange,
+  SkyDocsDemoControlPanelRadioChoice
+} from '@skyux/docs-tools';
 
 @Component({
   selector: 'app-key-info-docs',
@@ -17,7 +21,7 @@ export class KeyInfoDocsComponent {
   ];
 
   public onDemoSelectionChange(event: SkyDocsDemoControlPanelChange): void {
-    if (event.layout !== undefined) {
+    if (event.layout) {
       this.layout = event.layout;
     }
   }
