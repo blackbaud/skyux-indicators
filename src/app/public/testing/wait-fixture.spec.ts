@@ -56,6 +56,6 @@ describe('Wait fixture', () => {
     expect(waitFixture.isWaiting).toEqual(true);
     expect(waitFixture.isFullPage).toEqual(true);
     expect(waitFixture.isNonBlocking).toEqual(false);
-    expect(waitFixture.ariaLabel).toEqual('di label');
+    expect(waitFixture.ariaLabel).toEqual('test label');
   });
 });
