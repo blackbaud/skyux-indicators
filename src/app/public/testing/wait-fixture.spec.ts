@@ -9,7 +9,10 @@ import {
 import {
   SkyWaitModule
 } from '@skyux/indicators';
-import { SkyWaitFixture } from './wait-fixture';
+
+import {
+  SkyWaitFixture
+} from './wait-fixture';
 
 @Component({
   selector: 'wait-test',
