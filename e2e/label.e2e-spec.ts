@@ -1,24 +1,72 @@
 import {
   expect,
-  SkyHostBrowser
+  SkyHostBrowser,
+  SkyVisualThemeSelector
 } from '@skyux-sdk/e2e';
 
 describe('Label', () => {
-  beforeEach(() => {
-    SkyHostBrowser.get('visual/label');
+  let currentTheme: string;
+  let currentThemeMode: string;
+
+  async function selectTheme(theme: string, mode: string): Promise<void> {
+    currentTheme = theme;
+    currentThemeMode = mode;
+
+    return SkyVisualThemeSelector.selectTheme(theme, mode);
+  }
+
+  function getScreenshotName(name: string): string {
+    if (currentTheme) {
+      name += '-' + currentTheme;
+    }
+
+    if (currentThemeMode) {
+      name += '-' + currentThemeMode;
+    }
+
+    return name;
+  }
+
+  function runTests(): void {
+    it('should match previous screenshot', async (done) => {
+      await SkyHostBrowser.setWindowBreakpoint('lg');
+
+      expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
+        screenshotName: getScreenshotName('label-lg')
+      });
+    });
+
+    it('should match previous screenshot (screen: xs)', async (done) => {
+      await SkyHostBrowser.setWindowBreakpoint('xs');
+
+      expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
+        screenshotName: getScreenshotName('label-xs')
+      });
+    });
+  }
+
+  beforeEach(async () => {
+    currentTheme = undefined;
+    currentThemeMode = undefined;
+
+    await SkyHostBrowser.get('visual/label');
   });
 
-  it('should match previous screenshot', (done) => {
-    SkyHostBrowser.setWindowBreakpoint('lg');
-    expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
-      screenshotName: 'label-lg'
+  runTests();
+
+  describe('when modern theme', () => {
+    beforeEach(async () => {
+      await selectTheme('modern', 'light');
     });
+
+    runTests();
   });
 
-  it('should match previous screenshot (screen: xs)', (done) => {
-    SkyHostBrowser.setWindowBreakpoint('xs');
-    expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
-      screenshotName: 'label-xs'
+  describe('when modern theme in dark mode', () => {
+    beforeEach(async () => {
+      await selectTheme('modern', 'dark');
     });
+
+    runTests();
   });
 });
