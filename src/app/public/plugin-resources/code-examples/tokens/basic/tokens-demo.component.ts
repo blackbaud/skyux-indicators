@@ -29,10 +29,10 @@ export class TokensDemoComponent  {
   ];
 
   constructor() {
-    this.colors = this.parseTokens(this.defaultColors);
+    this.colors = this.getTokens(this.defaultColors);
   }
 
-  private parseTokens(data: any[]): SkyToken[] {
+  private getTokens(data: any[]): SkyToken[] {
     return data.map((item: any) => {
       return {
         value: item

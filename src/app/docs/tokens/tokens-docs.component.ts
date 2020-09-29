@@ -1,7 +1,10 @@
 import {
   Component
 } from '@angular/core';
-import { SkyDocsDemoControlPanelChange } from '@skyux/docs-tools';
+
+import {
+  SkyDocsDemoControlPanelChange
+} from '@skyux/docs-tools';
 
 import {
   SkyToken
@@ -32,7 +35,7 @@ export class TokensDocsComponent {
   public demoSettings: any = {};
 
   constructor() {
-    this.colors = this.parseTokens(this.defaultColors);
+    this.colors = this.getTokens(this.defaultColors);
   }
 
   public onDemoSelectionChange(change: SkyDocsDemoControlPanelChange): void {
@@ -48,10 +51,10 @@ export class TokensDocsComponent {
   }
 
   public onDemoReset(): void {
-    this.colors = this.parseTokens(this.defaultColors);
+    this.colors = this.getTokens(this.defaultColors);
   }
 
-  private parseTokens(data: any[]): SkyToken[] {
+  private getTokens(data: any[]): SkyToken[] {
     return data.map((item: any) => {
       return {
         value: item

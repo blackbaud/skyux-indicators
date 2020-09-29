@@ -32,7 +32,7 @@ export class TokensDemoComponent implements OnDestroy {
   public tokensController: Subject<SkyTokensMessage>;
 
   constructor() {
-    this.myTokens = this.parseTokens(this.defaultTokens);
+    this.myTokens = this.getTokens(this.defaultTokens);
   }
 
   public ngOnDestroy(): void {
@@ -46,7 +46,7 @@ export class TokensDemoComponent implements OnDestroy {
   }
 
   public changeTokens(): void {
-    this.myTokens = this.parseTokens([
+    this.myTokens = this.getTokens([
       { label: 'Paid' },
       { label: 'Pending' },
       { label: 'Past due' }
@@ -58,7 +58,7 @@ export class TokensDemoComponent implements OnDestroy {
   }
 
   public createTokens(): void {
-    this.myTokens = this.parseTokens(this.defaultTokens);
+    this.myTokens = this.getTokens(this.defaultTokens);
   }
 
   public onTokenSelected(args: SkyTokenSelectedEventArgs): void {
@@ -83,7 +83,7 @@ export class TokensDemoComponent implements OnDestroy {
     });
   }
 
-  private parseTokens(data: any[]): SkyToken[] {
+  private getTokens(data: any[]): SkyToken[] {
     return data.map((item: any) => {
       return {
         value: item
