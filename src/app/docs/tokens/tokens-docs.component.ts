@@ -47,6 +47,10 @@ export class TokensDocsComponent {
     }
   }
 
+  public onDemoReset(): void {
+    this.colors = this.parseTokens(this.defaultColors);
+  }
+
   private parseTokens(data: any[]): SkyToken[] {
     return data.map((item: any) => {
       return {

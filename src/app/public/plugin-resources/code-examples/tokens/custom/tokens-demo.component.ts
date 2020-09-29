@@ -15,7 +15,7 @@ import {
 } from 'rxjs';
 
 @Component({
-  selector: 'sky-tokens-demo',
+  selector: 'app-tokens-demo',
   templateUrl: './tokens-demo.component.html'
 })
 export class TokensDemoComponent implements OnDestroy {
