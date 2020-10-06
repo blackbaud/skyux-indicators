@@ -3,10 +3,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-text-highlight-docs',
-  templateUrl: './text-highlight-docs.component.html'
+  selector: 'app-text-highlight-demo',
+  templateUrl: './text-highlight-demo.component.html'
 })
-export class TextHighlightDocsComponent {
+export class TextHighlightDemoComponent {
 
   public searchTerm: string;
 
