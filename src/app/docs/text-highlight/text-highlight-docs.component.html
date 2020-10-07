@@ -8,6 +8,19 @@
   </sky-docs-demo-page-summary>
 
   <sky-docs-demo>
+    <sky-docs-demo-control-panel
+      (selectionChange)="onDemoSelectionChange($event)"
+      (reset)="onDemoReset()"
+    >
+      <sky-docs-demo-control-panel-section>
+        <sky-docs-demo-control-panel-checkbox
+          label="Show additional content"
+          propertyName="showAdditionalContent"
+          [checked]="false"
+        >
+        </sky-docs-demo-control-panel-checkbox>
+      </sky-docs-demo-control-panel-section>
+    </sky-docs-demo-control-panel>
     <div
       class="sky-form-group"
       style="width:200px;"
@@ -30,22 +43,10 @@
     </div>
 
     <div
-      class="sky-margin-stacked-default"
-    >
-      <sky-checkbox
-        [(ngModel)]="showAdditionalContent"
-      >
-        <sky-checkbox-label>
-          Display additional content
-        </sky-checkbox-label>
-      </sky-checkbox>
-    </div>
-
-    <div
       [skyHighlight]="searchTerm"
     >
       The text that you enter is highlighted here.
-      <div *ngIf="showAdditionalContent">
+      <div *ngIf="demoSettings.showAdditionalContent">
         This additional content is highlighted too!
       </div>
     </div>
