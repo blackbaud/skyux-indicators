@@ -46,8 +46,8 @@ describe('Wait component', () => {
     fixture.componentInstance.isWaiting = true;
     fixture.detectChanges();
     expect(el.querySelector('.sky-wait')).not.toBeNull();
-    fixture.whenStable().then(() => {
-      expectAsync(fixture.nativeElement).toBeAccessible();
+    fixture.whenStable().then(async () => {
+      await expectAsync(fixture.nativeElement).toBeAccessible();
     });
   }));
 
@@ -150,8 +150,7 @@ describe('Wait component', () => {
     expect(document.activeElement).toBe(document.body);
   }));
 
-  it(`should allow tab navigation and focus when a fullPage wait existed but now does not even if .
-  there was another quiclky added wait`, fakeAsync(() => {
+  it(`should allow tab navigation and focus after a fullPage wait is removed when another non-blocking wait still exists and both waits were added at the same time`, fakeAsync(() => {
     // NOTE: This test was added due to a race condition with two quickly added waits on load
     const fixture = TestBed.createComponent(SkyWaitTestComponent);
     fixture.detectChanges();
@@ -429,8 +428,8 @@ describe('Wait component', () => {
     fixture.detectChanges();
     expect(document.body.getAttribute('aria-busy')).toBe('true');
 
-    fixture.whenStable().then(() => {
-      expectAsync(fixture.nativeElement).toBeAccessible();
+    fixture.whenStable().then(async () => {
+      await expectAsync(fixture.nativeElement).toBeAccessible();
       fixture.componentInstance.isWaiting = false;
       fixture.detectChanges();
       expect(document.body.getAttribute('aria-busy')).toBeNull();
