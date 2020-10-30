@@ -140,7 +140,9 @@ export class SkyWaitService {
           SkyWaitService.waitComponent = cmpRef.instance;
         }
 
-        this.setWaitComponentProperties(isBlocking);
+        // Ensuring here that change detection has picked up the wait component. This was added
+        // to fix a race condition which caused a changed before checked error is some cases.
+        setTimeout(() => { this.setWaitComponentProperties(isBlocking); });
       });
 
     } else {
