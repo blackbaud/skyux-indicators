@@ -21,7 +21,7 @@ export class SkyIconDocsManifestService {
 
   public getSkyUxIconManifest(): Observable<SkyIconDocsIconManifest> {
     return this.http.get<SkyIconDocsIconManifest>(
-      'https://sky.blackbaudcdn.net/static/skyux-icons/3.0.0-beta.1/assets/manifest.json'
+      'https://sky.blackbaudcdn.net/static/skyux-icons/4.0.0-beta.2/assets/manifest.json'
     );
   }
 
