@@ -55,3 +55,34 @@
     transform: rotate(-45deg);
   }
 }
+
+@include sky-theme-modern {
+  .sky-chevron {
+    height: 19px;
+    width: 16px;
+  }
+
+  .sky-chevron-part {
+    background: $sky-text-color-icon-borderless;
+    border: none;
+    height: 1.5px;
+    width: 8.25px;
+    top: 9.5px;
+  }
+
+  .sky-chevron-left {
+    border-radius: 1px 0 0 1px;
+  }
+
+  .sky-chevron-right {
+    border-radius: 0 1px 1px 0;
+  }
+
+  .sky-chevron-left {
+    left: 1px;
+  }
+
+  .sky-chevron-right {
+    left: 6px;
+  }
+}
