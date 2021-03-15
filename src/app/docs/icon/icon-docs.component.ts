@@ -4,17 +4,17 @@ import {
 } from '@angular/core';
 
 import {
+  SkyThemeIconManifestGlyph,
+  SkyThemeIconManifestService
+} from '@skyux/theme';
+
+import {
   SkyIconDocsIconItem
 } from './icon-item';
 
-import {
-  SkyIconDocsManifestService
-} from './icon-manifest.service';
-
 @Component({
   selector: 'app-icon-docs',
-  templateUrl: './icon-docs.component.html',
-  providers: [SkyIconDocsManifestService]
+  templateUrl: './icon-docs.component.html'
 })
 export class IconDocsComponent implements OnInit {
 
@@ -253,15 +253,12 @@ export class IconDocsComponent implements OnInit {
     }
   ];
 
-  public skyuxIcons: SkyIconDocsIconItem[];
+  public skyuxIcons: SkyThemeIconManifestGlyph[];
 
-  constructor(private svc: SkyIconDocsManifestService) { }
+  constructor(private svc: SkyThemeIconManifestService) { }
 
   public ngOnInit(): void {
-    this.svc.getSkyUxIconManifest()
-      .subscribe((manifest) => {
-        this.skyuxIcons = manifest.glyphs;
-      });
+    this.skyuxIcons = this.svc.getManifest().glyphs;
   }
 
 }
