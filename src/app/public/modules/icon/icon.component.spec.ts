@@ -19,7 +19,10 @@ import {
 import {
   SkyIconResolverService
 } from './icon-resolver.service';
-import { SkyIconVariant } from './icon-variant';
+
+import {
+  SkyIconVariant
+} from './icon-variant';
 
 describe('Icon component', () => {
   let fixture: ComponentFixture<IconTestComponent>;
