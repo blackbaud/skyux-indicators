@@ -63,7 +63,7 @@
   }
 
   .sky-chevron-part {
-    background: darken($sky-text-color-icon-borderless, 20%);
+    background: $sky-text-color-icon-borderless;
     border: none;
     height: 1.5px;
     width: 8.25px;
