@@ -9,6 +9,10 @@ import {
 } from '@skyux-sdk/testing';
 
 import {
+  SkyThemeService
+} from '@skyux/theme';
+
+import {
   SkyChevronComponent
 } from './chevron.component';
 
@@ -23,6 +27,9 @@ describe('Chevron component', () => {
     TestBed.configureTestingModule({
       imports: [
         SkyChevronModule
+      ],
+      providers: [
+        SkyThemeService
       ]
     });
 
