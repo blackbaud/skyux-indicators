@@ -4,7 +4,6 @@ import {
 } from '@angular/core';
 
 import {
-  SkyThemeIconManifestGlyph,
   SkyThemeIconManifestService
 } from '@skyux/theme';
 
