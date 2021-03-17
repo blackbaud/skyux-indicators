@@ -1,6 +1,6 @@
 {
   "name": "@skyux/indicators",
-  "version": "4.7.1",
+  "version": "4.8.0",
   "description": "SKY UX Indicators",
   "scripts": {
     "build": "skyux build-public-library",
@@ -25,7 +25,7 @@
     "@angular/core": "^9.1.6",
     "@skyux/core": "^4.0.0",
     "@skyux/i18n": "^4.0.0",
-    "@skyux/theme": "^4.15.1"
+    "@skyux/theme": "^4.15.2"
   },
   "devDependencies": {
     "@angular/animations": "9.1.13",
@@ -49,10 +49,10 @@
     "@skyux-sdk/testing": "4.2.3",
     "@skyux/animations": "4.0.1",
     "@skyux/assets": "4.0.1",
-    "@skyux/config": "4.3.0",
+    "@skyux/config": "4.4.0",
     "@skyux/core": "4.4.0",
     "@skyux/docs-tools": "4.8.1",
-    "@skyux/forms": "4.15.1",
+    "@skyux/forms": "4.15.2",
     "@skyux/http": "4.1.0",
     "@skyux/i18n": "4.0.3",
     "@skyux/indicators": "4.7.1",
@@ -63,9 +63,9 @@
     "@skyux/modals": "4.5.1",
     "@skyux/omnibar-interop": "4.0.1",
     "@skyux/popovers": "4.4.0",
-    "@skyux/router": "4.0.1",
-    "@skyux/tabs": "4.6.2",
-    "@skyux/theme": "4.15.1",
+    "@skyux/router": "4.1.0",
+    "@skyux/tabs": "4.6.3",
+    "@skyux/theme": "4.15.2",
     "codelyzer": "5.2.2",
     "rxjs": "6.6.6",
     "ts-node": "8.3.0",
