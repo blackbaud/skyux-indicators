@@ -64,7 +64,7 @@ describe('Icon resolver service', () => {
   });
 
   it('should fall back to the non-variant if the solid variant does not exist', () => {
-    expect(svc.resolveIcon('no-variant', SkyIconVariant.Line)).toBe('no-variant');
+    expect(svc.resolveIcon('no-variant', SkyIconVariant.Solid)).toBe('no-variant');
   });
 
   it('should fall back to the line variant if a non-variant does not exist', () => {

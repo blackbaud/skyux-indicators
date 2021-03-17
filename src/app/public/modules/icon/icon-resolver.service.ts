@@ -24,29 +24,24 @@ export class SkyIconResolverService {
   }
 
   public resolveIcon(iconName: string, variant?: SkyIconVariant): string {
-    if (variant === SkyIconVariant.Solid) {
-      const solidIconName = `${iconName}-solid`;
+    const variantIconName = variant && `${iconName}-${variant}`;
 
-      if (this.glyphMap.has(solidIconName)) {
-        return solidIconName;
-      }
+    if (variantIconName && this.glyphMap.has(variantIconName)) {
+      // A variant was specified and exists; return it.
+      return variantIconName;
     }
 
-    if (
-      variant === SkyIconVariant.Line ||
-        // Default to the line variant if a non-variant doesn't exist, even if no
-        // variant was specified.
-        !this.glyphMap.has(iconName)
-    ) {
-      const lineIconName = `${iconName}-line`;
+    if (variant !== SkyIconVariant.Line && !this.glyphMap.has(iconName)) {
+      // Either the solid variant was specified and doesn't exist, or no variant was
+      // specified and a non-variant doesn't exist; fall back to the line variant.
+      const lineIconName = `${iconName}-${SkyIconVariant.Line}`;
 
       if (this.glyphMap.has(lineIconName)) {
         return lineIconName;
       }
     }
 
-    // An icon either exists with the specified name, or no non-variant or line variant
-    // was found. Return the icon name as-is.
+    // Fall back to the icon name as-is.
     return iconName;
   }
 
