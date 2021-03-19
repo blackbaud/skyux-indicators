@@ -15,6 +15,10 @@ import {
 } from '@skyux/theme';
 
 import {
+  SkyIconModule
+} from '../icon/icon.module';
+
+import {
   SkyIndicatorsResourcesModule
 } from '../shared/indicators-resources.module';
 
@@ -30,7 +34,8 @@ import {
     CommonModule,
     SkyI18nModule,
     SkyIndicatorsResourcesModule,
-    SkyThemeModule
+    SkyThemeModule,
+    SkyIconModule
   ],
   exports: [
     SkyChevronComponent

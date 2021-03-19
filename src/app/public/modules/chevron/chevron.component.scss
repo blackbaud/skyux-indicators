@@ -74,6 +74,14 @@ button {
     top: 13px;
   }
 
+  .chevron-glyph-container {
+    transform: scale(.5);
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+
   .sky-chevron-left {
     border-radius: 1px 0 0 1px;
   }
