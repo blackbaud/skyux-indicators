@@ -5,56 +5,13 @@
 <div
   id="sky-chevron-demo"
 >
-
-  <table>
-    <tr>
-      <th>Icon</th>
-      <th>Chevron</th>
-    </tr>
-    <tr>
-      <td>
-        <button
-          class="sky-btn"
-          [skyThemeClass]="{
-            'sky-tile-tools-control' : 'default',
-            'sky-btn-icon-borderless' : 'modern'
-          }"
-        >
-          <sky-icon
-            icon="chevron-up"
-            iconType="skyux"
-          ></sky-icon>
-        </button>
-      </td>
-      <td>
-        <sky-chevron
-          direction="up"
-        >
-        </sky-chevron>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <button
-          class="sky-btn"
-          [skyThemeClass]="{
-            'sky-tile-tools-control' : 'default',
-            'sky-btn-icon-borderless' : 'modern'
-          }"
-        >
-          <sky-icon
-            icon="chevron-down"
-            iconType="skyux"
-          ></sky-icon>
-        </button>
-      </td>
-      <td>
-        <sky-chevron
-          direction="down"
-        >
-        </sky-chevron>
-      </td>
-    </tr>
-  </table>
-
+  <sky-chevron></sky-chevron>
+  <sky-chevron
+    direction="up"
+  >
+  </sky-chevron>
+  <sky-chevron
+    direction="down"
+  >
+  </sky-chevron>
 </div>
