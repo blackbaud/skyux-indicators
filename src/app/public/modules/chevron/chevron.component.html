@@ -10,31 +10,26 @@
   (click)="chevronClick($event)"
 >
   <ng-container *skyThemeIf="'default'">
-    <i
-      aria-hidden="true"
-      class="sky-chevron-part sky-chevron-left"
-    >
-    </i>
-    <i
-      aria-hidden="true"
-      class="sky-chevron-part sky-chevron-right"
-    >
-    </i>
+    <ng-container *ngTemplateOutlet="icon"></ng-container>
   </ng-container>
   <ng-container *skyThemeIf="'modern'">
     <span
       class="chevron-glyph-container"
     >
-      <i
-        aria-hidden="true"
-        class="sky-chevron-part sky-chevron-left"
-      >
-      </i>
-      <i
-        aria-hidden="true"
-        class="sky-chevron-part sky-chevron-right"
-      >
-      </i>
+      <ng-container *ngTemplateOutlet="icon"></ng-container>
     </span>
   </ng-container>
 </button>
+
+<ng-template #icon>
+  <i
+    aria-hidden="true"
+    class="sky-chevron-part sky-chevron-left"
+  >
+  </i>
+  <i
+    aria-hidden="true"
+    class="sky-chevron-part sky-chevron-right"
+  >
+  </i>
+</ng-template>
