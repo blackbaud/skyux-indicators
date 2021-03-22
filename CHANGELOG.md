@@ -1,6 +1,6 @@
 # 4.9.1 (2021-03-22)
 
-- Fixed the chevron component to be the same size as borderless icon buttons. [#161](https://github.com/blackbaud/skyux-indicators/pull/161)
+- Adjusted the chevron component so that it is the same size as the borderless icon buttons. [#161](https://github.com/blackbaud/skyux-indicators/pull/161)
 
 # 4.9.0 (2021-03-18)
 
