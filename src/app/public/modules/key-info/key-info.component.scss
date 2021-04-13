@@ -4,18 +4,15 @@
 
 .sky-key-info {
   display: inline-block;
-}
 
-.sky-key-info-horizontal {
-  .sky-key-info-value,
-  .sky-key-info-label {
-    display: inline-block;
-  }
-
-  .sky-key-info-label {
-    &:before {
-      content: ' ';
+  &.sky-key-info-horizontal {
+    .sky-key-info-value,
+    .sky-key-info-label {
       display: inline-block;
+    }
+
+    .sky-key-info-label {
+      padding: 0 0 0 $sky-space-xs;
     }
   }
 }
