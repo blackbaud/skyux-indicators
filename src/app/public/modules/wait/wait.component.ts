@@ -32,6 +32,7 @@ export class SkyWaitComponent implements OnInit {
    * Specifies an ARIA label for the wait icon while an element or page loads.
    * This sets the icon's `aria-label` attribute
    * [to support accessibility](https://developer.blackbaud.com/skyux/learn/accessibility).
+   * The default value is based on the type of wait. For example, the default for a page-blocking wait is "Page loading. Please wait.".
    */
   @Input()
   public ariaLabel: string;
