@@ -1,3 +1,7 @@
+# 5.0.0-alpha.0 (2021-05-20)
+
+- Removed `BrowserAnimationsModule` from the `imports` section of `SkyTokensModule` to support lazy-loading. Consumers of `SkyTokensModule` must now import `BrowserAnimationsModule` into their application's root module. [#169](https://github.com/blackbaud/skyux-indicators/pull/169)
+
 # 4.9.2 (2021-04-13)
 
 - Fixed the key info component to use pixel padding instead of the CSS content property. [#163](https://github.com/blackbaud/skyux-indicators/pull/163)
