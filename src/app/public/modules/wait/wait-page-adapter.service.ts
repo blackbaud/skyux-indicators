@@ -5,7 +5,9 @@ import {
 /**
  * @internal
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SkyWaitPageAdapterService {
 
   public addPageWaitEl(): void {

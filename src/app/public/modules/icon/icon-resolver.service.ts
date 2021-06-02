@@ -11,7 +11,9 @@ import {
   SkyIconVariant
 } from './icon-variant';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SkyIconResolverService {
 
   private glyphMap = new Map<string, SkyThemeIconManifestGlyph>();

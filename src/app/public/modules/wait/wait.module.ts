@@ -23,14 +23,6 @@ import {
 } from './wait.component';
 
 import {
-  SkyWaitService
-} from './wait.service';
-
-import {
-  SkyWaitPageAdapterService
-} from './wait-page-adapter.service';
-
-import {
   SkyWaitPageComponent
 } from './wait-page.component';
 
@@ -49,8 +41,6 @@ import {
     SkyWaitPageComponent
   ],
   providers: [
-    SkyWaitService,
-    SkyWaitPageAdapterService,
     SkyAppWindowRef
   ],
   entryComponents: [
