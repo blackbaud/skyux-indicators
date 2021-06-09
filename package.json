@@ -1,6 +1,6 @@
 {
   "name": "@skyux/indicators",
-  "version": "4.9.2",
+  "version": "4.10.0",
   "description": "SKY UX Indicators",
   "scripts": {
     "build": "skyux build-public-library",
@@ -59,7 +59,7 @@
     "@skyux/inline-form": "4.1.1",
     "@skyux/layout": "4.6.2",
     "@skyux/lists": "4.7.2",
-    "@skyux/lookup": "4.14.0",
+    "@skyux/lookup": "4.14.1",
     "@skyux/modals": "4.5.3",
     "@skyux/omnibar-interop": "4.0.1",
     "@skyux/popovers": "4.5.2",
