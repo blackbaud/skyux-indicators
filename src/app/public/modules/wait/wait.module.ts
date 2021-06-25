@@ -11,10 +11,6 @@ import {
 } from '@skyux/i18n';
 
 import {
-  SkyAppWindowRef
-} from '@skyux/core';
-
-import {
   SkyIndicatorsResourcesModule
 } from '../shared/indicators-resources.module';
 
@@ -39,9 +35,6 @@ import {
   exports: [
     SkyWaitComponent,
     SkyWaitPageComponent
-  ],
-  providers: [
-    SkyAppWindowRef
   ],
   entryComponents: [
     SkyWaitPageComponent
