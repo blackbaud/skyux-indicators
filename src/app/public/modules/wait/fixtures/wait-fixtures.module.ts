@@ -7,6 +7,10 @@ import {
 } from '@angular/common';
 
 import {
+  SkyAppWindowRef
+} from '@skyux/core';
+
+import {
   SkyWaitModule
 } from '../wait.module';
 
@@ -21,6 +25,9 @@ import {
   imports: [
     CommonModule,
     SkyWaitModule
+  ],
+  providers: [
+    SkyAppWindowRef
   ],
   entryComponents: [
     SkyWaitTestComponent
