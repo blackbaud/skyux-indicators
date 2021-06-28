@@ -24,7 +24,9 @@ let nextId = 0;
   selector: 'sky-wait',
   templateUrl: './wait.component.html',
   styleUrls: ['./wait.component.scss'],
-  providers: [SkyWaitAdapterService]
+  providers: [
+    SkyWaitAdapterService
+  ]
 })
 export class SkyWaitComponent implements OnInit {
 

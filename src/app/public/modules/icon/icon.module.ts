@@ -19,10 +19,6 @@ import {
 } from './icon-class-list.pipe';
 
 import {
-  SkyIconResolverService
-} from './icon-resolver.service';
-
-import {
   SkyThemeIconManifestModule
 } from '@skyux/theme';
 
@@ -39,9 +35,6 @@ import {
   exports: [
     SkyIconComponent,
     SkyIconStackComponent
-  ],
-  providers: [
-    SkyIconResolverService
   ]
 })
 export class SkyIconModule { }

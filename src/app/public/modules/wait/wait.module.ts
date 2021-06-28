@@ -11,24 +11,12 @@ import {
 } from '@skyux/i18n';
 
 import {
-  SkyAppWindowRef
-} from '@skyux/core';
-
-import {
   SkyIndicatorsResourcesModule
 } from '../shared/indicators-resources.module';
 
 import {
   SkyWaitComponent
 } from './wait.component';
-
-import {
-  SkyWaitService
-} from './wait.service';
-
-import {
-  SkyWaitPageAdapterService
-} from './wait-page-adapter.service';
 
 import {
   SkyWaitPageComponent
@@ -47,11 +35,6 @@ import {
   exports: [
     SkyWaitComponent,
     SkyWaitPageComponent
-  ],
-  providers: [
-    SkyWaitService,
-    SkyWaitPageAdapterService,
-    SkyAppWindowRef
   ],
   entryComponents: [
     SkyWaitPageComponent
