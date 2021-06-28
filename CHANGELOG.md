@@ -1,7 +1,7 @@
 # 5.0.0-beta.0 (2021-06-28)
 
 - Initial beta release.
-- Added support for `5.0.0-beta.*` versions of SKYUX component libraries. [#176](https://github.com/blackbaud/skyux-indicators/pull/176)
+- Added support for `5.0.0-beta.*` versions of SKY UX component libraries. [#176](https://github.com/blackbaud/skyux-indicators/pull/176)
 - Fixed the `SkyWaitService` to work within lazy-loaded feature modules. [#176](https://github.com/blackbaud/skyux-indicators/pull/176)
 
 # 5.0.0-alpha.0 (2021-05-20)
