@@ -20,10 +20,6 @@ import {
   SkyIconResolverService
 } from './icon-resolver.service';
 
-import {
-  SkyIconVariant
-} from './icon-variant';
-
 describe('Icon component', () => {
   let fixture: ComponentFixture<IconTestComponent>;
   let cmp: IconTestComponent;
@@ -109,7 +105,7 @@ describe('Icon component', () => {
     cmp.iconType = 'skyux';
     cmp.size = undefined;
     cmp.fixedWidth = undefined;
-    cmp.variant = SkyIconVariant.Solid;
+    cmp.variant = 'solid';
     fixture.detectChanges();
 
     expect(element.querySelector('.sky-icon')).toHaveCssClass('sky-i-variant-test-solid');

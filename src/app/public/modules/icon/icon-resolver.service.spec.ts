@@ -6,10 +6,6 @@ import {
   SkyIconResolverService
 } from './icon-resolver.service';
 
-import {
-  SkyIconVariant
-} from './icon-variant';
-
 describe('Icon resolver service', () => {
 
   let mockManfiestSvc: Partial<SkyThemeIconManifestService>;
@@ -60,11 +56,11 @@ describe('Icon resolver service', () => {
   });
 
   it('should fall back to the non-variant if the line variant does not exist', () => {
-    expect(svc.resolveIcon('no-variant', SkyIconVariant.Line)).toBe('no-variant');
+    expect(svc.resolveIcon('no-variant', 'line')).toBe('no-variant');
   });
 
   it('should fall back to the non-variant if the solid variant does not exist', () => {
-    expect(svc.resolveIcon('no-variant', SkyIconVariant.Solid)).toBe('no-variant');
+    expect(svc.resolveIcon('no-variant', 'solid')).toBe('no-variant');
   });
 
   it('should fall back to the line variant if a non-variant does not exist', () => {
@@ -72,11 +68,11 @@ describe('Icon resolver service', () => {
   });
 
   it('should fall back to the line variant if a solid variant does not exist', () => {
-    expect(svc.resolveIcon('line-only', SkyIconVariant.Solid)).toBe('line-only-line');
+    expect(svc.resolveIcon('line-only', 'solid')).toBe('line-only-line');
   });
 
   it('should return the solid variant if it exists', () => {
-    expect(svc.resolveIcon('widget', SkyIconVariant.Solid)).toBe('widget-solid');
+    expect(svc.resolveIcon('widget', 'solid')).toBe('widget-solid');
   });
 
 });

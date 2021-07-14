@@ -8,9 +8,12 @@ import {
 } from '@skyux/theme';
 
 import {
-  SkyIconVariant
-} from './icon-variant';
+  SkyIconVariantType
+} from './types/icon-variant-type';
 
+/**
+ * @internal
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +28,7 @@ export class SkyIconResolverService {
     }
   }
 
-  public resolveIcon(iconName: string, variant?: SkyIconVariant): string {
+  public resolveIcon(iconName: string, variant?: SkyIconVariantType): string {
     const variantIconName = variant && `${iconName}-${variant}`;
 
     if (variantIconName && this.glyphMap.has(variantIconName)) {
@@ -33,10 +36,10 @@ export class SkyIconResolverService {
       return variantIconName;
     }
 
-    if (variant !== SkyIconVariant.Line && !this.glyphMap.has(iconName)) {
+    if (variant !== 'line' && !this.glyphMap.has(iconName)) {
       // Either the solid variant was specified and doesn't exist, or no variant was
       // specified and a non-variant doesn't exist; fall back to the line variant.
-      const lineIconName = `${iconName}-${SkyIconVariant.Line}`;
+      const lineIconName = `${iconName}-line`;
 
       if (this.glyphMap.has(lineIconName)) {
         return lineIconName;
