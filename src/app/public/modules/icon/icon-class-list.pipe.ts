@@ -8,8 +8,8 @@ import {
 } from './icon-resolver.service';
 
 import {
-  SkyIconVariant
-} from './icon-variant';
+  SkyIconVariantType
+} from './types/icon-variant-type';
 
 /**
  * @internal
@@ -26,7 +26,7 @@ export class SkyIconClassListPipe implements PipeTransform {
     iconType?: string,
     size?: string,
     fixedWidth?: boolean,
-    variant?: SkyIconVariant
+    variant?: SkyIconVariantType
   ): string[] {
     let classList: string[];
 

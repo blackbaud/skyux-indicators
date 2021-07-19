@@ -1,3 +1,7 @@
+import {
+  SkyIconType
+} from './types/icon-type';
+
 export interface SkyIconStackItem {
 
   /**
@@ -13,5 +17,5 @@ export interface SkyIconStackItem {
    * while specifying `skyux` will display an icon from the custom SKY UX icon font. Note that
    * the custom SKY UX icon font is currently in beta.
    */
-  iconType?: string;
+  iconType?: SkyIconType;
 }

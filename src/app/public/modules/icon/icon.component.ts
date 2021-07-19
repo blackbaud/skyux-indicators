@@ -5,8 +5,12 @@ import {
 } from '@angular/core';
 
 import {
-  SkyIconVariant
-} from './icon-variant';
+  SkyIconType
+} from './types/icon-type';
+
+import {
+  SkyIconVariantType
+} from './types/icon-variant-type';
 
 @Component({
   selector: 'sky-icon',
@@ -31,7 +35,7 @@ export class SkyIconComponent {
    * the custom SKY UX icon font is currently in beta.
    */
   @Input()
-  public iconType = 'fa';
+  public iconType: SkyIconType = 'fa';
 
   /**
    * Specifies the size of the icon using
@@ -51,5 +55,5 @@ export class SkyIconComponent {
    * specified icon, the normal icon is displayed.
    */
   @Input()
-  public variant: SkyIconVariant;
+  public variant: SkyIconVariantType;
 }

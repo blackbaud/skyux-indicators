@@ -6,6 +6,8 @@ export * from './modules/help-inline/help-inline.module';
 
 export * from './modules/icon/icon-stack-item';
 export * from './modules/icon/icon.module';
+export * from './modules/icon/types/icon-type';
+export * from './modules/icon/types/icon-variant-type';
 
 export * from './modules/key-info/key-info.module';
 

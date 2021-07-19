@@ -3,8 +3,8 @@ import {
 } from '@angular/core';
 
 import {
-  SkyIconVariant
-} from '../icon-variant';
+  SkyIconVariantType
+} from '../types/icon-variant-type';
 
 @Component({
   selector: 'sky-test-cmp',
@@ -15,5 +15,5 @@ export class IconTestComponent {
   public iconType: 'fa' | 'skyux';
   public size = '3x';
   public fixedWidth = false;
-  public variant: SkyIconVariant;
+  public variant: SkyIconVariantType;
 }
