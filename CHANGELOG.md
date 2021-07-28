@@ -1,16 +1,8 @@
-# 4.11.0 (2021-07-23)
-
-- Updated skyux-theme version to enable modern theme styles for the text highlight directive. [#183](https://github.com/blackbaud/skyux-indicators/pull/183)
-
 # 5.0.0-beta.0 (2021-06-28)
 
 - Initial beta release.
 - Added support for `5.0.0-beta.*` versions of SKY UX component libraries. [#176](https://github.com/blackbaud/skyux-indicators/pull/176)
 - Fixed `SkyWaitService` to work within lazy-loaded feature modules. [#176](https://github.com/blackbaud/skyux-indicators/pull/176)
-
-# 4.10.0 (2021-06-09)
-
-- Added modern theme styles to the inline help component. [#173](https://github.com/blackbaud/skyux-indicators/pull/173)
 
 # 5.0.0-alpha.0 (2021-05-20)
 

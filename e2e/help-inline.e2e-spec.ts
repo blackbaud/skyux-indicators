@@ -1,11 +1,6 @@
 import {
-  SkyHostBrowserBreakpoint
-} from '@skyux-sdk/e2e/host-browser/host-browser-breakpoint';
-
-import {
   expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
+  SkyHostBrowser
 } from '@skyux-sdk/e2e';
 
 import {
@@ -15,108 +10,28 @@ import {
 } from 'protractor';
 
 describe('Help inline', () => {
+  beforeEach(() => {
+    SkyHostBrowser.get('visual/help-inline');
+  });
 
-  //#region helpers
-  let browserSize: SkyHostBrowserBreakpoint;
-  let currentTheme: string;
-  let currentThemeMode: string;
-
-  async function selectTheme(theme: string, mode: string): Promise<void> {
-    currentTheme = theme;
-    currentThemeMode = mode;
-
-    return SkyVisualThemeSelector.selectTheme(theme, mode);
-  }
-
-  async function setBrowserSize(size: SkyHostBrowserBreakpoint): Promise<void> {
-    browserSize = size;
-
-    return SkyHostBrowser.setWindowBreakpoint(size);
-  }
-
-  function getScreenshotName(name: string): string {
-    if (browserSize) {
-      name += '-' + browserSize;
-    }
-
-    if (currentTheme) {
-      name += '-' + currentTheme;
-    }
-
-    if (currentThemeMode) {
-      name += '-' + currentThemeMode;
-    }
-
-    return name;
-  }
-
-  function runTests(): void {
-    it('should match previous screenshot', (done) => {
-      expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('help-inline')
-      });
-    });
-
-    it('should match previous screenshot when hovering', (done) => {
-      browser.actions().mouseMove(element(by.css('.sky-help-inline'))).perform();
-      expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('help-inline-hover')
-      });
-    });
-  }
-
-  describe('(size: lg)', () => {
-    beforeEach( async() => {
-      currentTheme = undefined;
-      currentThemeMode = undefined;
-      await SkyHostBrowser.get('visual/help-inline');
-      await setBrowserSize('lg');
-    });
-
-    runTests();
-
-    describe('when modern theme', () => {
-      beforeEach(async () => {
-        await selectTheme('modern', 'light');
-      });
-
-      runTests();
-    });
-
-    describe('when modern theme in dark mode', () => {
-      beforeEach(async () => {
-        await selectTheme('modern', 'dark');
-      });
-
-      runTests();
+  it('should match previous screenshot', (done) => {
+    SkyHostBrowser.setWindowBreakpoint('lg');
+    expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'help-inline-lg'
     });
   });
 
-  describe('(size: xs)', () => {
-    beforeEach( async() => {
-      currentTheme = undefined;
-      currentThemeMode = undefined;
-      await SkyHostBrowser.get('visual/help-inline');
-      await setBrowserSize('xs');
-    });
+  it('should match previous screenshot (screen: xs)', (done) => {
+    SkyHostBrowser.setWindowBreakpoint('xs');
 
-    runTests();
+    // Hover over the button.
+    browser
+      .actions()
+      .mouseMove(element(by.css('.sky-help-inline')))
+      .perform();
 
-    describe('when modern theme', () => {
-      beforeEach(async () => {
-        await selectTheme('modern', 'light');
-      });
-
-      runTests();
-    });
-
-    describe('when modern theme in dark mode', () => {
-      beforeEach(async () => {
-        await selectTheme('modern', 'dark');
-      });
-
-      runTests();
+    expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
+      screenshotName: 'help-inline-hover-xs'
     });
   });
-
 });
