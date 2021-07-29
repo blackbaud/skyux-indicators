@@ -1,3 +1,7 @@
+# 5.0.0-beta.1 (2021-07-29)
+
+- Deprecated the `SkyIconVariant` enum in favor of a string union type to support specifying string literals in Angular templates. [#182](https://github.com/blackbaud/skyux-indicators/pull/182)
+
 # 4.11.0 (2021-07-23)
 
 - Updated skyux-theme version to enable modern theme styles for the text highlight directive. [#183](https://github.com/blackbaud/skyux-indicators/pull/183)
