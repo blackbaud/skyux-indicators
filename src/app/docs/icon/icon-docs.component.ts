@@ -8,10 +8,6 @@ import {
 } from '@skyux/theme';
 
 import {
-  SkyThemeIconManifestService
-} from '@skyux/theme';
-
-import {
   SkyIconDocsIconItem
 } from './icon-item';
 
