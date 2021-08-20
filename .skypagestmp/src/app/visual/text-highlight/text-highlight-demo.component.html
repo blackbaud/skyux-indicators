@@ -1,0 +1,22 @@
+<input
+  [(ngModel)]="normalSearchTerm"
+/>
+<div
+  class="sky-text-highlight-demo"
+>
+  <div
+    [skyHighlight]="normalSearchTerm"
+  >
+    The text that you enter is highlighted here.
+  </div>
+  <div
+    [skyHighlight]="blankSearchTerm"
+  >
+    The text that you enter is highlighted here.
+  </div>
+  <div
+    [skyHighlight]="notMatchedSearchTerm"
+  >
+    The text that you enter is highlighted here.
+  </div>
+</div>
