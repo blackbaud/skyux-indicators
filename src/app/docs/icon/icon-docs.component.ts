@@ -7,6 +7,10 @@ import {
   SkyThemeIconManifestService
 } from '@skyux/theme';
 
+import {
+  SkyIconDocsIconItem
+} from './icon-item';
+
 @Component({
   selector: 'app-icon-docs',
   templateUrl: './icon-docs.component.html'
