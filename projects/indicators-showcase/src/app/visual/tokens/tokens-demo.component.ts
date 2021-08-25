@@ -9,7 +9,7 @@ import {
 
 import {
   SkyToken
-} from '../../public/modules/tokens/types/token';
+} from 'projects/indicators/src/public-api';
 
 @Component({
   selector: 'sky-tokens-demo',
