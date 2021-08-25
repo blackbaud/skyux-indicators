@@ -24,7 +24,7 @@ import {
 
 import {
   SkyIndicatorsResourcesModule
-} from '../shared/indicators-resources.module';
+} from '../shared/sky-indicators-resources.module';
 
 @NgModule({
   declarations: [
