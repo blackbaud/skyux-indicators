@@ -78,7 +78,7 @@ export class SkyWaitComponent implements OnInit {
   public set isFullPage(value: boolean) {
     if (value) {
       this.adapterService.removeWaitBounds(this.elRef);
-    } else if (!value && this._isWaiting) {
+    } else /* istanbul ignore if: untestable */if (!value && this._isWaiting) {
       this.adapterService.setWaitBounds(this.elRef);
     }
 
@@ -119,6 +119,7 @@ export class SkyWaitComponent implements OnInit {
       return;
     }
 
+    /* istanbul ignore else */
     if (this.resourceService) {
       const type = (this.isFullPage) ? '_page' : '';
       const blocking = (this.isNonBlocking) ? '' : '_blocking';

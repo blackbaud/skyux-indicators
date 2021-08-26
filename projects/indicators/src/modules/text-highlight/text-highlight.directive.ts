@@ -61,6 +61,7 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
   }
 
   public ngOnDestroy(): void {
+    /* istanbul ignore else */
     if (this.observer) {
       this.observer.disconnect();
     }
@@ -71,6 +72,7 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
   }
 
   private highlight(): void {
+    /* istanbul ignore else */
     if (this.observer) {
       this.observer.disconnect();
     }
@@ -81,6 +83,7 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
       SkyTextHighlightDirective.removeHighlight(this.el);
     }
 
+    /* istanbul ignore else */
     if (this.readyForHighlight(searchText)) {
       const node: HTMLElement = this.el.nativeElement;
 
@@ -93,6 +96,7 @@ export class SkyTextHighlightDirective implements OnChanges, AfterViewInit, OnDe
   }
 
   private observeDom(): void {
+    /* istanbul ignore else */
     if (this.observer) {
       const config = { attributes: false, childList: true, characterData: true };
       this.observer.observe(this.el.nativeElement, config);

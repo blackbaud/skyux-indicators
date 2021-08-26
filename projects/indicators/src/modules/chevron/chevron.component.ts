@@ -21,11 +21,8 @@ export class SkyChevronComponent {
   @Input()
   public disabled = false;
 
-  public chevronClick(event?: Event): void {
-    if (event) {
-      event.stopPropagation();
-    }
-
+  public chevronClick(event: Event): void {
+    event.stopPropagation();
     this.direction = this.direction === 'up' ? 'down' : 'up';
     this.directionChange.emit(this.direction);
   }

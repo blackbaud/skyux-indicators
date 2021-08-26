@@ -22,6 +22,10 @@ import {
 } from './fixtures/wait-fixtures.module';
 
 import {
+  SkyWaitTestComponent
+} from './fixtures/wait.component.fixture';
+
+import {
   SkyWaitService
 } from './wait.service';
 
@@ -62,6 +66,10 @@ describe('Wait service', () => {
       }
     )
   );
+
+  afterEach(() => {
+    waitService.dispose();
+  })
 
   function verifyBlockingPageWaitExists(doesExist: boolean): void {
     if (doesExist) {
@@ -107,6 +115,8 @@ describe('Wait service', () => {
   }));
 
   it('should block tab navigation when a blocking page wait is active', fakeAsync(() => {
+    TestBed.createComponent(SkyWaitTestComponent);
+
     waitService.beginBlockingPageWait();
     tick();
     applicationRef.tick();

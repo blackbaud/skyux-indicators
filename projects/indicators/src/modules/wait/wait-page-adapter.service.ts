@@ -15,6 +15,9 @@ export class SkyWaitPageAdapterService {
   }
 
   public removePageWaitEl(): void {
-    document.body.removeChild(document.querySelector('sky-wait-page'));
+    const waitEl = document.querySelector('sky-wait-page');
+    if (waitEl) {
+      document.body.removeChild(waitEl);
+    }
   }
 }

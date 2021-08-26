@@ -13,6 +13,10 @@ import {
 } from '@skyux/theme';
 
 import {
+  take
+} from 'rxjs/operators';
+
+import {
   SkyChevronComponent
 } from './chevron.component';
 
@@ -57,9 +61,16 @@ describe('Chevron component', () => {
     fixture.detectChanges();
     validateDirection('up');
 
-    cmp.directionChange.subscribe(() => {
+    cmp.directionChange.pipe(take(1)).subscribe(() => {
       validateDirection('down');
     });
+
+    clickChevron(el);
+
+    cmp.directionChange.pipe(take(1)).subscribe(() => {
+      validateDirection('up');
+    });
+
     clickChevron(el);
   });
 

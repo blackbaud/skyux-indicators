@@ -65,6 +65,7 @@ export class SkyWaitAdapterService implements OnDestroy {
             (event: KeyboardEvent) => {
               /*istanbul ignore else */
               if (event.key) {
+                /* istanbul ignore else */
                 if (event.key.toLowerCase() === 'tab') {
                   (event.target as any).blur();
                   event.preventDefault();
@@ -83,6 +84,7 @@ export class SkyWaitAdapterService implements OnDestroy {
             busyEl,
             'focusin',
             (event: KeyboardEvent) => {
+              /* istanbul ignore else */
               if (!isNonBlocking) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -134,6 +136,8 @@ export class SkyWaitAdapterService implements OnDestroy {
       focussable[curIndex].focus();
     } else {
       // Try wrapping the navigation
+      /* istanbul ignore next */
+      /* sanity check */
       curIndex = modifier > 0 ? 0 : focussable.length - 1;
       while (
         curIndex !== startingIndex &&
@@ -192,6 +196,7 @@ export class SkyWaitAdapterService implements OnDestroy {
   }
 
   private clearDocumentFocus(): void {
+    /* istanbul ignore else */
     if (document.activeElement && (document.activeElement as any).blur) {
       (document.activeElement as any).blur();
     }

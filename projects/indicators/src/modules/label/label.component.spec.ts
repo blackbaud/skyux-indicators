@@ -28,6 +28,8 @@ describe('Label component', () => {
     const fixture = TestBed.createComponent(LabelTestComponent);
     const el = fixture.nativeElement as HTMLElement;
 
+    fixture.componentInstance.labelType = 'danger';
+
     fixture.detectChanges();
     expect(el.querySelector('.sky-label')).toHaveCssClass('sky-label-danger');
   });
