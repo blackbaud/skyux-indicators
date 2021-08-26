@@ -31,7 +31,7 @@ describe('Label', () => {
     it('should match previous screenshot', async (done) => {
       await SkyHostBrowser.setWindowBreakpoint('lg');
 
-      expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('label-lg')
       });
     });
@@ -39,7 +39,7 @@ describe('Label', () => {
     it('should match previous screenshot (screen: xs)', async (done) => {
       await SkyHostBrowser.setWindowBreakpoint('xs');
 
-      expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('label-xs')
       });
     });

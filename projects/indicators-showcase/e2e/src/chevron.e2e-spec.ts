@@ -45,8 +45,8 @@ describe('Chevron', () => {
   }
 
   function runTests(): void {
-    it('should match previous screenshot', (done) => {
-      expect('#sky-chevron-demo').toMatchBaselineScreenshot(done, {
+    it('should match previous screenshot', async (done) => {
+      await expect('#sky-chevron-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('chevron')
       });
     });

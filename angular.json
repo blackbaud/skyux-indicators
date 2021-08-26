@@ -104,7 +104,12 @@
               "node_modules/@skyux/theme/css/themes/modern/styles.css",
               "projects/indicators-showcase/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@skyux/auth-client-factory",
+              "jwt-decode",
+              "ng2-dragula"
+            ]
           },
           "configurations": {
             "production": {

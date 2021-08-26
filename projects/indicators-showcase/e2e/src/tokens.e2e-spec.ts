@@ -62,7 +62,7 @@ describe('Tokens', () => {
 
   function runTests(): void {
     it('should match previous screenshot', async (done) => {
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-lg')
       });
     });
@@ -71,7 +71,7 @@ describe('Tokens', () => {
     it('should match previous screenshot when token is hovered', async (done) => {
       await hoverElement(firstTokenSelector);
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-hover')
       });
     });
@@ -79,7 +79,7 @@ describe('Tokens', () => {
     it('should match previous screenshot when token is active', async (done) => {
       await mouseDownElement(firstTokenSelector);
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-active')
       });
     });
@@ -87,7 +87,7 @@ describe('Tokens', () => {
     it('should match previous screenshot when token is focused', async (done) => {
       await focusToken(firstTokenSelector);
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-focus')
       });
     });
@@ -95,7 +95,7 @@ describe('Tokens', () => {
     it('should match previous screenshot when token close button is hovered', async (done) => {
       await hoverElement(firstTokenCloseBtnSelector);
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-close-hover')
       });
     });
@@ -103,14 +103,14 @@ describe('Tokens', () => {
     it('should match previous screenshot when token close button is active', async (done) => {
       await mouseDownElement(firstTokenCloseBtnSelector);
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-close-active')
       });
     });
     it('should match previous screenshot when token close button is focused', async (done) => {
       await focusTokenCloseBtn(firstTokenSelector);
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-close-focus')
       });
     });
@@ -118,7 +118,7 @@ describe('Tokens', () => {
     it('should match previous screenshot (screen: xs)', async (done) => {
       await SkyHostBrowser.setWindowBreakpoint('xs');
 
-      expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
+      await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('tokens-xs')
       });
     });

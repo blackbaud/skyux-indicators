@@ -30,7 +30,7 @@ describe('Icon stack', () => {
   async function validateBasic(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
-    expect('.sky-icon-stack-demo').toMatchBaselineScreenshot(done, {
+    await expect('.sky-icon-stack-demo').toMatchBaselineScreenshot(done, {
       screenshotName: getScreenshotName('icon-stack-lg')
     });
   }
@@ -38,21 +38,21 @@ describe('Icon stack', () => {
   async function validateBasicXs(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
-    expect('.sky-icon-stack-demo').toMatchBaselineScreenshot(done, {
+    await expect('.sky-icon-stack-demo').toMatchBaselineScreenshot(done, {
       screenshotName: getScreenshotName('icon-stack-xs')
     });
   }
 
-  beforeEach(() => {
-    SkyHostBrowser.get('visual/icon-stack');
+  beforeEach(async () => {
+    await SkyHostBrowser.get('visual/icon-stack');
   });
 
-  it('should match previous screenshot', (done) => {
-    validateBasic(done);
+  it('should match previous screenshot', async (done) => {
+    await validateBasic(done);
   });
 
-  it('should match previous screenshot (screen: xs)', (done) => {
-    validateBasicXs(done);
+  it('should match previous screenshot (screen: xs)', async (done) => {
+    await validateBasicXs(done);
   });
 
   describe('when modern theme', () => {
@@ -61,12 +61,12 @@ describe('Icon stack', () => {
       await selectTheme('modern', 'light');
     });
 
-    it('should match previous screenshot', (done) => {
-      validateBasic(done);
+    it('should match previous screenshot', async (done) => {
+      await validateBasic(done);
     });
 
-    it('should match previous screenshot (screen: xs)', (done) => {
-      validateBasicXs(done);
+    it('should match previous screenshot (screen: xs)', async (done) => {
+      await validateBasicXs(done);
     });
 
   });
@@ -77,12 +77,12 @@ describe('Icon stack', () => {
       await selectTheme('modern', 'dark');
     });
 
-    it('should match previous screenshot', (done) => {
-      validateBasic(done);
+    it('should match previous screenshot', async (done) => {
+      await validateBasic(done);
     });
 
-    it('should match previous screenshot (screen: xs)', (done) => {
-      validateBasicXs(done);
+    it('should match previous screenshot (screen: xs)', async (done) => {
+      await validateBasicXs(done);
     });
 
   });

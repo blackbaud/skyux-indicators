@@ -30,7 +30,7 @@ describe('Status indicator', () => {
   async function validateBasic(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
-    expect('.sky-status-indicator-visual').toMatchBaselineScreenshot(done, {
+    await expect('.sky-status-indicator-visual').toMatchBaselineScreenshot(done, {
       screenshotName: getScreenshotName('status-indicator')
     });
   }
@@ -38,7 +38,7 @@ describe('Status indicator', () => {
   async function validateWrap(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
-    expect('.sky-status-indicator-visual-wrap').toMatchBaselineScreenshot(done, {
+    await expect('.sky-status-indicator-visual-wrap').toMatchBaselineScreenshot(done, {
       screenshotName: getScreenshotName('status-indicator-wrap')
     });
   }
@@ -47,12 +47,12 @@ describe('Status indicator', () => {
     await SkyHostBrowser.get('visual/status-indicator');
   });
 
-  it('should match previous screenshot', (done) => {
-    validateBasic(done);
+  it('should match previous screenshot', async (done) => {
+    await validateBasic(done);
   });
 
-  it('should match previous screenshot when text wraps', (done) => {
-    validateWrap(done);
+  it('should match previous screenshot when text wraps', async (done) => {
+    await validateWrap(done);
   });
 
   describe('when modern theme', () => {
@@ -61,12 +61,12 @@ describe('Status indicator', () => {
       await selectTheme('modern', 'light');
     });
 
-    it('should match previous screenshot', (done) => {
-      validateBasic(done);
+    it('should match previous screenshot', async (done) => {
+      await validateBasic(done);
     });
 
-    it('should match previous screenshot when text wraps', (done) => {
-      validateWrap(done);
+    it('should match previous screenshot when text wraps', async (done) => {
+      await validateWrap(done);
     });
 
   });
@@ -77,12 +77,12 @@ describe('Status indicator', () => {
       await selectTheme('modern', 'dark');
     });
 
-    it('should match previous screenshot', (done) => {
-      validateBasic(done);
+    it('should match previous screenshot', async (done) => {
+      await validateBasic(done);
     });
 
-    it('should match previous screenshot when text wraps', (done) => {
-      validateWrap(done);
+    it('should match previous screenshot when text wraps', async (done) => {
+      await validateWrap(done);
     });
 
   });

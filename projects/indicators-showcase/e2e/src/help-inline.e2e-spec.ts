@@ -51,22 +51,22 @@ describe('Help inline', () => {
   }
 
   function runTests(): void {
-    it('should match previous screenshot', (done) => {
-      expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
+    it('should match previous screenshot', async (done) => {
+      await expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('help-inline')
       });
     });
 
-    it('should match previous screenshot when hovering', (done) => {
-      browser.actions().mouseMove(element(by.css('.sky-help-inline'))).perform();
-      expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
+    it('should match previous screenshot when hovering', async (done) => {
+      await browser.actions().mouseMove(element(by.css('.sky-help-inline'))).perform();
+      await expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
         screenshotName: getScreenshotName('help-inline-hover')
       });
     });
   }
 
   describe('(size: lg)', () => {
-    beforeEach( async() => {
+    beforeEach( async () => {
       currentTheme = undefined;
       currentThemeMode = undefined;
       await SkyHostBrowser.get('visual/help-inline');

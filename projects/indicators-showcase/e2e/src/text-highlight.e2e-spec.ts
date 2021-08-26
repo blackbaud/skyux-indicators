@@ -30,15 +30,15 @@ describe('Text highlight', () => {
   async function validateBasic(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
-    expect('.sky-text-highlight-demo').toMatchBaselineScreenshot(done, {
+    await expect('.sky-text-highlight-demo').toMatchBaselineScreenshot(done, {
       screenshotName: getScreenshotName('text-highlight-lg')
     });
   }
 
   async function validateBasicXs(done: DoneFn): Promise<void> {
-    SkyHostBrowser.setWindowBreakpoint('xs');
+    await SkyHostBrowser.setWindowBreakpoint('xs');
 
-    expect('.sky-text-highlight-demo').toMatchBaselineScreenshot(done, {
+    await expect('.sky-text-highlight-demo').toMatchBaselineScreenshot(done, {
       screenshotName: getScreenshotName('text-highlight-xs')
     });
   }
@@ -47,15 +47,15 @@ describe('Text highlight', () => {
     currentTheme = undefined;
     currentThemeMode = undefined;
 
-    SkyHostBrowser.get('visual/text-highlight');
+    await SkyHostBrowser.get('visual/text-highlight');
   });
 
-  it('should match previous screenshot', (done) => {
-    validateBasic(done);
+  it('should match previous screenshot', async (done) => {
+    await validateBasic(done);
   });
 
-  it('should match previous screenshot (screen: xs)', (done) => {
-    validateBasicXs(done);
+  it('should match previous screenshot (screen: xs)', async (done) => {
+    await validateBasicXs(done);
   });
 
   describe('when modern theme', () => {
@@ -63,12 +63,12 @@ describe('Text highlight', () => {
       await selectTheme('modern', 'light');
     });
 
-    it('should match previous screenshot', (done) => {
-      validateBasic(done);
+    it('should match previous screenshot', async (done) => {
+      await validateBasic(done);
     });
 
-    it('should match previous screenshot (screen: xs)', (done) => {
-      validateBasicXs(done);
+    it('should match previous screenshot (screen: xs)', async (done) => {
+      await validateBasicXs(done);
     });
   });
 
@@ -77,12 +77,12 @@ describe('Text highlight', () => {
       await selectTheme('modern', 'dark');
     });
 
-    it('should match previous screenshot', (done) => {
-      validateBasic(done);
+    it('should match previous screenshot', async (done) => {
+      await validateBasic(done);
     });
 
-    it('should match previous screenshot (screen: xs)', (done) => {
-      validateBasicXs(done);
+    it('should match previous screenshot (screen: xs)', async (done) => {
+      await validateBasicXs(done);
     });
   });
 });
