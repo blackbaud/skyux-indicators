@@ -1,3 +1,7 @@
+# 5.0.0-beta.2 (2021-08-27)
+
+- Migrated to Angular CLI. [#188](https://github.com/blackbaud/skyux-indicators/pull/188)
+
 # 5.0.0-beta.1 (2021-07-29)
 
 - Deprecated the `SkyIconVariant` enum in favor of a string union type to support specifying string literals in Angular templates. [#182](https://github.com/blackbaud/skyux-indicators/pull/182)
