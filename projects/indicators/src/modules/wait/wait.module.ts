@@ -33,8 +33,7 @@ import {
     SkyIndicatorsResourcesModule
   ],
   exports: [
-    SkyWaitComponent,
-    SkyWaitPageComponent
+    SkyWaitComponent
   ],
   entryComponents: [
     SkyWaitPageComponent
