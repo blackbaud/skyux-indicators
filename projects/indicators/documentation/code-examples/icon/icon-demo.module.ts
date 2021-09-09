@@ -9,7 +9,7 @@ import {
 
 import {
   SkyIconModule
-} from '@skyux/indicators';
+} from 'projects/indicators/src/public-api';
 
 import {
   IconDemoComponent

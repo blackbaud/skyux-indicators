@@ -9,7 +9,7 @@ import {
 
 import {
   SkyAlertModule
-} from '@skyux/indicators';
+} from 'projects/indicators/src/public-api';
 
 import {
   AlertDemoComponent

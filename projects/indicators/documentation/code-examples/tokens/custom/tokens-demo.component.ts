@@ -8,7 +8,7 @@ import {
   SkyTokenSelectedEventArgs,
   SkyTokensMessage,
   SkyTokensMessageType
-} from '@skyux/indicators';
+} from 'projects/indicators/src/public-api';
 
 import {
   Subject

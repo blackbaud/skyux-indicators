@@ -4,7 +4,7 @@ import {
 
 import {
   SkyToken
-} from '@skyux/indicators';
+} from 'projects/indicators/src/public-api';
 
 @Component({
   selector: 'app-tokens-demo',

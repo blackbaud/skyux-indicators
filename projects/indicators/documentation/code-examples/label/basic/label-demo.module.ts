@@ -8,7 +8,7 @@ import {
 
 import {
   SkyLabelModule
-} from '@skyux/indicators';
+} from 'projects/indicators/src/public-api';
 
 import {
   LabelDemoComponent
