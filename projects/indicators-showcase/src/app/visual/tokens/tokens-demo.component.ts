@@ -3,11 +3,6 @@ import {
 } from '@angular/core';
 
 import {
-  SkyThemeService,
-  SkyThemeSettings
-} from '@skyux/theme';
-
-import {
   SkyToken
 } from 'projects/indicators/src/public-api';
 
@@ -36,10 +31,4 @@ export class SkyTokensDemoComponent {
     { id: 3, label: 'Employed' },
     { id: 4, label: 'Added before 2018' }
   ].map(value => ({ value }));
-
-  constructor(private themeSvc: SkyThemeService) { }
-
-  public themeSettingsChange(themeSettings: SkyThemeSettings): void {
-    this.themeSvc.setTheme(themeSettings);
-  }
 }
