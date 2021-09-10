@@ -1,6 +1,13 @@
-<sky-docs-demo-control-panel-theme
-  (themeSettingsChange)="themeSettingsChange($event)"
-></sky-docs-demo-control-panel-theme>
+<div
+  style="padding: 10px;"
+>
+  <label
+    class="sky-control-label"
+  >
+    Theme:
+    <sky-e2e-theme-selector></sky-e2e-theme-selector>
+  </label>
+</div>
 
 <input
   [(ngModel)]="normalSearchTerm"
