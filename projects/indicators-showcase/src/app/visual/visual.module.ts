@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SkyDocsToolsModule } from '@skyux/docs-tools';
+import { SkyE2eThemeSelectorModule } from '@skyux/e2e-client';
 
 import { SkyAlertModule, SkyChevronModule, SkyHelpInlineModule, SkyIconModule, SkyKeyInfoModule, SkyLabelModule, SkyStatusIndicatorModule, SkyTextHighlightModule, SkyTokensModule, SkyWaitModule } from 'projects/indicators/src/public-api';
 
@@ -42,7 +42,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     SkyAlertModule,
     SkyChevronModule,
-    SkyDocsToolsModule,
+    SkyE2eThemeSelectorModule,
     SkyHelpInlineModule,
     SkyIconModule,
     SkyKeyInfoModule,

@@ -1,3 +1,7 @@
+# 5.0.0-beta.4 (2021-09-10)
+
+- Updated peer dependencies. [#191](https://github.com/blackbaud/skyux-indicators/pull/191)
+
 # 5.0.0-beta.3 (2021-09-02)
 
 - Enabled Ivy's "partial" compilation mode. [#190](https://github.com/blackbaud/skyux-indicators/pull/190)

@@ -11,6 +11,9 @@
       "indicators": [
         "dist/indicators/indicators",
         "dist/indicators"
+      ],
+      "@skyux/indicators": [
+        "projects/indicators/src/public-api.ts"
       ]
     },
     "experimentalDecorators": true,
