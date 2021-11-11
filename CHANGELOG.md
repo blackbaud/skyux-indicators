@@ -1,3 +1,7 @@
+# 5.0.1 (2021-11-11)
+
+- Fixed the UMD bundle to work in StackBlitz. [#196](https://github.com/blackbaud/skyux-indicators/pull/196)
+
 # 5.0.0 (2021-09-30)
 
 ### New features
