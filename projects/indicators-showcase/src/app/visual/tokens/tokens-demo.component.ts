@@ -1,14 +1,10 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {
-  SkyToken
-} from 'projects/indicators/src/public-api';
+import { SkyToken } from 'projects/indicators/src/public-api';
 
 @Component({
   selector: 'sky-tokens-demo',
-  templateUrl: './tokens-demo.component.html'
+  templateUrl: './tokens-demo.component.html',
 })
 export class SkyTokensDemoComponent {
   public colors: SkyToken[] = [
@@ -22,13 +18,13 @@ export class SkyTokensDemoComponent {
     { id: 8, name: 'Red' },
     { id: 9, name: 'Turquoise' },
     { id: 10, name: 'White' },
-    { id: 11, name: 'Yellow' }
-  ].map(value => ({ value }));
+    { id: 11, name: 'Yellow' },
+  ].map((value) => ({ value }));
 
   public filters: SkyToken[] = [
     { id: 1, label: 'Canada' },
     { id: 2, label: 'Older than 55' },
     { id: 3, label: 'Employed' },
-    { id: 4, label: 'Added before 2018' }
-  ].map(value => ({ value }));
+    { id: 4, label: 'Added before 2018' },
+  ].map((value) => ({ value }));
 }

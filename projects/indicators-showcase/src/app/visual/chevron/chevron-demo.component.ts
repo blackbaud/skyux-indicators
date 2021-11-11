@@ -1,10 +1,7 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sky-chevron-demo',
-  templateUrl: './chevron-demo.component.html'
+  templateUrl: './chevron-demo.component.html',
 })
-export class SkyChevronDemoComponent {
-}
+export class SkyChevronDemoComponent {}

@@ -1,21 +1,10 @@
-import {
-  SkyHostBrowserBreakpoint
-} from '@skyux-sdk/e2e/host-browser/host-browser-breakpoint';
+import { SkyHostBrowserBreakpoint } from '@skyux-sdk/e2e/host-browser/host-browser-breakpoint';
 
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
-import {
-  browser,
-  by,
-  element
-} from 'protractor';
+import { browser, by, element } from 'protractor';
 
 describe('Help inline', () => {
-
   //#region helpers
   let browserSize: SkyHostBrowserBreakpoint;
   let currentTheme: string;
@@ -53,20 +42,23 @@ describe('Help inline', () => {
   function runTests(): void {
     it('should match previous screenshot', async (done) => {
       await expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('help-inline')
+        screenshotName: getScreenshotName('help-inline'),
       });
     });
 
     it('should match previous screenshot when hovering', async (done) => {
-      await browser.actions().mouseMove(element(by.css('.sky-help-inline'))).perform();
+      await browser
+        .actions()
+        .mouseMove(element(by.css('.sky-help-inline')))
+        .perform();
       await expect('.sky-help-inline-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('help-inline-hover')
+        screenshotName: getScreenshotName('help-inline-hover'),
       });
     });
   }
 
   describe('(size: lg)', () => {
-    beforeEach( async () => {
+    beforeEach(async () => {
       currentTheme = undefined;
       currentThemeMode = undefined;
       await SkyHostBrowser.get('visual/help-inline');
@@ -93,7 +85,7 @@ describe('Help inline', () => {
   });
 
   describe('(size: xs)', () => {
-    beforeEach( async() => {
+    beforeEach(async () => {
       currentTheme = undefined;
       currentThemeMode = undefined;
       await SkyHostBrowser.get('visual/help-inline');
@@ -118,5 +110,4 @@ describe('Help inline', () => {
       runTests();
     });
   });
-
 });

@@ -1,19 +1,11 @@
-import {
-  browser,
-  by,
-  element,
-  Key
-} from 'protractor';
+import { browser, by, element, Key } from 'protractor';
 
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
 describe('Tokens', () => {
   const firstTokenSelector = '.sky-token-dismissable';
-  const firstTokenCloseBtnSelector = '.sky-token-dismissable .sky-token-btn-close';
+  const firstTokenCloseBtnSelector =
+    '.sky-token-dismissable .sky-token-btn-close';
 
   let currentTheme: string;
   let currentThemeMode: string;
@@ -38,11 +30,17 @@ describe('Tokens', () => {
   }
 
   async function hoverElement(selector: string): Promise<void> {
-    await browser.actions().mouseMove(element(by.css(selector))).perform();
+    await browser
+      .actions()
+      .mouseMove(element(by.css(selector)))
+      .perform();
   }
 
   async function mouseDownElement(selector: string): Promise<void> {
-    await browser.actions().mouseDown(element(by.css(selector))).perform();
+    await browser
+      .actions()
+      .mouseDown(element(by.css(selector)))
+      .perform();
   }
 
   async function focusToken(selector: string): Promise<void> {
@@ -63,7 +61,7 @@ describe('Tokens', () => {
   function runTests(): void {
     it('should match previous screenshot', async (done) => {
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-lg')
+        screenshotName: getScreenshotName('tokens-lg'),
       });
     });
 
@@ -72,7 +70,7 @@ describe('Tokens', () => {
       await hoverElement(firstTokenSelector);
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-hover')
+        screenshotName: getScreenshotName('tokens-hover'),
       });
     });
 
@@ -80,7 +78,7 @@ describe('Tokens', () => {
       await mouseDownElement(firstTokenSelector);
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-active')
+        screenshotName: getScreenshotName('tokens-active'),
       });
     });
 
@@ -88,7 +86,7 @@ describe('Tokens', () => {
       await focusToken(firstTokenSelector);
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-focus')
+        screenshotName: getScreenshotName('tokens-focus'),
       });
     });
 
@@ -96,7 +94,7 @@ describe('Tokens', () => {
       await hoverElement(firstTokenCloseBtnSelector);
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-close-hover')
+        screenshotName: getScreenshotName('tokens-close-hover'),
       });
     });
 
@@ -104,14 +102,14 @@ describe('Tokens', () => {
       await mouseDownElement(firstTokenCloseBtnSelector);
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-close-active')
+        screenshotName: getScreenshotName('tokens-close-active'),
       });
     });
     it('should match previous screenshot when token close button is focused', async (done) => {
       await focusTokenCloseBtn(firstTokenSelector);
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-close-focus')
+        screenshotName: getScreenshotName('tokens-close-focus'),
       });
     });
 
@@ -119,7 +117,7 @@ describe('Tokens', () => {
       await SkyHostBrowser.setWindowBreakpoint('xs');
 
       await expect('.sky-tokens-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('tokens-xs')
+        screenshotName: getScreenshotName('tokens-xs'),
       });
     });
   }

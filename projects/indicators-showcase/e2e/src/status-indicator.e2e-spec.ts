@@ -1,8 +1,4 @@
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
 describe('Status indicator', () => {
   let currentTheme: string;
@@ -30,17 +26,23 @@ describe('Status indicator', () => {
   async function validateBasic(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
-    await expect('.sky-status-indicator-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('status-indicator')
-    });
+    await expect('.sky-status-indicator-visual').toMatchBaselineScreenshot(
+      done,
+      {
+        screenshotName: getScreenshotName('status-indicator'),
+      }
+    );
   }
 
   async function validateWrap(done: DoneFn): Promise<void> {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
-    await expect('.sky-status-indicator-visual-wrap').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('status-indicator-wrap')
-    });
+    await expect('.sky-status-indicator-visual-wrap').toMatchBaselineScreenshot(
+      done,
+      {
+        screenshotName: getScreenshotName('status-indicator-wrap'),
+      }
+    );
   }
 
   beforeEach(async () => {
@@ -56,7 +58,6 @@ describe('Status indicator', () => {
   });
 
   describe('when modern theme', () => {
-
     beforeEach(async () => {
       await selectTheme('modern', 'light');
     });
@@ -68,11 +69,9 @@ describe('Status indicator', () => {
     it('should match previous screenshot when text wraps', async (done) => {
       await validateWrap(done);
     });
-
   });
 
   describe('when modern theme in dark mode', () => {
-
     beforeEach(async () => {
       await selectTheme('modern', 'dark');
     });
@@ -84,7 +83,5 @@ describe('Status indicator', () => {
     it('should match previous screenshot when text wraps', async (done) => {
       await validateWrap(done);
     });
-
   });
-
 });

@@ -1,8 +1,4 @@
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
 describe('Text highlight', () => {
   let currentTheme: string;
@@ -31,7 +27,7 @@ describe('Text highlight', () => {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
     await expect('.sky-text-highlight-demo').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('text-highlight-lg')
+      screenshotName: getScreenshotName('text-highlight-lg'),
     });
   }
 
@@ -39,7 +35,7 @@ describe('Text highlight', () => {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
     await expect('.sky-text-highlight-demo').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('text-highlight-xs')
+      screenshotName: getScreenshotName('text-highlight-xs'),
     });
   }
 

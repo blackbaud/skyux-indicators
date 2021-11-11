@@ -17,56 +17,56 @@ import { SkyWaitDemoComponent } from './visual/wait/wait-demo.component';
 const routes: Routes = [
   {
     path: '',
-    component: VisualComponent
+    component: VisualComponent,
   },
   {
     path: 'visual/alert',
-    component: AlertVisualComponent
+    component: AlertVisualComponent,
   },
   {
     path: 'visual/chevron',
-    component: SkyChevronDemoComponent
+    component: SkyChevronDemoComponent,
   },
   {
     path: 'visual/help-inline',
-    component: SkyHelpInlineDemoComponent
+    component: SkyHelpInlineDemoComponent,
   },
   {
     path: 'visual/icon',
-    component: SkyIconDemoComponent
+    component: SkyIconDemoComponent,
   },
   {
     path: 'visual/icon-stack',
-    component: SkyIconStackDemoComponent
+    component: SkyIconStackDemoComponent,
   },
   {
     path: 'visual/key-info',
-    component: KeyInfoVisualComponent
+    component: KeyInfoVisualComponent,
   },
   {
     path: 'visual/label',
-    component: SkyLabelDemoComponent
+    component: SkyLabelDemoComponent,
   },
   {
     path: 'visual/status-indicator',
-    component: StatusIndicatorVisualComponent
+    component: StatusIndicatorVisualComponent,
   },
   {
     path: 'visual/text-highlight',
-    component: SkyTextHighlightDemoComponent
+    component: SkyTextHighlightDemoComponent,
   },
   {
     path: 'visual/tokens',
-    component: SkyTokensDemoComponent
+    component: SkyTokensDemoComponent,
   },
   {
     path: 'visual/wait',
-    component: SkyWaitDemoComponent
-  }
+    component: SkyWaitDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
