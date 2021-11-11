@@ -1,8 +1,4 @@
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
 describe('Label', () => {
   let currentTheme: string;
@@ -32,7 +28,7 @@ describe('Label', () => {
       await SkyHostBrowser.setWindowBreakpoint('lg');
 
       await expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('label-lg')
+        screenshotName: getScreenshotName('label-lg'),
       });
     });
 
@@ -40,7 +36,7 @@ describe('Label', () => {
       await SkyHostBrowser.setWindowBreakpoint('xs');
 
       await expect('.sky-label-demo').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('label-xs')
+        screenshotName: getScreenshotName('label-xs'),
       });
     });
   }

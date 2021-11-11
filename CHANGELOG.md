@@ -198,7 +198,6 @@
 
 - Updated peer dependencies to support Angular versions greater than `4.3.6`. [#13](https://github.com/blackbaud/skyux-indicators/pull/19)
 
-
 # 3.0.0-rc.4 (2018-11-12)
 
 - Fixed the text highlight component to no longer execute on attribute changes. [#15](https://github.com/blackbaud/skyux-indicators/pull/15)

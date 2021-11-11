@@ -3,7 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { SkyE2eThemeSelectorModule } from '@skyux/e2e-client';
 
-import { SkyAlertModule, SkyChevronModule, SkyHelpInlineModule, SkyIconModule, SkyKeyInfoModule, SkyLabelModule, SkyStatusIndicatorModule, SkyTextHighlightModule, SkyTokensModule, SkyWaitModule } from 'projects/indicators/src/public-api';
+import {
+  SkyAlertModule,
+  SkyChevronModule,
+  SkyHelpInlineModule,
+  SkyIconModule,
+  SkyKeyInfoModule,
+  SkyLabelModule,
+  SkyStatusIndicatorModule,
+  SkyTextHighlightModule,
+  SkyTokensModule,
+  SkyWaitModule,
+} from 'projects/indicators/src/public-api';
 
 import { VisualComponent } from './visual.component';
 import { AlertVisualComponent } from './alert/alert-visual.component';
@@ -20,7 +31,6 @@ import { SkyTokensDemoComponent } from './tokens/tokens-demo.component';
 import { SkyWaitDemoComponent } from './wait/wait-demo.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AlertVisualComponent,
@@ -34,7 +44,7 @@ import { FormsModule } from '@angular/forms';
     StatusIndicatorVisualComponent,
     SkyTextHighlightDemoComponent,
     SkyTokensDemoComponent,
-    SkyWaitDemoComponent
+    SkyWaitDemoComponent,
   ],
   imports: [
     CommonModule,
@@ -50,7 +60,7 @@ import { FormsModule } from '@angular/forms';
     SkyStatusIndicatorModule,
     SkyTextHighlightModule,
     SkyTokensModule,
-    SkyWaitModule
-  ]
+    SkyWaitModule,
+  ],
 })
-export class VisualModule { }
+export class VisualModule {}

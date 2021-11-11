@@ -1,8 +1,4 @@
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
 describe('Key info', () => {
   let currentTheme: string;
@@ -31,7 +27,7 @@ describe('Key info', () => {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
     await expect('.sky-key-info-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('key-info-lg')
+      screenshotName: getScreenshotName('key-info-lg'),
     });
   }
 
@@ -39,7 +35,7 @@ describe('Key info', () => {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
     await expect('.sky-key-info-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('key-info-xs')
+      screenshotName: getScreenshotName('key-info-xs'),
     });
   }
 

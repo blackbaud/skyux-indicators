@@ -1,12 +1,6 @@
-import {
-  expect,
-  SkyHostBrowser
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser } from '@skyux-sdk/e2e';
 
-import {
-  by,
-  element
-} from 'protractor';
+import { by, element } from 'protractor';
 
 describe('Wait', () => {
   beforeEach(async () => {
@@ -17,7 +11,7 @@ describe('Wait', () => {
   it('should display wait on parent', async (done) => {
     await element(by.css('.sky-test-wait')).click();
     await expect('.sky-wait-demo-parent').toMatchBaselineScreenshot(done, {
-      screenshotName: 'wait-parent'
+      screenshotName: 'wait-parent',
     });
   });
 
@@ -25,30 +19,33 @@ describe('Wait', () => {
     await element(by.css('.sky-test-wait')).click();
     await SkyHostBrowser.scrollTo('.sky-wait-demo-absolute');
     await expect('.sky-wait-demo-absolute').toMatchBaselineScreenshot(done, {
-      screenshotName: 'wait-parent-absolute'
+      screenshotName: 'wait-parent-absolute',
     });
   });
 
   it('should display wait behind parent with modal z-index', async (done) => {
     await element(by.css('.sky-test-wait')).click();
     await SkyHostBrowser.scrollTo('.sky-wait-demo-absolute-behind');
-    await expect('.sky-wait-demo-absolute-behind').toMatchBaselineScreenshot(done, {
-      screenshotName: 'wait-parent-behind'
-    });
+    await expect('.sky-wait-demo-absolute-behind').toMatchBaselineScreenshot(
+      done,
+      {
+        screenshotName: 'wait-parent-behind',
+      }
+    );
   });
 
   it('should display non-blocking wait on parent', async (done) => {
     await element(by.css('.sky-test-non-blocking')).click();
     await element(by.css('.sky-test-wait')).click();
     await expect('.sky-wait-demo-parent').toMatchBaselineScreenshot(done, {
-      screenshotName: 'wait-parent-non-blocking'
+      screenshotName: 'wait-parent-non-blocking',
     });
   });
 
   it('should display wait on full page', async (done) => {
     await element(by.css('.sky-test-full-page')).click();
     await expect('.sky-wait-demo').toMatchBaselineScreenshot(done, {
-      screenshotName: 'wait-full-page'
+      screenshotName: 'wait-full-page',
     });
   });
 
@@ -56,7 +53,7 @@ describe('Wait', () => {
     await element(by.css('.sky-test-non-blocking')).click();
     await element(by.css('.sky-test-full-page')).click();
     await expect('.sky-wait-demo').toMatchBaselineScreenshot(done, {
-      screenshotName: 'wait-full-page-non-block'
+      screenshotName: 'wait-full-page-non-block',
     });
   });
 });

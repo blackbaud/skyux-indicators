@@ -1,8 +1,4 @@
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
 describe('Alert', () => {
   let currentTheme: string;
@@ -31,7 +27,7 @@ describe('Alert', () => {
     await SkyHostBrowser.setWindowBreakpoint('lg');
 
     await expect('.sky-alert-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('alert-lg')
+      screenshotName: getScreenshotName('alert-lg'),
     });
   }
 
@@ -39,7 +35,7 @@ describe('Alert', () => {
     await SkyHostBrowser.setWindowBreakpoint('xs');
 
     await expect('.sky-alert-visual').toMatchBaselineScreenshot(done, {
-      screenshotName: getScreenshotName('alert-xs')
+      screenshotName: getScreenshotName('alert-xs'),
     });
   }
 
@@ -56,7 +52,6 @@ describe('Alert', () => {
   });
 
   describe('when modern theme', () => {
-
     beforeEach(async () => {
       await selectTheme('modern', 'light');
     });
@@ -68,11 +63,9 @@ describe('Alert', () => {
     it('should match previous screenshot (screen: xs)', async (done) => {
       await validateBasicXs(done);
     });
-
   });
 
   describe('when modern theme in dark mode', () => {
-
     beforeEach(async () => {
       await selectTheme('modern', 'dark');
     });
@@ -84,7 +77,5 @@ describe('Alert', () => {
     it('should match previous screenshot (screen: xs)', async (done) => {
       await validateBasicXs(done);
     });
-
   });
-
 });

@@ -1,6 +1,4 @@
-<div
-  class="sky-wait-demo"
->
+<div class="sky-wait-demo">
   <button
     class="sky-btn sky-btn-secondary sky-test-wait"
     type="button"
@@ -27,7 +25,7 @@
 
   <button
     class="sky-btn sky-btn-secondary sky-test-non-blocking"
-    style="margin-bottom: 10px;"
+    style="margin-bottom: 10px"
     type="button"
     [ngClass]="{
       'sky-btn-secondary': isNonBlocking,
@@ -38,50 +36,43 @@
     Toggle blocking
   </button>
 
-  <div
-    class="sky-wait-demo-parent"
-    style="width: 500px; height: 500px"
-  >
+  <div class="sky-wait-demo-parent" style="width: 500px; height: 500px">
     <div style="height: 200px; width: 200px">
       Wait <a href="http://example.com">link</a> inside this element with text
-      <sky-wait
-        [isNonBlocking]="isNonBlocking"
-        [isWaiting]="isWaiting"
-      >
+      <sky-wait [isNonBlocking]="isNonBlocking" [isWaiting]="isWaiting">
       </sky-wait>
     </div>
   </div>
 
   <div
     class="sky-wait-demo-absolute"
-    style="height: 200px; width: 200px; margin-top: 10px;"
+    style="height: 200px; width: 200px; margin-top: 10px"
   >
-    <sky-wait
-      [isWaiting]="isWaiting"
-    >
-    </sky-wait>
+    <sky-wait [isWaiting]="isWaiting"> </sky-wait>
     <div>
-      <p
-        style="position:absolute; background-color: red"
-      >
-        A large area that can be waited with the <code>sky-wait</code> directive and a <a href="http://example.com">link</a>.
+      <p style="position: absolute; background-color: red">
+        A large area that can be waited with the <code>sky-wait</code> directive
+        and a <a href="http://example.com">link</a>.
       </p>
     </div>
   </div>
 
   <div
     class="sky-wait-demo-absolute-behind"
-    style="height: 200px; width: 200px; margin-top: 10px;"
+    style="height: 200px; width: 200px; margin-top: 10px"
   >
-    <sky-wait
-      [isWaiting]="isWaiting"
-    >
-    </sky-wait>
+    <sky-wait [isWaiting]="isWaiting"> </sky-wait>
     <div>
       <p
-        style="position:absolute; background-color: red; z-index: 1040; color: #000;"
+        style="
+          position: absolute;
+          background-color: red;
+          z-index: 1040;
+          color: #000;
+        "
       >
-        A large area that can be waited with the <code>sky-wait</code> directive and a <a href="http://example.com">link</a>.
+        A large area that can be waited with the <code>sky-wait</code> directive
+        and a <a href="http://example.com">link</a>.
       </p>
     </div>
   </div>
@@ -93,8 +84,6 @@
 >
 </sky-wait>
 
-<button
-  class="sky-btn sky-btn-secondary"
->
+<button class="sky-btn sky-btn-secondary">
   I am a button that does nothing, but you can tab navigate to and from me
 </button>
