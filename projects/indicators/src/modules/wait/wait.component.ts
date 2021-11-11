@@ -61,9 +61,10 @@ export class SkyWaitComponent implements OnInit {
    */
   @Input()
   public set isFullPage(value: boolean) {
+    /* istanbul ignore else: untestable */
     if (value) {
       this.adapterService.removeWaitBounds(this.elRef);
-    } /* istanbul ignore if: untestable */ else if (!value && this._isWaiting) {
+    } else if (!value && this._isWaiting) {
       this.adapterService.setWaitBounds(this.elRef);
     }
 
