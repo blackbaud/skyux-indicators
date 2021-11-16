@@ -31,10 +31,15 @@ export class SkyTextHighlightDirective
    */
   @Input()
   public set skyHighlight(value: string | string[]) {
-    if (typeof value === 'string') {
+    this._skyHighlight = [];
+    if (typeof value === 'string' && value) {
       this._skyHighlight = [value as string];
     } else {
-      this._skyHighlight = value as string[];
+      for (let index = 0; index < value.length; index++) {
+        if (value[index]) {
+          this._skyHighlight.push(value[index]);
+        }
+      }
     }
   }
 
