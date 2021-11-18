@@ -127,19 +127,6 @@ export class SkyTextHighlightDirective
     return regex.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
   }
 
-  private static getRegexMatch(
-    node: HTMLElement,
-    searchTerms: string[]
-  ): RegExpExecArray {
-    const text = node.nodeValue;
-    for (let index = 0; index < searchTerms.length; index++) {
-      searchTerms[index] = this.cleanRegex(searchTerms[index]);
-    }
-    const searchRegex = new RegExp(searchTerms.join('|'), 'gi');
-
-    return searchRegex.exec(text);
-  }
-
   private static markNode(node: any, searchTerms: string[]): number {
     /* istanbul ignore else */
     if (searchTerms) {
