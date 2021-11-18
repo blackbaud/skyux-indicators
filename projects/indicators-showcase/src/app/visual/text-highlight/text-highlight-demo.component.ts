@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './text-highlight-demo.component.html',
 })
 export class SkyTextHighlightDemoComponent {
-  public arrayOfSearchTerms = ['Åland', 'Aland'];
+  public arrayOfSearchTerms = ['pan', 'panda'];
   public normalSearchTerm: string;
   public blankSearchTerm = '';
   public notMatchedSearchTerm = 'xnotmatched';

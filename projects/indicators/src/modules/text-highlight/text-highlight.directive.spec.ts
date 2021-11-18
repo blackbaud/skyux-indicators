@@ -132,6 +132,30 @@ describe('Text Highlight', () => {
     expect(newMarks[0].innerHTML.trim()).toBe('text');
   });
 
+  it('should highlight search terms when using an array and the array contains substrings of other strings in the same array', () => {
+    component.innerText1 = 'The pandas have ten pans.';
+    fixture.detectChanges();
+    component.searchTerm = ['pan', 'panda'];
+    fixture.detectChanges();
+
+    // If a match is found that contains a substring of another match, the larger string should be marked.
+    const marks: NodeListOf<HTMLElement> =
+      fixture.nativeElement.querySelectorAll('mark');
+    expect(marks.length).toEqual(2);
+    expect(marks[0].innerHTML.trim()).toBe('panda');
+    expect(marks[1].innerHTML.trim()).toBe('pan');
+
+    // Also check for a different order of the same terms.
+    component.searchTerm = ['panda', 'pan'];
+    fixture.detectChanges();
+
+    const newMarks: NodeListOf<HTMLElement> =
+      fixture.nativeElement.querySelectorAll('mark');
+    expect(newMarks.length).toEqual(2);
+    expect(newMarks[0].innerHTML.trim()).toBe('panda');
+    expect(newMarks[1].innerHTML.trim()).toBe('pan');
+  });
+
   it('highlight should NOT be called when DOM attributes are changed', (done) => {
     const spy = spyOn<any>(
       component.textHighlightDirective,
