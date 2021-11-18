@@ -100,6 +100,38 @@ describe('Text Highlight', () => {
     expect(mark.innerHTML.trim()).toBe('text');
   });
 
+  it('should handle empty strings and empty arrays', () => {
+    component.searchTerm = '';
+    fixture.detectChanges();
+
+    expect(containerEl.querySelector('mark')).toBeFalsy();
+
+    component.searchTerm = [];
+    fixture.detectChanges();
+
+    expect(containerEl.querySelector('mark')).toBeFalsy();
+  });
+
+  it('should highlight search terms when using an array', () => {
+    component.searchTerm = ['Here', 'some', 'text'];
+    fixture.detectChanges();
+
+    const marks: NodeListOf<HTMLElement> =
+      fixture.nativeElement.querySelectorAll('mark');
+    expect(marks.length).toEqual(3);
+    expect(marks[0].innerHTML.trim()).toBe('Here');
+    expect(marks[1].innerHTML.trim()).toBe('some');
+    expect(marks[2].innerHTML.trim()).toBe('text');
+
+    component.searchTerm = ['text'];
+    fixture.detectChanges();
+
+    const newMarks: NodeListOf<HTMLElement> =
+      fixture.nativeElement.querySelectorAll('mark');
+    expect(newMarks.length).toEqual(1);
+    expect(newMarks[0].innerHTML.trim()).toBe('text');
+  });
+
   it('highlight should NOT be called when DOM attributes are changed', (done) => {
     const spy = spyOn<any>(
       component.textHighlightDirective,

@@ -31,11 +31,13 @@ export class SkyTextHighlightDirective
    */
   @Input()
   public set skyHighlight(value: string | string[]) {
+    value = value || [];
     this._skyHighlight = [];
-    if (typeof value === 'string' && value) {
+    if (typeof value === 'string') {
       this._skyHighlight = [value as string];
     } else {
       for (let index = 0; index < value.length; index++) {
+        /* istanbul ignore else */
         if (value[index]) {
           this._skyHighlight.push(value[index]);
         }
@@ -69,7 +71,7 @@ export class SkyTextHighlightDirective
     );
 
     this.observeDom();
-    if (this._skyHighlight.length > 0) {
+    if (this._skyHighlight && this._skyHighlight.length > 0) {
       this.highlight();
     }
   }
@@ -82,7 +84,7 @@ export class SkyTextHighlightDirective
   }
 
   private readyForHighlight(searchText: string[]): boolean {
-    return searchText.length > 0 && this.el.nativeElement;
+    return searchText && searchText.length > 0 && this.el.nativeElement;
   }
 
   private highlight(): void {
@@ -139,29 +141,32 @@ export class SkyTextHighlightDirective
   }
 
   private static markNode(node: any, searchTerms: string[]): number {
-    const regexMatch = SkyTextHighlightDirective.getRegexMatch(
-      node,
-      searchTerms
-    );
+    /* istanbul ignore else */
+    if (searchTerms) {
+      const text = node.nodeValue;
+      for (let index = 0; index < searchTerms.length; index++) {
+        searchTerms[index] = this.cleanRegex(searchTerms[index]);
+      }
+      const searchRegex = new RegExp(searchTerms.join('|'), 'gi');
 
-    // found match
-    if (regexMatch && regexMatch.length > 0) {
-      // split apart text node with mark tags in the middle on the search term
-      const matchIndex = regexMatch.index;
+      let match;
+      while ((match = searchRegex.exec(text))) {
+        // Split apart text node with mark tags in the middle on the search term.
+        const matchIndex = match.index;
 
-      const middle = node.splitText(matchIndex);
-      middle.splitText(searchTerms.length);
-      const middleClone = middle.cloneNode(true);
+        const middle = node.splitText(matchIndex);
+        middle.splitText(searchRegex.lastIndex - matchIndex);
+        const middleClone = middle.cloneNode(true);
 
-      const markNode = document.createElement('mark');
-      markNode.className = className;
-      markNode.appendChild(middleClone);
-      middle.parentNode.replaceChild(markNode, middle);
+        const markNode = document.createElement('mark');
+        markNode.className = className;
+        markNode.appendChild(middleClone);
+        middle.parentNode.replaceChild(markNode, middle);
 
-      return 1;
-    } else {
-      return 0;
+        return 1;
+      }
     }
+    return 0;
   }
 
   private static markTextNodes(
