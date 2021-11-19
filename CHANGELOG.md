@@ -1,6 +1,6 @@
 # 5.0.3 (2021-11-19)
 
-- Updated the builder to support StackBlitz. []()
+- Updated the builder to support StackBlitz. [#199](https://github.com/blackbaud/skyux-indicators/pull/199)
 
 # 5.0.2 (2021-11-12)
 
