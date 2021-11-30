@@ -136,9 +136,8 @@ export class SkyTextHighlightDirective
         searchTerms[index] = this.cleanRegex(searchTerms[index]);
       }
       const searchRegex = new RegExp(searchTerms.join('|'), 'gi');
-
-      let match;
-      while ((match = searchRegex.exec(text))) {
+      const match = searchRegex.exec(text);
+      if (match) {
         // Split apart text node with mark tags in the middle on the search term.
         const matchIndex = match.index;
 
