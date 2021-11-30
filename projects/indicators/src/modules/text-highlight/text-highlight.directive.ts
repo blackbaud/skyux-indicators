@@ -33,20 +33,16 @@ export class SkyTextHighlightDirective
   public set skyHighlight(value: string | string[]) {
     value = value || [];
     this._skyHighlight = [];
-    /* istanbul ignore else */
-    if (typeof value === 'string') {
-      this._skyHighlight = [value as string];
-    } else if (Array.isArray(value)) {
-      for (let i = 0; i < value.length; i++) {
-        /* istanbul ignore else */
-        if (value[i]) {
-          this._skyHighlight.push(value[i]);
-        }
-      }
-      // Reorder array in descending order to avoid missing matches that contain substrings of other matches.
+
+    if (Array.isArray(value)) {
+      this._skyHighlight = value.filter((item) => !!item);
+      // Reorder strings by their length in descending order to avoid missing matches
+      // that contain substrings of other matches.
       this._skyHighlight.sort(function (a, b) {
         return b.length - a.length;
       });
+    } else {
+      this._skyHighlight = [value as string];
     }
   }
 
