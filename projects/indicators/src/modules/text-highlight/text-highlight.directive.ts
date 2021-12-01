@@ -132,8 +132,8 @@ export class SkyTextHighlightDirective
     /* istanbul ignore else */
     if (searchTerms) {
       const text = node.nodeValue;
-      for (let index = 0; index < searchTerms.length; index++) {
-        searchTerms[index] = this.cleanRegex(searchTerms[index]);
+      for (let i = 0; i < searchTerms.length; i++) {
+        searchTerms[i] = this.cleanRegex(searchTerms[i]);
       }
       const searchRegex = new RegExp(searchTerms.join('|'), 'gi');
       const match = searchRegex.exec(text);
