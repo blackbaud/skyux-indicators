@@ -3,12 +3,18 @@
 <input [(ngModel)]="normalSearchTerm" />
 <div class="sky-text-highlight-demo">
   <div [skyHighlight]="normalSearchTerm">
-    The text that you enter is highlighted here.
+    The text that you enter should be highlighted here.
+  </div>
+  <div [skyHighlight]="arrayOfSearchTerms">
+    This paragraph should be highlighed by two different values in an array:
+    Åland Islands and Aland Islands.
   </div>
   <div [skyHighlight]="blankSearchTerm">
-    The text that you enter is highlighted here.
+    This paragraph should not be highlighted, because we're passing a blank
+    search term.
   </div>
   <div [skyHighlight]="notMatchedSearchTerm">
-    The text that you enter is highlighted here.
+    This paragraph should not be highlighted, because we're passing a search
+    term that's not found.
   </div>
 </div>
