@@ -1,6 +1,6 @@
 # 5.1.1 (2021-12-02)
 
-- Fixed a bug that suppressed the browser document's `keyup` event when a token component was present on a page. [#201](https://github.com/blackbaud/skyux-indicators/pull/201)
+- Fixed a bug that suppressed the browser document's `mouseup` event when a token component was present on a page. [#201](https://github.com/blackbaud/skyux-indicators/pull/201)
 
 # 5.1.0 (2021-12-02)
 
