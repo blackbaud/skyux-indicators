@@ -1,6 +1,6 @@
 # 5.1.2 (2021-12-07)
 
-- Added support for Prettier code formatting. []()
+- Added support for Prettier code formatting. [#203](https://github.com/blackbaud/skyux-indicators/pull/203)
 
 # 5.1.1 (2021-12-02)
 
