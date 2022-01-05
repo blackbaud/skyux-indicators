@@ -173,9 +173,10 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
-            "protractorConfig": "projects/indicators-showcase/e2e/protractor.conf.js"
+            "cypressConfig": "projects/indicators-showcase/cypress.json",
+            "tsConfig": "projects/indicators-showcase/cypress/tsconfig.json"
           },
           "configurations": {
             "production": {
