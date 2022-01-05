@@ -6,5 +6,6 @@ describe('Alert', () => {
 
   it('should match basic screenshot', () => {
     cy.get('.sky-alert-visual').screenshot();
+    cy.percySnapshot();
   });
 });
