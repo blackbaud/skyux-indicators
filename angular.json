@@ -12,7 +12,8 @@
         "build": {
           "builder": "@skyux-sdk/angular-builders:ng-packagr",
           "options": {
-            "project": "projects/indicators/ng-package.json"
+            "project": "projects/indicators/ng-package.json",
+            "tsConfig": "projects/indicators/tsconfig.lib.prod.json"
           },
           "configurations": {
             "production": {
