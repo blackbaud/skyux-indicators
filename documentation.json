@@ -1300,6 +1300,49 @@
     "interceptors": [],
     "classes": [
         {
+            "name": "AppPage",
+            "id": "class-AppPage-d83b95cb897fd7f1ecc7216a31a9167598810a902c9c43ec11b6a93965548994186b900fe348e64bdf35a97b36d2fdb26731097dc1738e7f73bc67d2d432a47c",
+            "file": "projects/indicators-showcase/e2e/src/app.po.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  async navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl);\n  }\n\n  async getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText();\n  }\n}\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getTitleText",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        131
+                    ]
+                },
+                {
+                    "name": "navigateTo",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<>",
+                    "typeParameters": [],
+                    "line": 4,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        131
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
             "name": "SkyAlertFixture",
             "id": "class-SkyAlertFixture-0f887899cb848e27fe98ce2e276be2727f02c7cb6456869532ee1884aaccfc1ab8015a7e472fd840bcefc8c0e08c6ea7ac19dc21fb40b6ad56d9a6c93a81bff6",
             "file": "projects/indicators/testing/src/alert-fixture.ts",
@@ -2355,6 +2398,156 @@
             "templateData": "<sky-alert [alertType]=\"alertType\" [closeable]=\"closeable\" [(closed)]=\"closed\">\n  Alert\n</sky-alert>\n"
         },
         {
+            "name": "AlertVisualComponent",
+            "id": "component-AlertVisualComponent-47e7c264def648bf7c919366acaaaa1849eaee7ac118ad0bbe302c55fba63bf03d69c4976941d3d250aec2ecfdbd8a15f2d2d1059c30641cc93adbb6eaa62e7b",
+            "file": "projects/indicators-showcase/src/app/visual/alert/alert-visual.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-alert-visual",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./alert-visual.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "alertCloseable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-alert-visual',\n  templateUrl: './alert-visual.component.html',\n})\nexport class AlertVisualComponent {\n  public alertCloseable = true;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-alert-visual\">\n  <sky-alert [alertType]=\"'info'\" [closeable]=\"alertCloseable\">\n    Info alert\n  </sky-alert>\n  <sky-alert [alertType]=\"'success'\" [closeable]=\"alertCloseable\">\n    Success alert\n  </sky-alert>\n  <sky-alert [alertType]=\"'warning'\" [closeable]=\"alertCloseable\">\n    Warning alert\n  </sky-alert>\n  <sky-alert [alertType]=\"'danger'\" [closeable]=\"alertCloseable\">\n    Danger alert\n  </sky-alert>\n</div>\n"
+        },
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-b9cd44f5f74959c97adb14dce4ff523a2968fa0cae24a5ade3d7e2d08934fad2fb8296664b471b88bf9346e94260445f10c4cb892de1b5ac3cb24c0c54cd2e9a",
+            "file": "projects/indicators-showcase/src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isLoaded",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Renderer2 } from '@angular/core';\nimport {\n  SkyAppStyleLoader,\n  SkyTheme,\n  SkyThemeMode,\n  SkyThemeService,\n  SkyThemeSettings,\n} from '@skyux/theme';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n})\nexport class AppComponent {\n  public isLoaded = false;\n\n  constructor(\n    renderer: Renderer2,\n    themeService: SkyThemeService,\n    styleLoader: SkyAppStyleLoader\n  ) {\n    themeService.init(\n      document.body,\n      renderer,\n      new SkyThemeSettings(\n        SkyTheme.presets['default'],\n        SkyThemeMode.presets.light\n      )\n    );\n\n    styleLoader.loadStyles().then(() => {\n      this.isLoaded = true;\n    });\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "themeService",
+                        "type": "SkyThemeService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "styleLoader",
+                        "type": "SkyAppStyleLoader",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "themeService",
+                        "type": "SkyThemeService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "styleLoader",
+                        "type": "SkyAppStyleLoader",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div *ngIf=\"isLoaded\" [@.disabled]=\"true\">\n  <router-outlet></router-outlet>\n</div>\n"
+        },
+        {
             "name": "HelpInlineDemoComponent",
             "id": "component-HelpInlineDemoComponent-16b6588be30d42adf31804b2cfb43dfcf8f9185673036ba6047a266d368aa6b97ef0dab75d0fa4722afde05d782cb986fab2371d6b92021d28a82d0f6954ca61",
             "file": "projects/indicators/documentation/code-examples/help-inline/basic/help-inline-demo.component.ts",
@@ -2760,6 +2953,46 @@
             "templateData": "<div>\n  <sky-key-info [layout]=\"layout\">\n    <sky-key-info-label> Label </sky-key-info-label>\n    <sky-key-info-value> Value </sky-key-info-value>\n  </sky-key-info>\n</div>\n"
         },
         {
+            "name": "KeyInfoVisualComponent",
+            "id": "component-KeyInfoVisualComponent-9c8d6b999906cab4ca1571f6261c5c0f48d5c81539db1628d2ce38afdf712c6e4066806229f2dc1d852b3c2989348afbd53d2a3ea19bcaf9e398b5549df4d5e2",
+            "file": "projects/indicators-showcase/src/app/visual/key-info/key-info-visual.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-key-info-visual",
+            "styleUrls": [
+                "./key-info-visual.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./key-info-visual.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-key-info-visual',\n  templateUrl: './key-info-visual.component.html',\n  styleUrls: ['./key-info-visual.component.scss'],\n})\nexport class KeyInfoVisualComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "sky-key-info {\n  margin-right: 20px;\n}\n",
+                    "styleUrl": "./key-info-visual.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-key-info-visual\">\n  <sky-key-info layout=\"vertical\">\n    <sky-key-info-label> Label </sky-key-info-label>\n    <sky-key-info-value> Value </sky-key-info-value>\n  </sky-key-info>\n  <sky-key-info layout=\"horizontal\">\n    <sky-key-info-label> Label </sky-key-info-label>\n    <sky-key-info-value> Value </sky-key-info-value>\n  </sky-key-info>\n\n  <sky-key-info layout=\"vertical\">\n    <sky-key-info-label> Given this year </sky-key-info-label>\n    <sky-key-info-value class=\"sky-font-display-1\"> $1,000 </sky-key-info-value>\n  </sky-key-info>\n  <sky-key-info layout=\"horizontal\">\n    <sky-key-info-label> Given this year </sky-key-info-label>\n    <sky-key-info-value class=\"sky-font-display-1\"> $1,000 </sky-key-info-value>\n  </sky-key-info>\n\n  <sky-key-info layout=\"vertical\">\n    <sky-key-info-label> Given this year </sky-key-info-label>\n    <sky-key-info-value class=\"sky-font-display-3\"> $1,000 </sky-key-info-value>\n  </sky-key-info>\n  <sky-key-info layout=\"horizontal\">\n    <sky-key-info-label> Given this year </sky-key-info-label>\n    <sky-key-info-value class=\"sky-font-display-3\"> $1,000 </sky-key-info-value>\n  </sky-key-info>\n\n  <sky-key-info layout=\"vertical\">\n    <sky-key-info-label> Given this year </sky-key-info-label>\n    <sky-key-info-value class=\"sky-font-display-4\"> $1,000 </sky-key-info-value>\n  </sky-key-info>\n  <sky-key-info layout=\"horizontal\">\n    <sky-key-info-label> Given this year </sky-key-info-label>\n    <sky-key-info-value class=\"sky-font-display-4\"> $1,000 </sky-key-info-value>\n  </sky-key-info>\n</div>\n"
+        },
+        {
             "name": "LabelDemoComponent",
             "id": "component-LabelDemoComponent-d2fa48c564018bd7f6c932af0ff7fa68dbedaba769bffdcf24c20e2013885fc9424fdd3fc0be0759d9a794b39833504ab74a0089f6bc8ea0e41bc312be5a1e87",
             "file": "projects/indicators/documentation/code-examples/label/basic/label-demo.component.ts",
@@ -2840,7 +3073,7 @@
         },
         {
             "name": "SkyAlertComponent",
-            "id": "component-SkyAlertComponent-6faca7e68b344dd2dad0827d6c7e89b13435b0ad93c1cf636f9bdfa2cab911532ee9e3c20b748e2b5b41b9df0c8edb48816c8000381b29e1a4ff0eceddc34191",
+            "id": "component-SkyAlertComponent-cf5c8c84544c52a64012358cfa417baa0a5d9fa11a8b7055a5c1feba1ac09cc090eb52cfbe3d8c8c2f0d53a7e05c3c23af4c15cfd17c905ee3ab0607984d9a84",
             "file": "projects/indicators/src/modules/alert/alert.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2852,9 +3085,8 @@
                 "./alert.component.scss"
             ],
             "styles": [],
-            "templateUrl": [
-                "./alert.component.html"
-            ],
+            "template": "<div    class=\"sky-alert\"\n    [skyThemeClass]=\"{\n      'sky-rounded-corners': 'default',\n      'sky-box sky-elevation-1': 'modern'\n    }\"\n    role=\"alert\"\n    [hidden]=\"closed\"\n    [ngClass]=\"{\n      'sky-alert-info': alertType === 'info',\n      'sky-alert-success': alertType === 'success',\n      'sky-alert-warning': alertType === 'warning',\n      'sky-alert-danger': alertType === 'danger',\n      'sky-alert-closeable': closeable\n    }\"\n  >\n    <div aria-hidden=\"true\" class=\"sky-alert-icon-theme-modern\">\n      <sky-icon-stack [baseIcon]=\"alertBaseIcon\" [topIcon]=\"alertTopIcon\">\n      </sky-icon-stack>\n    </div>\n    <div class=\"sky-alert-content\">\n      <ng-content></ng-content>\n    </div>\n    <button\n      class=\"sky-alert-close\"\n      type=\"button\"\n      [attr.aria-label]=\"'skyux_alert_close' | skyLibResources\"\n      [hidden]=\"!closeable\"\n      (click)=\"close()\"\n    >\n      <span aria-hidden=\"true\">\n        <sky-icon class=\"sky-alert-close-icon-theme-default\" icon=\"close\">\n        </sky-icon>\n        <sky-icon\n          class=\"sky-alert-close-icon-theme-modern\"\n          icon=\"close\"\n          iconType=\"skyux\"\n          size=\"2x\"\n        >\n        </sky-icon>\n      </span>\n    </button>\n  </div>",
+            "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
@@ -2863,15 +3095,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 666,
-                            "end": 688,
+                            "pos": 1857,
+                            "end": 1879,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 667,
-                                "end": 674,
+                                "pos": 1858,
+                                "end": 1865,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -2884,7 +3116,7 @@
                     ],
                     "rawdescription": "\n\nSpecifies a style for the alert to determine the icon and background color.\nThe valid options are `danger`, `info`, `success`, and `warning`.\n",
                     "description": "<p>Specifies a style for the alert to determine the icon and background color.\nThe valid options are <code>danger</code>, <code>info</code>, <code>success</code>, and <code>warning</code>.</p>\n",
-                    "line": 23,
+                    "line": 65,
                     "type": "string",
                     "decorators": []
                 },
@@ -2894,15 +3126,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 986,
-                            "end": 1004,
+                            "pos": 2177,
+                            "end": 2195,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 987,
-                                "end": 994,
+                                "pos": 2178,
+                                "end": 2185,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -2915,7 +3147,7 @@
                     ],
                     "rawdescription": "\n\nIndicates whether to include a close button for users to dismiss the alert.\n",
                     "description": "<p>Indicates whether to include a close button for users to dismiss the alert.</p>\n",
-                    "line": 37,
+                    "line": 79,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2925,15 +3157,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 1103,
-                            "end": 1121,
+                            "pos": 2294,
+                            "end": 2312,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 1104,
-                                "end": 1111,
+                                "pos": 2295,
+                                "end": 2302,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -2946,7 +3178,7 @@
                     ],
                     "rawdescription": "\n\nIndicates whether the alert is closed.\n",
                     "description": "<p>Indicates whether the alert is closed.</p>\n",
-                    "line": 44,
+                    "line": 86,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -2959,7 +3191,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nFires when users close the alert.\n",
                     "description": "<p>Fires when users close the alert.</p>\n",
-                    "line": 50,
+                    "line": 92,
                     "type": "EventEmitter"
                 }
             ],
@@ -2971,7 +3203,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 56,
+                    "line": 98,
                     "modifierKind": [
                         121
                     ]
@@ -2983,7 +3215,7 @@
                     "type": "SkyIconStackItem",
                     "optional": false,
                     "description": "",
-                    "line": 52,
+                    "line": 94,
                     "modifierKind": [
                         123
                     ]
@@ -2995,7 +3227,7 @@
                     "type": "SkyIconStackItem",
                     "optional": false,
                     "description": "",
-                    "line": 54,
+                    "line": 96,
                     "modifierKind": [
                         123
                     ]
@@ -3008,7 +3240,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 104,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3021,7 +3253,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 100,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3034,7 +3266,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 109,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3049,7 +3281,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nimport { SkyIndicatorIconType } from '../shared/indicator-icon-type';\n\nimport { SkyIndicatorIconUtility } from '../shared/indicator-icon-utility';\n\nimport { SkyIconStackItem } from '../icon/icon-stack-item';\n\nconst ALERT_TYPE_DEFAULT = 'warning';\n\n@Component({\n  selector: 'sky-alert',\n  styleUrls: ['./alert.component.scss'],\n  templateUrl: './alert.component.html',\n})\nexport class SkyAlertComponent implements OnInit {\n  /**\n   * Specifies a style for the alert to determine the icon and background color.\n   * The valid options are `danger`, `info`, `success`, and `warning`.\n   * @default \"warning\"\n   */\n  @Input()\n  public set alertType(value: string) {\n    this._alertType = value;\n    this.updateAlertIcon();\n  }\n\n  public get alertType(): string {\n    return this._alertType || ALERT_TYPE_DEFAULT;\n  }\n\n  /**\n   * Indicates whether to include a close button for users to dismiss the alert.\n   * @default false\n   */\n  @Input()\n  public closeable: boolean;\n\n  /**\n   * Indicates whether the alert is closed.\n   * @default false\n   */\n  @Input()\n  public closed: boolean;\n\n  /**\n   * Fires when users close the alert.\n   */\n  @Output()\n  public closedChange = new EventEmitter<boolean>();\n\n  public alertBaseIcon: SkyIconStackItem;\n\n  public alertTopIcon: SkyIconStackItem;\n\n  private _alertType: string;\n\n  public ngOnInit(): void {\n    this.updateAlertIcon();\n  }\n\n  public close(): void {\n    this.closed = true;\n    this.closedChange.emit(true);\n  }\n\n  private updateAlertIcon(): void {\n    const indicatorIcon = SkyIndicatorIconUtility.getIconsForType(\n      this.alertType as SkyIndicatorIconType\n    );\n\n    this.alertBaseIcon = indicatorIcon.modernThemeBaseIcon;\n    this.alertTopIcon = indicatorIcon.modernThemeTopIcon;\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nimport { SkyIndicatorIconType } from '../shared/indicator-icon-type';\n\nimport { SkyIndicatorIconUtility } from '../shared/indicator-icon-utility';\n\nimport { SkyIconStackItem } from '../icon/icon-stack-item';\n\nconst ALERT_TYPE_DEFAULT = 'warning';\n\n@Component({\n  selector: 'sky-alert',\n  styleUrls: ['./alert.component.scss'],\n  template: `<div\n    class=\"sky-alert\"\n    [skyThemeClass]=\"{\n      'sky-rounded-corners': 'default',\n      'sky-box sky-elevation-1': 'modern'\n    }\"\n    role=\"alert\"\n    [hidden]=\"closed\"\n    [ngClass]=\"{\n      'sky-alert-info': alertType === 'info',\n      'sky-alert-success': alertType === 'success',\n      'sky-alert-warning': alertType === 'warning',\n      'sky-alert-danger': alertType === 'danger',\n      'sky-alert-closeable': closeable\n    }\"\n  >\n    <div aria-hidden=\"true\" class=\"sky-alert-icon-theme-modern\">\n      <sky-icon-stack [baseIcon]=\"alertBaseIcon\" [topIcon]=\"alertTopIcon\">\n      </sky-icon-stack>\n    </div>\n    <div class=\"sky-alert-content\">\n      <ng-content></ng-content>\n    </div>\n    <button\n      class=\"sky-alert-close\"\n      type=\"button\"\n      [attr.aria-label]=\"'skyux_alert_close' | skyLibResources\"\n      [hidden]=\"!closeable\"\n      (click)=\"close()\"\n    >\n      <span aria-hidden=\"true\">\n        <sky-icon class=\"sky-alert-close-icon-theme-default\" icon=\"close\">\n        </sky-icon>\n        <sky-icon\n          class=\"sky-alert-close-icon-theme-modern\"\n          icon=\"close\"\n          iconType=\"skyux\"\n          size=\"2x\"\n        >\n        </sky-icon>\n      </span>\n    </button>\n  </div>`,\n})\nexport class SkyAlertComponent implements OnInit {\n  /**\n   * Specifies a style for the alert to determine the icon and background color.\n   * The valid options are `danger`, `info`, `success`, and `warning`.\n   * @default \"warning\"\n   */\n  @Input()\n  public set alertType(value: string) {\n    this._alertType = value;\n    this.updateAlertIcon();\n  }\n\n  public get alertType(): string {\n    return this._alertType || ALERT_TYPE_DEFAULT;\n  }\n\n  /**\n   * Indicates whether to include a close button for users to dismiss the alert.\n   * @default false\n   */\n  @Input()\n  public closeable: boolean;\n\n  /**\n   * Indicates whether the alert is closed.\n   * @default false\n   */\n  @Input()\n  public closed: boolean;\n\n  /**\n   * Fires when users close the alert.\n   */\n  @Output()\n  public closedChange = new EventEmitter<boolean>();\n\n  public alertBaseIcon: SkyIconStackItem;\n\n  public alertTopIcon: SkyIconStackItem;\n\n  private _alertType: string;\n\n  public ngOnInit(): void {\n    this.updateAlertIcon();\n  }\n\n  public close(): void {\n    this.closed = true;\n    this.closedChange.emit(true);\n  }\n\n  private updateAlertIcon(): void {\n    const indicatorIcon = SkyIndicatorIconUtility.getIconsForType(\n      this.alertType as SkyIndicatorIconType\n    );\n\n    this.alertBaseIcon = indicatorIcon.modernThemeBaseIcon;\n    this.alertTopIcon = indicatorIcon.modernThemeTopIcon;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3078,7 +3310,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 23,
+                        "line": 65,
                         "rawdescription": "\n\nSpecifies a style for the alert to determine the icon and background color.\nThe valid options are `danger`, `info`, `success`, and `warning`.\n",
                         "description": "<p>Specifies a style for the alert to determine the icon and background color.\nThe valid options are <code>danger</code>, <code>info</code>, <code>success</code>, and <code>warning</code>.</p>\n",
                         "jsdoctags": [
@@ -3097,11 +3329,10 @@
                         "name": "alertType",
                         "type": "string",
                         "returnType": "string",
-                        "line": 28
+                        "line": 70
                     }
                 }
-            },
-            "templateData": "<div\n  class=\"sky-alert\"\n  [skyThemeClass]=\"{\n    'sky-rounded-corners': 'default',\n    'sky-box sky-elevation-1': 'modern'\n  }\"\n  role=\"alert\"\n  [hidden]=\"closed\"\n  [ngClass]=\"{\n    'sky-alert-info': alertType === 'info',\n    'sky-alert-success': alertType === 'success',\n    'sky-alert-warning': alertType === 'warning',\n    'sky-alert-danger': alertType === 'danger',\n    'sky-alert-closeable': closeable\n  }\"\n>\n  <div aria-hidden=\"true\" class=\"sky-alert-icon-theme-modern\">\n    <sky-icon-stack [baseIcon]=\"alertBaseIcon\" [topIcon]=\"alertTopIcon\">\n    </sky-icon-stack>\n  </div>\n  <div class=\"sky-alert-content\">\n    <ng-content></ng-content>\n  </div>\n  <button\n    class=\"sky-alert-close\"\n    type=\"button\"\n    [attr.aria-label]=\"'skyux_alert_close' | skyLibResources\"\n    [hidden]=\"!closeable\"\n    (click)=\"close()\"\n  >\n    <span aria-hidden=\"true\">\n      <sky-icon class=\"sky-alert-close-icon-theme-default\" icon=\"close\">\n      </sky-icon>\n      <sky-icon\n        class=\"sky-alert-close-icon-theme-modern\"\n        icon=\"close\"\n        iconType=\"skyux\"\n        size=\"2x\"\n      >\n      </sky-icon>\n    </span>\n  </button>\n</div>\n"
+            }
         },
         {
             "name": "SkyChevronComponent",
@@ -3204,6 +3435,39 @@
             "templateData": "<button\n  class=\"sky-chevron\"\n  type=\"button\"\n  [attr.aria-label]=\"\n    (direction === 'down' ? 'skyux_chevron_expand' : 'skyux_chevron_collapse')\n      | skyLibResources\n  \"\n  [disabled]=\"disabled\"\n  [ngClass]=\"['sky-chevron-' + direction]\"\n  [skyThemeClass]=\"{\n    'sky-btn sky-btn-icon-borderless': 'modern'\n  }\"\n  (click)=\"chevronClick($event)\"\n>\n  <ng-container *skyThemeIf=\"'default'\">\n    <ng-container *ngTemplateOutlet=\"icon\"></ng-container>\n  </ng-container>\n  <ng-container *skyThemeIf=\"'modern'\">\n    <span class=\"chevron-glyph-container\">\n      <ng-container *ngTemplateOutlet=\"icon\"></ng-container>\n    </span>\n  </ng-container>\n</button>\n\n<ng-template #icon>\n  <i aria-hidden=\"true\" class=\"sky-chevron-part sky-chevron-left\"> </i>\n  <i aria-hidden=\"true\" class=\"sky-chevron-part sky-chevron-right\"> </i>\n</ng-template>\n"
         },
         {
+            "name": "SkyChevronDemoComponent",
+            "id": "component-SkyChevronDemoComponent-b8c79ec6f2fa98d4c12c42ee784487dbe557e041a5ffcab2098f60d3432ac68197f94e5d38f0b30a8ee052ef274e9da9bfd5f1fe7320df53abaf220256723680",
+            "file": "projects/indicators-showcase/src/app/visual/chevron/chevron-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-chevron-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./chevron-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-chevron-demo',\n  templateUrl: './chevron-demo.component.html',\n})\nexport class SkyChevronDemoComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div id=\"sky-chevron-demo\">\n  <sky-chevron></sky-chevron>\n  <sky-chevron direction=\"up\"> </sky-chevron>\n  <sky-chevron direction=\"down\"> </sky-chevron>\n</div>\n"
+        },
+        {
             "name": "SkyHelpInlineComponent",
             "id": "component-SkyHelpInlineComponent-808e0e2d55b109661b00a24aa561dfcc1e6fbd896e67bfd888d30906c5c2e399e3b6b543a2c94bd03368557461eabaa61350b1ef700b8564c7fe27f0dc24fc9d",
             "file": "projects/indicators/src/modules/help-inline/help-inline.component.ts",
@@ -3267,6 +3531,67 @@
             ],
             "stylesData": "",
             "templateData": "<button\n  class=\"sky-help-inline\"\n  type=\"button\"\n  [attr.aria-label]=\"'skyux_help_inline_button_title' | skyLibResources\"\n  (click)=\"onClick()\"\n>\n  <sky-icon *skyThemeIf=\"'default'\" icon=\"info-circle\"> </sky-icon>\n  <sky-icon-stack\n    *skyThemeIf=\"'modern'\"\n    size=\"xs\"\n    [baseIcon]=\"{\n      icon: 'circle-solid',\n      iconType: 'skyux'\n    }\"\n    [topIcon]=\"{\n      icon: 'help-i',\n      iconType: 'skyux'\n    }\"\n  >\n  </sky-icon-stack>\n</button>\n"
+        },
+        {
+            "name": "SkyHelpInlineDemoComponent",
+            "id": "component-SkyHelpInlineDemoComponent-654fe6db0bb118c2d3849c613129221838ec8081c2d8f45877878ac4c5bf1dc36350f83f8219816d2bba9fd18c271f20519903e50056a368565d14b988ad17d3",
+            "file": "projects/indicators-showcase/src/app/visual/help-inline/help-inline-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-help-inline-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./help-inline-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "buttonIsClicked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onActionClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-help-inline-demo',\n  templateUrl: './help-inline-demo.component.html',\n})\nexport class SkyHelpInlineDemoComponent {\n  public buttonIsClicked = false;\n\n  public onActionClick(): void {\n    this.buttonIsClicked = true;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-help-inline-demo\">\n  <h2>\n    Giving\n    <sky-help-inline (actionClick)=\"onActionClick()\"> </sky-help-inline>\n  </h2>\n</div>\n"
         },
         {
             "name": "SkyIconComponent",
@@ -3382,6 +3707,39 @@
             "templateData": "<i\n  *ngIf=\"icon\"\n  aria-hidden=\"true\"\n  class=\"sky-icon\"\n  [ngClass]=\"icon | skyIconClassList: iconType:size:fixedWidth:variant\"\n>\n</i>\n"
         },
         {
+            "name": "SkyIconDemoComponent",
+            "id": "component-SkyIconDemoComponent-f243e608eb0035d9f9d45ba8402ffe55bc6ad10e4ef6e57b4fb696917b8db9c416be685f52882e853ade7d42e931219f8d2e779351849fd70db659e2d92025ee",
+            "file": "projects/indicators-showcase/src/app/visual/icon/icon-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-icon-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./icon-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-icon-demo',\n  templateUrl: './icon-demo.component.html',\n})\nexport class SkyIconDemoComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<div class=\"sky-icon-demo\">\n  <sky-icon icon=\"bars\" size=\"lg\"> </sky-icon>\n  <sky-icon icon=\"chevron-down\" size=\"sm\"> </sky-icon>\n  <sky-icon icon=\"chevron-up\" size=\"5x\"> </sky-icon>\n  <sky-icon icon=\"cog\" size=\"2x\"> </sky-icon>\n  <sky-icon icon=\"comment\" size=\"xs\"> </sky-icon>\n  <sky-icon icon=\"database\" size=\"3x\"> </sky-icon>\n  <sky-icon fixedWidth=\"true\" icon=\"spinner\" size=\"3x\"> </sky-icon>\n  <sky-icon icon=\"trash\" size=\"sm\"> </sky-icon>\n  <sky-icon icon=\"users\" size=\"4x\"> </sky-icon>\n  <sky-icon icon=\"user\" size=\"5x\"> </sky-icon>\n  <sky-icon icon=\"sort\" iconType=\"skyux\" size=\"5x\"> </sky-icon>\n</div>\n<div class=\"sky-icon-demo-variant\">\n  <div>\n    <sky-icon icon=\"house\" iconType=\"skyux\"> </sky-icon>\n    Variant not specified\n  </div>\n  <div>\n    <sky-icon icon=\"house\" iconType=\"skyux\" variant=\"line\"> </sky-icon>\n    Line variant specified\n  </div>\n  <div>\n    <sky-icon icon=\"house\" iconType=\"skyux\" variant=\"solid\"> </sky-icon>\n    Solid variant specified\n  </div>\n</div>\n"
+        },
+        {
             "name": "SkyIconStackComponent",
             "id": "component-SkyIconStackComponent-5825da601866a4cd7481a13bf06909a687ab37f136c081e6b231e6a79dbaefdd0ca030beee83c4335330a13bd5deee915b89b60898d7519033ddf3f8cca52fae",
             "file": "projects/indicators/src/modules/icon/icon-stack.component.ts",
@@ -3451,6 +3809,39 @@
             ],
             "stylesData": "",
             "templateData": "<span\n  aria-hidden=\"true\"\n  class=\"sky-icon-stack fa-stack\"\n  [ngClass]=\"size ? 'fa-' + size + ' sky-icon-stack-size-' + size : ''\"\n>\n  <i\n    *ngIf=\"baseIcon\"\n    class=\"sky-icon fa-stack-2x\"\n    [ngClass]=\"baseIcon.icon | skyIconClassList: baseIcon.iconType\"\n  ></i>\n  <i\n    *ngIf=\"topIcon\"\n    class=\"sky-icon fa-stack-1x fa-inverse sky-icon-inverse\"\n    [ngClass]=\"topIcon.icon | skyIconClassList: topIcon.iconType\"\n  ></i>\n</span>\n"
+        },
+        {
+            "name": "SkyIconStackDemoComponent",
+            "id": "component-SkyIconStackDemoComponent-f9423775568b31e2160ff2811a2b23c775c4679d4d8b56a4b303747c5303fed271c5450ed3265e56fa680ddd462ac7250702a384fdfa688a64cef548f9b13058",
+            "file": "projects/indicators-showcase/src/app/visual/icon-stack/icon-stack-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-icon-stack-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./icon-stack-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-icon-stack-demo',\n  templateUrl: './icon-stack-demo.component.html',\n})\nexport class SkyIconStackDemoComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-icon-stack-demo\">\n  <sky-icon-stack\n    [baseIcon]=\"{\n      icon: 'circle-solid',\n      iconType: 'skyux'\n    }\"\n    [topIcon]=\"{\n      icon: 'help-i',\n      iconType: 'skyux'\n    }\"\n  >\n  </sky-icon-stack>\n  <sky-icon-stack\n    size=\"xs\"\n    [baseIcon]=\"{\n      icon: 'circle-solid',\n      iconType: 'skyux'\n    }\"\n    [topIcon]=\"{\n      icon: 'help-i',\n      iconType: 'skyux'\n    }\"\n  >\n  </sky-icon-stack>\n</div>\n"
         },
         {
             "name": "SkyKeyInfoComponent",
@@ -3760,6 +4151,39 @@
                 }
             },
             "templateData": "<span class=\"sky-label\" [ngClass]=\"'sky-label-' + labelType\">\n  <span class=\"sky-label-icon-theme-default\">\n    <sky-icon [icon]=\"icon\"></sky-icon>\n  </span>\n  <span class=\"sky-label-icon-theme-modern\">\n    <sky-icon-stack size=\"xs\" [baseIcon]=\"baseIcon\" [topIcon]=\"topIcon\">\n    </sky-icon-stack>\n  </span>\n  <span class=\"sky-label-text\">\n    <ng-content></ng-content>\n  </span>\n</span>\n"
+        },
+        {
+            "name": "SkyLabelDemoComponent",
+            "id": "component-SkyLabelDemoComponent-f2a8af645595810818e67a918430e1f90a1e2f7ecf1bbad7508b97f0ff5cb15b33dc9ee18399611e6bb8ac96044e06e6c88d41403163ee120363aa660567d801",
+            "file": "projects/indicators-showcase/src/app/visual/label/label-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-label-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./label-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-label-demo',\n  templateUrl: './label-demo.component.html',\n})\nexport class SkyLabelDemoComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-label-demo\">\n  <sky-label labelType=\"info\"> Info label </sky-label>\n  <sky-label labelType=\"success\"> Success label </sky-label>\n  <sky-label labelType=\"warning\"> Warning label </sky-label>\n  <sky-label labelType=\"danger\"> Danger label </sky-label>\n</div>\n"
         },
         {
             "name": "SkyStatusIndicatorComponent",
@@ -4142,6 +4566,91 @@
                 }
             },
             "templateData": "<div *ngIf=\"descriptionType\" class=\"sky-status-indicator\">\n  <div\n    aria-hidden=\"true\"\n    class=\"sky-margin-inline-xs sky-status-indicator-icon\"\n    [ngClass]=\"'sky-status-indicator-icon-' + indicatorType\"\n  >\n    <span class=\"sky-status-indicator-icon-default\">\n      <sky-icon [icon]=\"icon\"></sky-icon>\n    </span>\n    <span class=\"sky-status-indicator-icon-modern\">\n      <sky-icon-stack size=\"xs\" [baseIcon]=\"baseIcon\" [topIcon]=\"topIcon\">\n      </sky-icon-stack>\n    </span>\n  </div>\n  <div class=\"sky-status-indicator-message-wrapper\">\n    <span *ngIf=\"descriptionComputed\" class=\"sky-screen-reader-only\">\n      {{ descriptionComputed }}\n    </span>\n    <span class=\"sky-status-indicator-message\">\n      <ng-content></ng-content>\n    </span>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "SkyTextHighlightDemoComponent",
+            "id": "component-SkyTextHighlightDemoComponent-cc9a908908e036d658fcb5ddf8184249626672cf33ae3f68e75c5ad78705c60c0a07aa7c4a6207898bccd07fb364ca06dbdbe78000a946eab1d0ae24bca19519",
+            "file": "projects/indicators-showcase/src/app/visual/text-highlight/text-highlight-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-text-highlight-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./text-highlight-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "arrayOfSearchTerms",
+                    "defaultValue": "['Åland', 'Aland']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "blankSearchTerm",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "normalSearchTerm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "notMatchedSearchTerm",
+                    "defaultValue": "'xnotmatched'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-text-highlight-demo',\n  templateUrl: './text-highlight-demo.component.html',\n})\nexport class SkyTextHighlightDemoComponent {\n  public arrayOfSearchTerms = ['Åland', 'Aland'];\n  public normalSearchTerm: string;\n  public blankSearchTerm = '';\n  public notMatchedSearchTerm = 'xnotmatched';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<input [(ngModel)]=\"normalSearchTerm\" />\n<div class=\"sky-text-highlight-demo\">\n  <div [skyHighlight]=\"normalSearchTerm\">\n    The text that you enter should be highlighted here.\n  </div>\n  <div [skyHighlight]=\"arrayOfSearchTerms\">\n    This paragraph should be highlighed by two different values in an array:\n    Åland Islands and Aland Islands.\n  </div>\n  <div [skyHighlight]=\"blankSearchTerm\">\n    This paragraph should not be highlighted, because we're passing a blank\n    search term.\n  </div>\n  <div [skyHighlight]=\"notMatchedSearchTerm\">\n    This paragraph should not be highlighted, because we're passing a search\n    term that's not found.\n  </div>\n</div>\n"
         },
         {
             "name": "SkyTextHighlightTestComponent",
@@ -5855,6 +6364,66 @@
             "templateData": "<div\n  *ngIf=\"tokens\"\n  class=\"sky-tokens\"\n  [@blockAnimationOnLoad]\n  [attr.role]=\"tokens && tokens.length ? 'list' : null\"\n>\n  <sky-token\n    *ngFor=\"let token of tokens; let i = index; trackBy: trackTokenFn\"\n    role=\"listitem\"\n    [@.disabled]=\"!trackWith\"\n    [@dismiss]\n    [disabled]=\"disabled\"\n    [dismissible]=\"dismissible\"\n    [focusable]=\"focusable\"\n    (dismiss)=\"removeToken(token)\"\n    (click)=\"onTokenClick(token)\"\n    (keydown)=\"onTokenKeyDown($event)\"\n    (keyup.enter)=\"selectToken(token); $event.preventDefault()\"\n    (tokenFocus)=\"activeIndex = i\"\n  >\n    {{ token.value[displayWith] }}\n  </sky-token>\n  <div class=\"sky-tokens-content\">\n    <ng-content></ng-content>\n  </div>\n</div>\n"
         },
         {
+            "name": "SkyTokensDemoComponent",
+            "id": "component-SkyTokensDemoComponent-6566860ff86a1fdefa1a78d5d3231b155e1e916ca1b719fb87696d16025245f6b3c04ee307a24200540374970fb4b4486f440f9ac76cd16f7a816aef401dbae9",
+            "file": "projects/indicators-showcase/src/app/visual/tokens/tokens-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-tokens-demo",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./tokens-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "colors",
+                    "defaultValue": "[\n    { id: 1, name: 'Black' },\n    { id: 2, name: 'Blue' },\n    { id: 3, name: 'Brown' },\n    { id: 4, name: 'Green' },\n    { id: 5, name: 'Orange' },\n    { id: 6, name: 'Pink' },\n    { id: 7, name: 'Purple' },\n    { id: 8, name: 'Red' },\n    { id: 9, name: 'Turquoise' },\n    { id: 10, name: 'White' },\n    { id: 11, name: 'Yellow' },\n  ].map((value) => ({ value }))",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SkyToken[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "defaultValue": "[\n    { id: 1, label: 'Canada' },\n    { id: 2, label: 'Older than 55' },\n    { id: 3, label: 'Employed' },\n    { id: 4, label: 'Added before 2018' },\n  ].map((value) => ({ value }))",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SkyToken[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\nimport { SkyToken } from 'projects/indicators/src/public-api';\n\n@Component({\n  selector: 'sky-tokens-demo',\n  templateUrl: './tokens-demo.component.html',\n})\nexport class SkyTokensDemoComponent {\n  public colors: SkyToken[] = [\n    { id: 1, name: 'Black' },\n    { id: 2, name: 'Blue' },\n    { id: 3, name: 'Brown' },\n    { id: 4, name: 'Green' },\n    { id: 5, name: 'Orange' },\n    { id: 6, name: 'Pink' },\n    { id: 7, name: 'Purple' },\n    { id: 8, name: 'Red' },\n    { id: 9, name: 'Turquoise' },\n    { id: 10, name: 'White' },\n    { id: 11, name: 'Yellow' },\n  ].map((value) => ({ value }));\n\n  public filters: SkyToken[] = [\n    { id: 1, label: 'Canada' },\n    { id: 2, label: 'Older than 55' },\n    { id: 3, label: 'Employed' },\n    { id: 4, label: 'Added before 2018' },\n  ].map((value) => ({ value }));\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-tokens-demo\">\n  <p>\n    <sky-tokens trackWith=\"id\" [tokens]=\"colors\"> </sky-tokens>\n  </p>\n\n  <p>\n    <sky-tokens trackWith=\"id\" [dismissible]=\"false\" [tokens]=\"colors\">\n    </sky-tokens>\n  </p>\n\n  <p>\n    <sky-tokens trackWith=\"id\" [disabled]=\"true\" [tokens]=\"colors\">\n    </sky-tokens>\n  </p>\n\n  <p>\n    <sky-tokens displayWith=\"label\" trackWith=\"id\" [tokens]=\"filters\">\n      (You may also include content inside the tokens component.)\n    </sky-tokens>\n  </p>\n</div>\n"
+        },
+        {
             "name": "SkyTokensTestComponent",
             "id": "component-SkyTokensTestComponent-b609e12bb889654b45770ba119ea70d57bcaf5bca4ea50354a57b3704abadd498cbe93d78bbaab17773994bcb6941e71aa1853b6cbdb51e9586aa88d61ec9861",
             "file": "projects/indicators/src/modules/tokens/fixtures/tokens.component.fixture.ts",
@@ -6489,6 +7058,83 @@
             "templateData": "<div class=\"sky-wait-container\">\n  <div\n    *ngIf=\"isWaiting\"\n    class=\"sky-wait-mask\"\n    [attr.aria-label]=\"ariaLabelStream | async\"\n    [ngClass]=\"{\n      'sky-wait-mask-loading-fixed': isFullPage,\n      'sky-wait-mask-loading-non-blocking': isNonBlocking,\n      'sky-wait-mask-loading-blocking': !isNonBlocking\n    }\"\n  >\n    <div class=\"sky-wait\">\n      <div class=\"sky-wait-double-bounce1\"></div>\n      <div class=\"sky-wait-double-bounce2\"></div>\n    </div>\n  </div>\n</div>\n"
         },
         {
+            "name": "SkyWaitDemoComponent",
+            "id": "component-SkyWaitDemoComponent-123746a29e29a25d19b210b107e75e8a5700b173f79695b4c57eacf5cb9f5b3dc742746157fe1f7acc327a0e388e7c4f8aeb0456da1319d3b97554ce45c10157",
+            "file": "projects/indicators-showcase/src/app/visual/wait/wait-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-wait-demo",
+            "styleUrls": [
+                "./wait-demo.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./wait-demo.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isFullPageWaiting",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "isNonBlocking",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "isWaiting",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-wait-demo',\n  templateUrl: './wait-demo.component.html',\n  styleUrls: ['./wait-demo.component.scss'],\n})\nexport class SkyWaitDemoComponent {\n  public isWaiting: boolean;\n  public isFullPageWaiting: boolean;\n  public isNonBlocking: boolean;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host ::ng-deep {\n  .sky-wait-double-bounce1,\n  .sky-wait-double-bounce2 {\n    animation-play-state: paused !important;\n  }\n}\n",
+                    "styleUrl": "./wait-demo.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"sky-wait-demo\">\n  <button\n    class=\"sky-btn sky-btn-secondary sky-test-wait\"\n    type=\"button\"\n    [ngClass]=\"{\n      'sky-btn-secondary': !isWaiting,\n      'sky-btn-primary': isWaiting\n    }\"\n    (click)=\"isWaiting = !isWaiting\"\n  >\n    Toggle wait\n  </button>\n\n  <button\n    class=\"sky-btn sky-btn-secondary sky-test-full-page\"\n    type=\"button\"\n    [ngClass]=\"{\n      'sky-btn-secondary': !isFullPageWaiting,\n      'sky-btn-primary': isFullPageWaiting\n    }\"\n    (click)=\"isFullPageWaiting = !isFullPageWaiting\"\n  >\n    Toggle full page wait\n  </button>\n\n  <button\n    class=\"sky-btn sky-btn-secondary sky-test-non-blocking\"\n    style=\"margin-bottom: 10px\"\n    type=\"button\"\n    [ngClass]=\"{\n      'sky-btn-secondary': isNonBlocking,\n      'sky-btn-primary': !isNonBlocking\n    }\"\n    (click)=\"isNonBlocking = !isNonBlocking\"\n  >\n    Toggle blocking\n  </button>\n\n  <div class=\"sky-wait-demo-parent\" style=\"width: 500px; height: 500px\">\n    <div style=\"height: 200px; width: 200px\">\n      Wait <a href=\"http://example.com\">link</a> inside this element with text\n      <sky-wait [isNonBlocking]=\"isNonBlocking\" [isWaiting]=\"isWaiting\">\n      </sky-wait>\n    </div>\n  </div>\n\n  <div\n    class=\"sky-wait-demo-absolute\"\n    style=\"height: 200px; width: 200px; margin-top: 10px\"\n  >\n    <sky-wait [isWaiting]=\"isWaiting\"> </sky-wait>\n    <div>\n      <p style=\"position: absolute; background-color: red\">\n        A large area that can be waited with the <code>sky-wait</code> directive\n        and a <a href=\"http://example.com\">link</a>.\n      </p>\n    </div>\n  </div>\n\n  <div\n    class=\"sky-wait-demo-absolute-behind\"\n    style=\"height: 200px; width: 200px; margin-top: 10px\"\n  >\n    <sky-wait [isWaiting]=\"isWaiting\"> </sky-wait>\n    <div>\n      <p\n        style=\"\n          position: absolute;\n          background-color: red;\n          z-index: 1040;\n          color: #000;\n        \"\n      >\n        A large area that can be waited with the <code>sky-wait</code> directive\n        and a <a href=\"http://example.com\">link</a>.\n      </p>\n    </div>\n  </div>\n</div>\n<sky-wait\n  [isWaiting]=\"isFullPageWaiting\"\n  [isFullPage]=\"true\"\n  [isNonBlocking]=\"isNonBlocking\"\n>\n</sky-wait>\n\n<button class=\"sky-btn sky-btn-secondary\">\n  I am a button that does nothing, but you can tab navigate to and from me\n</button>\n"
+        },
+        {
             "name": "SkyWaitPageComponent",
             "id": "component-SkyWaitPageComponent-2aef9d2cf925632c713fa552511137a9b9e11e9df6685855f7439f696645c0195043941f9eb62774259c8c4827101e5c1dfbc9879079db0f4c4a76143baf45ef",
             "file": "projects/indicators/src/modules/wait/wait-page.component.ts",
@@ -6922,6 +7568,39 @@
             "templateData": "<sky-status-indicator\n  [customDescription]=\"customDescription\"\n  [descriptionType]=\"descriptionType\"\n  [indicatorType]=\"indicatorType\"\n>\n  Indicator text\n</sky-status-indicator>\n"
         },
         {
+            "name": "StatusIndicatorVisualComponent",
+            "id": "component-StatusIndicatorVisualComponent-3cec7a77f70135d8b51986324c76480095133eba4c25c298b85944475468cef5c8861a933e0d32de6ab20a652883369574289cfc0d21a52dc92189bd8c7a6f5e",
+            "file": "projects/indicators-showcase/src/app/visual/status-indicator/status-indicator-visual.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sky-status-indicator-visual",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./status-indicator-visual.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sky-status-indicator-visual',\n  templateUrl: './status-indicator-visual.component.html',\n})\nexport class StatusIndicatorVisualComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<sky-e2e-theme-selector></sky-e2e-theme-selector>\n\n<div class=\"sky-status-indicator-visual\">\n  <sky-status-indicator descriptionType=\"none\" indicatorType=\"danger\">\n    Danger\n  </sky-status-indicator>\n  <sky-status-indicator descriptionType=\"important-info\" indicatorType=\"info\">\n    Info\n  </sky-status-indicator>\n  <sky-status-indicator descriptionType=\"none\" indicatorType=\"success\">\n    Success\n  </sky-status-indicator>\n  <sky-status-indicator descriptionType=\"none\" indicatorType=\"warning\">\n    Warning\n  </sky-status-indicator>\n</div>\n<div class=\"sky-status-indicator-visual-wrap\">\n  <sky-status-indicator descriptionType=\"none\" indicatorType=\"danger\">\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat\n    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n  </sky-status-indicator>\n</div>\n"
+        },
+        {
             "name": "TextHighlightDemoComponent",
             "id": "component-TextHighlightDemoComponent-6fe46a62f861eb509ea98ccbf30b98b9bcccdc2c73a4e97e29998be145b2e853ccdfd1d90d95d570ca2d014dc7d3947107f9c03846ab86d3f52cac949a7fc324",
             "file": "projects/indicators/documentation/code-examples/text-highlight/basic/text-highlight-demo.component.ts",
@@ -7332,6 +8011,39 @@
             "templateData": "<p>\n  These tokens define a custom property to display their values. When users\n  select a token, it emits an event.\n</p>\n\n<p>\n  <sky-tokens\n    displayWith=\"label\"\n    [messageStream]=\"tokensController\"\n    (focusIndexOverRange)=\"onFocusIndexOverRange()\"\n    (focusIndexUnderRange)=\"onFocusIndexUnderRange()\"\n    (tokenSelected)=\"onTokenSelected($event)\"\n    [(tokens)]=\"myTokens\"\n  >\n    (You may also include content inside the tokens component.)\n  </sky-tokens>\n</p>\n\n<p>\n  <button\n    class=\"sky-btn sky-btn-default sky-margin-inline-default\"\n    type=\"button\"\n    (click)=\"changeTokens()\"\n  >\n    Change tokens\n  </button>\n\n  <button\n    class=\"sky-btn sky-btn-default sky-margin-inline-default\"\n    type=\"button\"\n    (click)=\"resetTokens()\"\n  >\n    Reset tokens\n  </button>\n\n  <button\n    class=\"sky-btn sky-btn-default sky-margin-inline-default\"\n    type=\"button\"\n    (click)=\"destroyTokens()\"\n  >\n    Destroy tokens\n  </button>\n  <button\n    class=\"sky-btn sky-btn-default sky-margin-inline-default\"\n    (click)=\"focusLastToken()\"\n  >\n    Focus last token\n  </button>\n</p>\n"
         },
         {
+            "name": "VisualComponent",
+            "id": "component-VisualComponent-0c70a2967cca9bd7147b70356cc0c6845fbcbda96e92f5f160f5a5885042b499415865cd96483b02d60a73568c8c4e3bbdfe18f7395522f678111a55a9b6a926",
+            "file": "projects/indicators-showcase/src/app/visual/visual.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-visual",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./visual.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-visual',\n  templateUrl: './visual.component.html',\n})\nexport class VisualComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<h1>Visual tests</h1>\n\n<ul>\n  <li>\n    <a routerLink=\"visual/alert\">Alert</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/chevron\">Chevron</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/help-inline\">Help inline</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/icon\">Icon</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/icon-stack\">Icon stack</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/key-info\">key-info</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/label\">Label</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/status-indicator\">Status indicator</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/text-highlight\">Text highlight</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/tokens\">Tokens</a>\n  </li>\n  <li>\n    <a routerLink=\"visual/wait\">Wait</a>\n  </li>\n</ul>\n"
+        },
+        {
             "name": "WaitDemoComponent",
             "id": "component-WaitDemoComponent-13584b71c7eee5bdc4ac724c319c486cdac99f9ff33538b6f8dcaf452c1bbdb5f423d803f64d6eefb5d206f6968aead2ebf1aa21873c7cd150d3faf5741ccdd0",
             "file": "projects/indicators/documentation/code-examples/wait/element/wait-demo.component.ts",
@@ -7525,6 +8237,93 @@
                             "name": "AlertDemoComponent"
                         }
                     ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-64ecf8699965cf9aef039e737f7b7faafe9e88aa4324f9bf675b19715934e8538ba4ff31e7e36349fa310a40b71758a0f46b3be135d645ba3f172a78c6ec5e3e",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/indicators-showcase/src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { SkyThemeService } from '@skyux/theme';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { VisualModule } from './visual/visual.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserAnimationsModule, AppRoutingModule, VisualModule],\n  providers: [SkyThemeService],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "VisualModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-510c226fd0c37a08b157a7fb8256184190ee4dc5e571e166bc1c2fa4ae6fbf855cac3e908d963b03dfa6881e40c2d9a5915193bd5f6b358df2dcbccdf08dbb59",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/indicators-showcase/src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nimport { AlertVisualComponent } from './visual/alert/alert-visual.component';\nimport { SkyChevronDemoComponent } from './visual/chevron/chevron-demo.component';\nimport { SkyHelpInlineDemoComponent } from './visual/help-inline/help-inline-demo.component';\nimport { SkyIconStackDemoComponent } from './visual/icon-stack/icon-stack-demo.component';\nimport { SkyIconDemoComponent } from './visual/icon/icon-demo.component';\nimport { KeyInfoVisualComponent } from './visual/key-info/key-info-visual.component';\nimport { SkyLabelDemoComponent } from './visual/label/label-demo.component';\nimport { StatusIndicatorVisualComponent } from './visual/status-indicator/status-indicator-visual.component';\nimport { SkyTextHighlightDemoComponent } from './visual/text-highlight/text-highlight-demo.component';\nimport { SkyTokensDemoComponent } from './visual/tokens/tokens-demo.component';\nimport { VisualComponent } from './visual/visual.component';\nimport { SkyWaitDemoComponent } from './visual/wait/wait-demo.component';\n\nconst routes: Routes = [\n  {\n    path: '',\n    component: VisualComponent,\n  },\n  {\n    path: 'visual/alert',\n    component: AlertVisualComponent,\n  },\n  {\n    path: 'visual/chevron',\n    component: SkyChevronDemoComponent,\n  },\n  {\n    path: 'visual/help-inline',\n    component: SkyHelpInlineDemoComponent,\n  },\n  {\n    path: 'visual/icon',\n    component: SkyIconDemoComponent,\n  },\n  {\n    path: 'visual/icon-stack',\n    component: SkyIconStackDemoComponent,\n  },\n  {\n    path: 'visual/key-info',\n    component: KeyInfoVisualComponent,\n  },\n  {\n    path: 'visual/label',\n    component: SkyLabelDemoComponent,\n  },\n  {\n    path: 'visual/status-indicator',\n    component: StatusIndicatorVisualComponent,\n  },\n  {\n    path: 'visual/text-highlight',\n    component: SkyTextHighlightDemoComponent,\n  },\n  {\n    path: 'visual/tokens',\n    component: SkyTokensDemoComponent,\n  },\n  {\n    path: 'visual/wait',\n    component: SkyWaitDemoComponent,\n  },\n];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
                 },
                 {
                     "type": "bootstrap",
@@ -8699,6 +9498,110 @@
             ]
         },
         {
+            "name": "VisualModule",
+            "id": "module-VisualModule-6d019b687c03359bfd6f15bde5f2ec4ffde32baaa651de7e3d63f87bea6ef46af76c18a79452392d26a0c4c7ba4f7c887d916135c6027e3eeb0f81c1e470d1ff",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/indicators-showcase/src/app/visual/visual.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { SkyE2eThemeSelectorModule } from '@skyux/e2e-client';\n\nimport {\n  SkyAlertModule,\n  SkyChevronModule,\n  SkyHelpInlineModule,\n  SkyIconModule,\n  SkyKeyInfoModule,\n  SkyLabelModule,\n  SkyStatusIndicatorModule,\n  SkyTextHighlightModule,\n  SkyTokensModule,\n  SkyWaitModule,\n} from 'projects/indicators/src/public-api';\n\nimport { VisualComponent } from './visual.component';\nimport { AlertVisualComponent } from './alert/alert-visual.component';\nimport { RouterModule } from '@angular/router';\nimport { SkyChevronDemoComponent } from './chevron/chevron-demo.component';\nimport { SkyHelpInlineDemoComponent } from './help-inline/help-inline-demo.component';\nimport { SkyIconStackDemoComponent } from './icon-stack/icon-stack-demo.component';\nimport { SkyIconDemoComponent } from './icon/icon-demo.component';\nimport { KeyInfoVisualComponent } from './key-info/key-info-visual.component';\nimport { SkyLabelDemoComponent } from './label/label-demo.component';\nimport { StatusIndicatorVisualComponent } from './status-indicator/status-indicator-visual.component';\nimport { SkyTextHighlightDemoComponent } from './text-highlight/text-highlight-demo.component';\nimport { SkyTokensDemoComponent } from './tokens/tokens-demo.component';\nimport { SkyWaitDemoComponent } from './wait/wait-demo.component';\nimport { FormsModule } from '@angular/forms';\n\n@NgModule({\n  declarations: [\n    AlertVisualComponent,\n    SkyChevronDemoComponent,\n    SkyHelpInlineDemoComponent,\n    SkyIconDemoComponent,\n    SkyIconStackDemoComponent,\n    KeyInfoVisualComponent,\n    VisualComponent,\n    SkyLabelDemoComponent,\n    StatusIndicatorVisualComponent,\n    SkyTextHighlightDemoComponent,\n    SkyTokensDemoComponent,\n    SkyWaitDemoComponent,\n  ],\n  imports: [\n    CommonModule,\n    FormsModule,\n    RouterModule,\n    SkyAlertModule,\n    SkyChevronModule,\n    SkyE2eThemeSelectorModule,\n    SkyHelpInlineModule,\n    SkyIconModule,\n    SkyKeyInfoModule,\n    SkyLabelModule,\n    SkyStatusIndicatorModule,\n    SkyTextHighlightModule,\n    SkyTokensModule,\n    SkyWaitModule,\n  ],\n})\nexport class VisualModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AlertVisualComponent"
+                        },
+                        {
+                            "name": "KeyInfoVisualComponent"
+                        },
+                        {
+                            "name": "SkyChevronDemoComponent"
+                        },
+                        {
+                            "name": "SkyHelpInlineDemoComponent"
+                        },
+                        {
+                            "name": "SkyIconDemoComponent"
+                        },
+                        {
+                            "name": "SkyIconStackDemoComponent"
+                        },
+                        {
+                            "name": "SkyLabelDemoComponent"
+                        },
+                        {
+                            "name": "SkyTextHighlightDemoComponent"
+                        },
+                        {
+                            "name": "SkyTokensDemoComponent"
+                        },
+                        {
+                            "name": "SkyWaitDemoComponent"
+                        },
+                        {
+                            "name": "StatusIndicatorVisualComponent"
+                        },
+                        {
+                            "name": "VisualComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "SkyAlertModule"
+                        },
+                        {
+                            "name": "SkyChevronModule"
+                        },
+                        {
+                            "name": "SkyHelpInlineModule"
+                        },
+                        {
+                            "name": "SkyIconModule"
+                        },
+                        {
+                            "name": "SkyKeyInfoModule"
+                        },
+                        {
+                            "name": "SkyLabelModule"
+                        },
+                        {
+                            "name": "SkyStatusIndicatorModule"
+                        },
+                        {
+                            "name": "SkyTextHighlightModule"
+                        },
+                        {
+                            "name": "SkyTokensModule"
+                        },
+                        {
+                            "name": "SkyWaitModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "WaitDemoModule",
             "id": "module-WaitDemoModule-092ef138fcdd3ac9b64c8e479344e11c8dbe78023b5be92fe3dff5aba139401ed27960c8b051956cad0414265d85d75bba0ff5481548dc76fb455f65d4ebb430",
             "description": "",
@@ -8824,6 +9727,26 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/indicators-showcase/src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true,\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/indicators-showcase/src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false,\n}"
+            },
+            {
                 "name": "INDICATOR_TYPE_DEFAULT",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8832,6 +9755,16 @@
                 "deprecationMessage": "",
                 "type": "SkyIndicatorIconType",
                 "defaultValue": "'warning'"
+            },
+            {
+                "name": "info",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "nextId",
@@ -8861,6 +9794,16 @@
                 "deprecationMessage": "",
                 "type": "literal type",
                 "defaultValue": "{\n  'EN-US': {\n    skyux_alert_close: { message: 'Close the alert' },\n    skyux_chevron_collapse: { message: 'Collapse' },\n    skyux_chevron_expand: { message: 'Expand' },\n    skyux_help_inline_button_title: { message: 'Show help content' },\n    skyux_status_indicator_sr_completed: { message: 'Completed:' },\n    skyux_status_indicator_sr_error: { message: 'Error:' },\n    skyux_status_indicator_sr_important_info: {\n      message: 'Important information:',\n    },\n    skyux_status_indicator_sr_warning: { message: 'Warning:' },\n    skyux_tokens_dismiss_button_title: { message: 'Remove item' },\n    skyux_wait_aria_alt_text: { message: 'Loading.' },\n    skyux_wait_blocking_aria_alt_text: { message: 'Loading. Please wait.' },\n    skyux_wait_page_aria_alt_text: { message: 'Page loading.' },\n    skyux_wait_page_blocking_aria_alt_text: {\n      message: 'Page loading. Please wait.',\n    },\n  },\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SkyAlertComponent>",
+                "defaultValue": "(args: SkyAlertComponent) => ({\n  props: args,\n  template: '<sky-alert>This is an alert message.</sky-alert>',\n})"
             }
         ],
         "functions": [],
@@ -9033,6 +9976,30 @@
                     "type": "literal type"
                 }
             ],
+            "projects/indicators-showcase/src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/indicators-showcase/src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true,\n}"
+                }
+            ],
+            "projects/indicators-showcase/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/indicators-showcase/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false,\n}"
+                }
+            ],
             "projects/indicators/src/modules/status-indicator/status-indicator.component.ts": [
                 {
                     "name": "INDICATOR_TYPE_DEFAULT",
@@ -9043,6 +10010,28 @@
                     "deprecationMessage": "",
                     "type": "SkyIndicatorIconType",
                     "defaultValue": "'warning'"
+                }
+            ],
+            "stories/alert.stories.ts": [
+                {
+                    "name": "info",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SkyAlertComponent>",
+                    "defaultValue": "(args: SkyAlertComponent) => ({\n  props: args,\n  template: '<sky-alert>This is an alert message.</sky-alert>',\n})"
                 }
             ],
             "projects/indicators/src/modules/wait/wait.component.ts": [
@@ -9209,11 +10198,219 @@
             ]
         }
     },
-    "routes": [],
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "projects/indicators-showcase/src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "component": "VisualComponent"
+                    },
+                    {
+                        "path": "visual/alert",
+                        "component": "AlertVisualComponent"
+                    },
+                    {
+                        "path": "visual/chevron",
+                        "component": "SkyChevronDemoComponent"
+                    },
+                    {
+                        "path": "visual/help-inline",
+                        "component": "SkyHelpInlineDemoComponent"
+                    },
+                    {
+                        "path": "visual/icon",
+                        "component": "SkyIconDemoComponent"
+                    },
+                    {
+                        "path": "visual/icon-stack",
+                        "component": "SkyIconStackDemoComponent"
+                    },
+                    {
+                        "path": "visual/key-info",
+                        "component": "KeyInfoVisualComponent"
+                    },
+                    {
+                        "path": "visual/label",
+                        "component": "SkyLabelDemoComponent"
+                    },
+                    {
+                        "path": "visual/status-indicator",
+                        "component": "StatusIndicatorVisualComponent"
+                    },
+                    {
+                        "path": "visual/text-highlight",
+                        "component": "SkyTextHighlightDemoComponent"
+                    },
+                    {
+                        "path": "visual/tokens",
+                        "component": "SkyTokensDemoComponent"
+                    },
+                    {
+                        "path": "visual/wait",
+                        "component": "SkyWaitDemoComponent"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
     "coverage": {
-        "count": 16,
+        "count": 12,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/indicators-showcase/e2e/src/app.po.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "AppPage",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/alert/alert-visual.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AlertVisualComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/chevron/chevron-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyChevronDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/help-inline/help-inline-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyHelpInlineDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/icon-stack/icon-stack-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyIconStackDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/icon/icon-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyIconDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/key-info/key-info-visual.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "KeyInfoVisualComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/label/label-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyLabelDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/status-indicator/status-indicator-visual.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StatusIndicatorVisualComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/text-highlight/text-highlight-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyTextHighlightDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/tokens/tokens-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyTokensDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/visual.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VisualComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/app/visual/wait/wait-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkyWaitDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/indicators-showcase/src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
             {
                 "filePath": "projects/indicators/documentation/code-examples/alert/basic/alert-demo.component.ts",
                 "type": "component",
@@ -9741,6 +10938,26 @@
                 "name": "SkyWaitFixture",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "info",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]

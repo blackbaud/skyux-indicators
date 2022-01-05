@@ -14,7 +14,7 @@
     "e2e": "ng e2e",
     "skyux:format": "npx prettier --write .",
     "percy:screenshots": "export PERCY_BRANCH=local && percy exec -- ng e2e",
-    "docs:json": "compodoc -p ./projects/indicators/tsconfig.lib.prod.json -e json -d .",
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook"
   },
@@ -58,6 +58,7 @@
     "@skyux-sdk/documentation-schematics": "5.0.0",
     "@skyux-sdk/prettier-schematics": "5.0.0",
     "@skyux-sdk/testing": "5.1.1",
+    "@storybook/addon-a11y": "6.4.9",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
