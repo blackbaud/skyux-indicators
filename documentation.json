@@ -3073,7 +3073,7 @@
         },
         {
             "name": "SkyAlertComponent",
-            "id": "component-SkyAlertComponent-cf5c8c84544c52a64012358cfa417baa0a5d9fa11a8b7055a5c1feba1ac09cc090eb52cfbe3d8c8c2f0d53a7e05c3c23af4c15cfd17c905ee3ab0607984d9a84",
+            "id": "component-SkyAlertComponent-6faca7e68b344dd2dad0827d6c7e89b13435b0ad93c1cf636f9bdfa2cab911532ee9e3c20b748e2b5b41b9df0c8edb48816c8000381b29e1a4ff0eceddc34191",
             "file": "projects/indicators/src/modules/alert/alert.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3085,8 +3085,9 @@
                 "./alert.component.scss"
             ],
             "styles": [],
-            "template": "<div    class=\"sky-alert\"\n    [skyThemeClass]=\"{\n      'sky-rounded-corners': 'default',\n      'sky-box sky-elevation-1': 'modern'\n    }\"\n    role=\"alert\"\n    [hidden]=\"closed\"\n    [ngClass]=\"{\n      'sky-alert-info': alertType === 'info',\n      'sky-alert-success': alertType === 'success',\n      'sky-alert-warning': alertType === 'warning',\n      'sky-alert-danger': alertType === 'danger',\n      'sky-alert-closeable': closeable\n    }\"\n  >\n    <div aria-hidden=\"true\" class=\"sky-alert-icon-theme-modern\">\n      <sky-icon-stack [baseIcon]=\"alertBaseIcon\" [topIcon]=\"alertTopIcon\">\n      </sky-icon-stack>\n    </div>\n    <div class=\"sky-alert-content\">\n      <ng-content></ng-content>\n    </div>\n    <button\n      class=\"sky-alert-close\"\n      type=\"button\"\n      [attr.aria-label]=\"'skyux_alert_close' | skyLibResources\"\n      [hidden]=\"!closeable\"\n      (click)=\"close()\"\n    >\n      <span aria-hidden=\"true\">\n        <sky-icon class=\"sky-alert-close-icon-theme-default\" icon=\"close\">\n        </sky-icon>\n        <sky-icon\n          class=\"sky-alert-close-icon-theme-modern\"\n          icon=\"close\"\n          iconType=\"skyux\"\n          size=\"2x\"\n        >\n        </sky-icon>\n      </span>\n    </button>\n  </div>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./alert.component.html"
+            ],
             "viewProviders": [],
             "inputsClass": [
                 {
@@ -3095,15 +3096,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 1857,
-                            "end": 1879,
+                            "pos": 666,
+                            "end": 688,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 1858,
-                                "end": 1865,
+                                "pos": 667,
+                                "end": 674,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -3116,7 +3117,7 @@
                     ],
                     "rawdescription": "\n\nSpecifies a style for the alert to determine the icon and background color.\nThe valid options are `danger`, `info`, `success`, and `warning`.\n",
                     "description": "<p>Specifies a style for the alert to determine the icon and background color.\nThe valid options are <code>danger</code>, <code>info</code>, <code>success</code>, and <code>warning</code>.</p>\n",
-                    "line": 65,
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 },
@@ -3126,15 +3127,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 2177,
-                            "end": 2195,
+                            "pos": 986,
+                            "end": 1004,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 2178,
-                                "end": 2185,
+                                "pos": 987,
+                                "end": 994,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -3147,7 +3148,7 @@
                     ],
                     "rawdescription": "\n\nIndicates whether to include a close button for users to dismiss the alert.\n",
                     "description": "<p>Indicates whether to include a close button for users to dismiss the alert.</p>\n",
-                    "line": 79,
+                    "line": 37,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3157,15 +3158,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 2294,
-                            "end": 2312,
+                            "pos": 1103,
+                            "end": 1121,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 2295,
-                                "end": 2302,
+                                "pos": 1104,
+                                "end": 1111,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -3178,7 +3179,7 @@
                     ],
                     "rawdescription": "\n\nIndicates whether the alert is closed.\n",
                     "description": "<p>Indicates whether the alert is closed.</p>\n",
-                    "line": 86,
+                    "line": 44,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -3191,7 +3192,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nFires when users close the alert.\n",
                     "description": "<p>Fires when users close the alert.</p>\n",
-                    "line": 92,
+                    "line": 50,
                     "type": "EventEmitter"
                 }
             ],
@@ -3203,7 +3204,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 98,
+                    "line": 56,
                     "modifierKind": [
                         121
                     ]
@@ -3215,7 +3216,7 @@
                     "type": "SkyIconStackItem",
                     "optional": false,
                     "description": "",
-                    "line": 94,
+                    "line": 52,
                     "modifierKind": [
                         123
                     ]
@@ -3227,7 +3228,7 @@
                     "type": "SkyIconStackItem",
                     "optional": false,
                     "description": "",
-                    "line": 96,
+                    "line": 54,
                     "modifierKind": [
                         123
                     ]
@@ -3240,7 +3241,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 104,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3253,7 +3254,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 100,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3266,7 +3267,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 109,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3281,7 +3282,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nimport { SkyIndicatorIconType } from '../shared/indicator-icon-type';\n\nimport { SkyIndicatorIconUtility } from '../shared/indicator-icon-utility';\n\nimport { SkyIconStackItem } from '../icon/icon-stack-item';\n\nconst ALERT_TYPE_DEFAULT = 'warning';\n\n@Component({\n  selector: 'sky-alert',\n  styleUrls: ['./alert.component.scss'],\n  template: `<div\n    class=\"sky-alert\"\n    [skyThemeClass]=\"{\n      'sky-rounded-corners': 'default',\n      'sky-box sky-elevation-1': 'modern'\n    }\"\n    role=\"alert\"\n    [hidden]=\"closed\"\n    [ngClass]=\"{\n      'sky-alert-info': alertType === 'info',\n      'sky-alert-success': alertType === 'success',\n      'sky-alert-warning': alertType === 'warning',\n      'sky-alert-danger': alertType === 'danger',\n      'sky-alert-closeable': closeable\n    }\"\n  >\n    <div aria-hidden=\"true\" class=\"sky-alert-icon-theme-modern\">\n      <sky-icon-stack [baseIcon]=\"alertBaseIcon\" [topIcon]=\"alertTopIcon\">\n      </sky-icon-stack>\n    </div>\n    <div class=\"sky-alert-content\">\n      <ng-content></ng-content>\n    </div>\n    <button\n      class=\"sky-alert-close\"\n      type=\"button\"\n      [attr.aria-label]=\"'skyux_alert_close' | skyLibResources\"\n      [hidden]=\"!closeable\"\n      (click)=\"close()\"\n    >\n      <span aria-hidden=\"true\">\n        <sky-icon class=\"sky-alert-close-icon-theme-default\" icon=\"close\">\n        </sky-icon>\n        <sky-icon\n          class=\"sky-alert-close-icon-theme-modern\"\n          icon=\"close\"\n          iconType=\"skyux\"\n          size=\"2x\"\n        >\n        </sky-icon>\n      </span>\n    </button>\n  </div>`,\n})\nexport class SkyAlertComponent implements OnInit {\n  /**\n   * Specifies a style for the alert to determine the icon and background color.\n   * The valid options are `danger`, `info`, `success`, and `warning`.\n   * @default \"warning\"\n   */\n  @Input()\n  public set alertType(value: string) {\n    this._alertType = value;\n    this.updateAlertIcon();\n  }\n\n  public get alertType(): string {\n    return this._alertType || ALERT_TYPE_DEFAULT;\n  }\n\n  /**\n   * Indicates whether to include a close button for users to dismiss the alert.\n   * @default false\n   */\n  @Input()\n  public closeable: boolean;\n\n  /**\n   * Indicates whether the alert is closed.\n   * @default false\n   */\n  @Input()\n  public closed: boolean;\n\n  /**\n   * Fires when users close the alert.\n   */\n  @Output()\n  public closedChange = new EventEmitter<boolean>();\n\n  public alertBaseIcon: SkyIconStackItem;\n\n  public alertTopIcon: SkyIconStackItem;\n\n  private _alertType: string;\n\n  public ngOnInit(): void {\n    this.updateAlertIcon();\n  }\n\n  public close(): void {\n    this.closed = true;\n    this.closedChange.emit(true);\n  }\n\n  private updateAlertIcon(): void {\n    const indicatorIcon = SkyIndicatorIconUtility.getIconsForType(\n      this.alertType as SkyIndicatorIconType\n    );\n\n    this.alertBaseIcon = indicatorIcon.modernThemeBaseIcon;\n    this.alertTopIcon = indicatorIcon.modernThemeTopIcon;\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nimport { SkyIndicatorIconType } from '../shared/indicator-icon-type';\n\nimport { SkyIndicatorIconUtility } from '../shared/indicator-icon-utility';\n\nimport { SkyIconStackItem } from '../icon/icon-stack-item';\n\nconst ALERT_TYPE_DEFAULT = 'warning';\n\n@Component({\n  selector: 'sky-alert',\n  styleUrls: ['./alert.component.scss'],\n  templateUrl: './alert.component.html',\n})\nexport class SkyAlertComponent implements OnInit {\n  /**\n   * Specifies a style for the alert to determine the icon and background color.\n   * The valid options are `danger`, `info`, `success`, and `warning`.\n   * @default \"warning\"\n   */\n  @Input()\n  public set alertType(value: string) {\n    this._alertType = value;\n    this.updateAlertIcon();\n  }\n\n  public get alertType(): string {\n    return this._alertType || ALERT_TYPE_DEFAULT;\n  }\n\n  /**\n   * Indicates whether to include a close button for users to dismiss the alert.\n   * @default false\n   */\n  @Input()\n  public closeable: boolean;\n\n  /**\n   * Indicates whether the alert is closed.\n   * @default false\n   */\n  @Input()\n  public closed: boolean;\n\n  /**\n   * Fires when users close the alert.\n   */\n  @Output()\n  public closedChange = new EventEmitter<boolean>();\n\n  public alertBaseIcon: SkyIconStackItem;\n\n  public alertTopIcon: SkyIconStackItem;\n\n  private _alertType: string;\n\n  public ngOnInit(): void {\n    this.updateAlertIcon();\n  }\n\n  public close(): void {\n    this.closed = true;\n    this.closedChange.emit(true);\n  }\n\n  private updateAlertIcon(): void {\n    const indicatorIcon = SkyIndicatorIconUtility.getIconsForType(\n      this.alertType as SkyIndicatorIconType\n    );\n\n    this.alertBaseIcon = indicatorIcon.modernThemeBaseIcon;\n    this.alertTopIcon = indicatorIcon.modernThemeTopIcon;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3310,7 +3311,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 65,
+                        "line": 23,
                         "rawdescription": "\n\nSpecifies a style for the alert to determine the icon and background color.\nThe valid options are `danger`, `info`, `success`, and `warning`.\n",
                         "description": "<p>Specifies a style for the alert to determine the icon and background color.\nThe valid options are <code>danger</code>, <code>info</code>, <code>success</code>, and <code>warning</code>.</p>\n",
                         "jsdoctags": [
@@ -3329,10 +3330,11 @@
                         "name": "alertType",
                         "type": "string",
                         "returnType": "string",
-                        "line": 70
+                        "line": 28
                     }
                 }
-            }
+            },
+            "templateData": "<div\n  class=\"sky-alert\"\n  [skyThemeClass]=\"{\n    'sky-rounded-corners': 'default',\n    'sky-box sky-elevation-1': 'modern'\n  }\"\n  role=\"alert\"\n  [hidden]=\"closed\"\n  [ngClass]=\"{\n    'sky-alert-info': alertType === 'info',\n    'sky-alert-success': alertType === 'success',\n    'sky-alert-warning': alertType === 'warning',\n    'sky-alert-danger': alertType === 'danger',\n    'sky-alert-closeable': closeable\n  }\"\n>\n  <div aria-hidden=\"true\" class=\"sky-alert-icon-theme-modern\">\n    <sky-icon-stack [baseIcon]=\"alertBaseIcon\" [topIcon]=\"alertTopIcon\">\n    </sky-icon-stack>\n  </div>\n  <div class=\"sky-alert-content\">\n    <ng-content></ng-content>\n  </div>\n  <button\n    class=\"sky-alert-close\"\n    type=\"button\"\n    [attr.aria-label]=\"'skyux_alert_close' | skyLibResources\"\n    [hidden]=\"!closeable\"\n    (click)=\"close()\"\n  >\n    <span aria-hidden=\"true\">\n      <sky-icon class=\"sky-alert-close-icon-theme-default\" icon=\"close\">\n      </sky-icon>\n      <sky-icon\n        class=\"sky-alert-close-icon-theme-modern\"\n        icon=\"close\"\n        iconType=\"skyux\"\n        size=\"2x\"\n      >\n      </sky-icon>\n    </span>\n  </button>\n</div>\n"
         },
         {
             "name": "SkyChevronComponent",

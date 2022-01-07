@@ -50,3 +50,5 @@ Thumbs.db
 # SKY UX files
 /screenshots-baseline-local
 /screenshots-diff-local
+
+/storybook-static
