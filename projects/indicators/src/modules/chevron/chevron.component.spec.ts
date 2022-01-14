@@ -73,14 +73,23 @@ describe('Chevron component', () => {
   it('should set aria attributes', () => {
     const el = fixture.nativeElement;
     fixture.componentInstance.ariaControls = 'foo';
-    fixture.componentInstance.ariaExpanded = true;
     fixture.componentInstance.ariaLabel = 'Users';
+    fixture.componentInstance.direction = 'up';
     fixture.detectChanges();
 
     const buttonEl = el.querySelector('button');
     expect(buttonEl.getAttribute('aria-controls')).toBe('foo');
     expect(buttonEl.getAttribute('aria-expanded')).toBe('true');
     expect(buttonEl.getAttribute('aria-label')).toBe('Users');
+  });
+
+  it('should set aria-expanded based on direction', () => {
+    const el = fixture.nativeElement;
+    fixture.componentInstance.direction = 'down';
+    fixture.detectChanges();
+
+    const buttonEl = el.querySelector('button');
+    expect(buttonEl.getAttribute('aria-expanded')).toBe('false');
   });
 
   it('should pass accessibility', async () => {

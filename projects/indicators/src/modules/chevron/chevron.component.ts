@@ -10,9 +10,6 @@ export class SkyChevronComponent {
   public ariaControls: string;
 
   @Input()
-  public ariaExpanded: boolean;
-
-  @Input()
   public ariaLabel: string;
 
   @Input()
@@ -23,6 +20,14 @@ export class SkyChevronComponent {
 
   @Output()
   public directionChange = new EventEmitter<string>();
+
+  public ariaExpanded(): boolean | undefined {
+    if (this.direction === 'up') {
+      return true;
+    } else if (this.direction === 'down') {
+      return false;
+    }
+  }
 
   public chevronClick(event: Event): void {
     event.stopPropagation();
