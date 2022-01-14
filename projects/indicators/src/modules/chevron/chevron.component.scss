@@ -23,17 +23,6 @@ button {
   }
 }
 
-.sky-chevron-display-only {
-  display: inline-block;
-  flex-shrink: 0;
-  height: $sky-context-menu-size;
-  margin: 0;
-  overflow: hidden;
-  width: $sky-context-menu-size;
-  position: relative;
-  vertical-align: top;
-}
-
 .sky-chevron-part {
   border-color: $sky-text-color-icon-borderless;
   border-style: solid;
@@ -73,8 +62,7 @@ button {
 }
 
 @include sky-theme-modern {
-  .sky-chevron,
-  .sky-chevron-display-only {
+  .sky-chevron {
     height: 26px;
     width: 26px;
   }

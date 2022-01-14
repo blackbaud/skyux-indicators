@@ -10,7 +10,7 @@ import { SkyChevronComponent } from './chevron.component';
 
 import { SkyChevronModule } from './chevron.module';
 
-fdescribe('Chevron component', () => {
+describe('Chevron component', () => {
   let fixture: ComponentFixture<SkyChevronComponent>;
 
   beforeEach(() => {
@@ -84,6 +84,7 @@ fdescribe('Chevron component', () => {
   });
 
   it('should pass accessibility', async () => {
+    fixture.componentInstance.ariaLabel = 'Users';
     fixture.detectChanges();
     await fixture.whenStable();
     await expectAsync(fixture.nativeElement).toBeAccessible();
