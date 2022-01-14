@@ -6,14 +6,23 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './chevron.component.html',
 })
 export class SkyChevronComponent {
-  @Output()
-  public directionChange = new EventEmitter<string>();
+  @Input()
+  public ariaControls: string;
+
+  @Input()
+  public ariaExpanded: boolean;
+
+  @Input()
+  public ariaLabel: string;
 
   @Input()
   public direction = 'up';
 
   @Input()
   public disabled = false;
+
+  @Output()
+  public directionChange = new EventEmitter<string>();
 
   public chevronClick(event: Event): void {
     event.stopPropagation();

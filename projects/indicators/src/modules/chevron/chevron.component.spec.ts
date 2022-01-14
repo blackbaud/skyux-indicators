@@ -10,7 +10,7 @@ import { SkyChevronComponent } from './chevron.component';
 
 import { SkyChevronModule } from './chevron.module';
 
-describe('Chevron component', () => {
+fdescribe('Chevron component', () => {
   let fixture: ComponentFixture<SkyChevronComponent>;
 
   beforeEach(() => {
@@ -68,6 +68,19 @@ describe('Chevron component', () => {
 
     fixture.detectChanges();
     validateDirection('up');
+  });
+
+  it('should set aria attributes', () => {
+    const el = fixture.nativeElement;
+    fixture.componentInstance.ariaControls = 'foo';
+    fixture.componentInstance.ariaExpanded = true;
+    fixture.componentInstance.ariaLabel = 'Users';
+    fixture.detectChanges();
+
+    const buttonEl = el.querySelector('button');
+    expect(buttonEl.getAttribute('aria-controls')).toBe('foo');
+    expect(buttonEl.getAttribute('aria-expanded')).toBe('true');
+    expect(buttonEl.getAttribute('aria-label')).toBe('Users');
   });
 
   it('should pass accessibility', async () => {
