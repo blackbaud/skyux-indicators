@@ -13,7 +13,22 @@ export class SkyChevronComponent {
   public ariaLabel: string;
 
   @Input()
-  public direction = 'up';
+  public set direction(value: string) {
+    /* istanbul ignore else */
+    if (value != this._direction) {
+      this._direction = value;
+      /* istanbul ignore else */
+      if (value === 'up') {
+        this.ariaExpanded = true;
+      } else if (this.direction === 'down') {
+        this.ariaExpanded = false;
+      }
+    }
+  }
+
+  public get direction(): string {
+    return this._direction || 'up';
+  }
 
   @Input()
   public disabled = false;
@@ -21,13 +36,9 @@ export class SkyChevronComponent {
   @Output()
   public directionChange = new EventEmitter<string>();
 
-  public ariaExpanded(): boolean | undefined {
-    if (this.direction === 'up') {
-      return true;
-    } else if (this.direction === 'down') {
-      return false;
-    }
-  }
+  public ariaExpanded: boolean;
+
+  private _direction: string;
 
   public chevronClick(event: Event): void {
     event.stopPropagation();
