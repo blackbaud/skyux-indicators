@@ -1,3 +1,11 @@
+# 5.1.2 (2021-12-07)
+
+- Added support for Prettier code formatting. [#203](https://github.com/blackbaud/skyux-indicators/pull/203)
+
+# 5.1.1 (2021-12-02)
+
+- Fixed a bug that suppressed the browser document's `mouseup` event when a token component was present on a page. [#201](https://github.com/blackbaud/skyux-indicators/pull/201)
+
 # 5.1.0 (2021-12-02)
 
 - Updated the text highlight component to match a single string or an array of strings. [#198](https://github.com/blackbaud/skyux-indicators/pull/198)
