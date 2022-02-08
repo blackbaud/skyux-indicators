@@ -96,21 +96,6 @@ describe('Chevron component', () => {
     expect(buttonEl.getAttribute('aria-expanded')).toBe('false');
   });
 
-  it('should be a focusable element', () => {
-    fixture.detectChanges();
-    const chevronWrapperEl = getChevronEl();
-    chevronWrapperEl.focus();
-
-    expect(document.activeElement).toEqual(chevronWrapperEl);
-  });
-
-  it('should not have an aria-hidden attribute', () => {
-    fixture.detectChanges();
-    const chevronWrapperEl = getChevronEl();
-
-    expect(chevronWrapperEl.getAttribute('aria-hidden')).toBeNull();
-  });
-
   it('should pass accessibility', async () => {
     fixture.componentInstance.ariaLabel = 'Users';
     fixture.detectChanges();

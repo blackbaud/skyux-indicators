@@ -8,7 +8,7 @@ describe('Expansion indicator component', () => {
   let fixture: ComponentFixture<SkyExpansionIndicatorComponent>;
 
   //#region helpers
-  function getChevronEl(): HTMLElement {
+  function getIndicatorEl(): HTMLElement {
     return fixture.nativeElement.querySelector('.sky-expansion-indicator');
   }
   //#endregion
@@ -23,17 +23,30 @@ describe('Expansion indicator component', () => {
     fixture.detectChanges();
   });
 
-  it('should not be a focusable element', () => {
-    const chevronWrapperEl = getChevronEl();
-    chevronWrapperEl.focus();
+  it('should change CSS class name when direction input value changes', () => {
+    const indicatorEl = getIndicatorEl();
 
-    expect(document.activeElement).not.toEqual(chevronWrapperEl);
+    expect(indicatorEl.classList).toContain('sky-expansion-indicator-up');
+    expect(indicatorEl.classList).not.toContain('sky-expansion-indicator-down');
+
+    fixture.componentInstance.direction = 'down';
+    fixture.detectChanges();
+
+    expect(indicatorEl.classList).toContain('sky-expansion-indicator-down');
+    expect(indicatorEl.classList).not.toContain('sky-expansion-indicator-up');
+  });
+
+  it('should not be a focusable element', () => {
+    const indicatorEl = getIndicatorEl();
+    indicatorEl.focus();
+
+    expect(document.activeElement).not.toEqual(indicatorEl);
   });
 
   it('should set aria-hidden to true', () => {
-    const chevronWrapperEl = getChevronEl();
+    const indicatorEl = getIndicatorEl();
 
-    expect(chevronWrapperEl.getAttribute('aria-hidden')).toBe('true');
+    expect(indicatorEl.getAttribute('aria-hidden')).toBe('true');
   });
 
   it('should pass accessibility', async () => {
