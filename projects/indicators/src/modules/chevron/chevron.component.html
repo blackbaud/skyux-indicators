@@ -27,9 +27,6 @@
   class="sky-chevron"
   [attr.aria-hidden]="true"
   [ngClass]="['sky-chevron-' + direction]"
-  [skyThemeClass]="{
-    'sky-btn sky-btn-icon-borderless': 'modern'
-  }"
 >
   <ng-container *skyThemeIf="'default'">
     <ng-container *ngTemplateOutlet="icon"></ng-container>

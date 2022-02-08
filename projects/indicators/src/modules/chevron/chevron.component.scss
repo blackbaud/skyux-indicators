@@ -16,14 +16,14 @@ button {
   width: $sky-context-menu-size;
   position: relative;
   vertical-align: top;
-
-  &:hover .sky-chevron-part {
-    border-color: darken($sky-text-color-icon-borderless, 20%);
-  }
 }
 
 button.sky-chevron {
   cursor: pointer;
+
+  &:hover .sky-chevron-part {
+    border-color: darken($sky-text-color-icon-borderless, 20%);
+  }
 }
 
 .sky-chevron-part {
