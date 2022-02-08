@@ -118,9 +118,9 @@ describe('Chevron component', () => {
     await expectAsync(fixture.nativeElement).toBeAccessible();
   });
 
-  describe('in displayOnly mode', () => {
+  describe('in iconOnly mode', () => {
     beforeEach(() => {
-      fixture.componentInstance.displayOnly = true;
+      fixture.componentInstance.iconOnly = true;
       fixture.detectChanges();
     });
 

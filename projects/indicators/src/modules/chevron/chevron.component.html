@@ -1,5 +1,5 @@
 <button
-  *ngIf="!displayOnly"
+  *ngIf="!iconOnly"
   class="sky-chevron"
   type="button"
   [attr.aria-controls]="ariaControls"
@@ -23,7 +23,7 @@
 </button>
 
 <div
-  *ngIf="displayOnly"
+  *ngIf="iconOnly"
   class="sky-chevron"
   [attr.aria-hidden]="true"
   [ngClass]="['sky-chevron-' + direction]"
