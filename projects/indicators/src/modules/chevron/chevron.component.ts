@@ -49,6 +49,12 @@ export class SkyChevronComponent {
   public disabled = false;
 
   /**
+   * Indicates whether the chevron button should be displayed as a non-interactable element.
+   */
+  @Input()
+  public displayOnly = false;
+
+  /**
    * Fires when the direction of the chevron changes.
    */
   @Output()

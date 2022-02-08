@@ -1,4 +1,5 @@
 <button
+  *ngIf="!displayOnly"
   class="sky-chevron"
   type="button"
   [attr.aria-controls]="ariaControls"
@@ -20,6 +21,25 @@
     </span>
   </ng-container>
 </button>
+
+<div
+  *ngIf="displayOnly"
+  class="sky-chevron"
+  [attr.aria-hidden]="true"
+  [ngClass]="['sky-chevron-' + direction]"
+  [skyThemeClass]="{
+    'sky-btn sky-btn-icon-borderless': 'modern'
+  }"
+>
+  <ng-container *skyThemeIf="'default'">
+    <ng-container *ngTemplateOutlet="icon"></ng-container>
+  </ng-container>
+  <ng-container *skyThemeIf="'modern'">
+    <span class="chevron-glyph-container">
+      <ng-container *ngTemplateOutlet="icon"></ng-container>
+    </span>
+  </ng-container>
+</div>
 
 <ng-template #icon>
   <i aria-hidden="true" class="sky-chevron-part sky-chevron-left"> </i>

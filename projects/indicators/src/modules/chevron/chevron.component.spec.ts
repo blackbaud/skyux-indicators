@@ -22,9 +22,13 @@ describe('Chevron component', () => {
     fixture = TestBed.createComponent(SkyChevronComponent);
   });
 
+  function getChevronEl(): HTMLElement {
+    return fixture.nativeElement.querySelector('.sky-chevron');
+  }
+
   function validateDirection(expectedDirection: string): void {
     const el = fixture.nativeElement;
-    const chevronEl = el.querySelector('.sky-chevron');
+    const chevronEl = getChevronEl();
 
     fixture.detectChanges();
 
@@ -35,7 +39,7 @@ describe('Chevron component', () => {
   }
 
   function clickChevron(el: any): void {
-    el.querySelector('.sky-chevron').click();
+    getChevronEl().click();
   }
 
   it('should change direction when the user clicks the chevron', () => {
@@ -92,10 +96,50 @@ describe('Chevron component', () => {
     expect(buttonEl.getAttribute('aria-expanded')).toBe('false');
   });
 
+  it('should be a focusable element', () => {
+    fixture.detectChanges();
+    const chevronWrapperEl = getChevronEl();
+    chevronWrapperEl.focus();
+
+    expect(document.activeElement).toEqual(chevronWrapperEl);
+  });
+
+  it('should not have an aria-hidden attribute', () => {
+    fixture.detectChanges();
+    const chevronWrapperEl = getChevronEl();
+
+    expect(chevronWrapperEl.getAttribute('aria-hidden')).toBeNull();
+  });
+
   it('should pass accessibility', async () => {
     fixture.componentInstance.ariaLabel = 'Users';
     fixture.detectChanges();
     await fixture.whenStable();
     await expectAsync(fixture.nativeElement).toBeAccessible();
+  });
+
+  describe('in displayOnly mode', () => {
+    beforeEach(() => {
+      fixture.componentInstance.displayOnly = true;
+      fixture.detectChanges();
+    });
+
+    it('should not be a focusable element', () => {
+      const chevronWrapperEl = getChevronEl();
+      chevronWrapperEl.focus();
+
+      expect(document.activeElement).not.toEqual(chevronWrapperEl);
+    });
+
+    it('should set aria-hidden to true', () => {
+      const chevronWrapperEl = getChevronEl();
+
+      expect(chevronWrapperEl.getAttribute('aria-hidden')).toBe('true');
+    });
+
+    it('should pass accessibility', async () => {
+      await fixture.whenStable();
+      await expectAsync(fixture.nativeElement).toBeAccessible();
+    });
   });
 });
