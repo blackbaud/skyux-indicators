@@ -117,29 +117,4 @@ describe('Chevron component', () => {
     await fixture.whenStable();
     await expectAsync(fixture.nativeElement).toBeAccessible();
   });
-
-  describe('in iconOnly mode', () => {
-    beforeEach(() => {
-      fixture.componentInstance.iconOnly = true;
-      fixture.detectChanges();
-    });
-
-    it('should not be a focusable element', () => {
-      const chevronWrapperEl = getChevronEl();
-      chevronWrapperEl.focus();
-
-      expect(document.activeElement).not.toEqual(chevronWrapperEl);
-    });
-
-    it('should set aria-hidden to true', () => {
-      const chevronWrapperEl = getChevronEl();
-
-      expect(chevronWrapperEl.getAttribute('aria-hidden')).toBe('true');
-    });
-
-    it('should pass accessibility', async () => {
-      await fixture.whenStable();
-      await expectAsync(fixture.nativeElement).toBeAccessible();
-    });
-  });
 });
