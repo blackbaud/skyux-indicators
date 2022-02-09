@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 /**
  * Displays a chevron icon.
+ * @internal
  */
 @Component({
   selector: 'sky-expansion-indicator',
