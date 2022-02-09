@@ -6,6 +6,7 @@ import { SkyE2eThemeSelectorModule } from '@skyux/e2e-client';
 import {
   SkyAlertModule,
   SkyChevronModule,
+  SkyExpansionIndicatorModule,
   SkyHelpInlineModule,
   SkyIconModule,
   SkyKeyInfoModule,
@@ -61,6 +62,7 @@ import { FormsModule } from '@angular/forms';
     SkyTextHighlightModule,
     SkyTokensModule,
     SkyWaitModule,
+    SkyExpansionIndicatorModule,
   ],
 })
 export class VisualModule {}
